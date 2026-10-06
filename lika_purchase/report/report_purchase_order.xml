@@ -842,7 +842,7 @@
 
                                     <div class="internal-ref">
 
-                                        Internal-ref.:
+                                        Internal ref.:
 
                                         <span t-if="o.project_number">
                                             <span t-field="o.project_number"/>
@@ -1154,7 +1154,7 @@
                                                 <div class="product-name">
 
                                                     <span
-                                                        t-field="line.product_id.display_name"
+                                                        t-field="line.product_id.name"
                                                     />
 
                                                 </div>
