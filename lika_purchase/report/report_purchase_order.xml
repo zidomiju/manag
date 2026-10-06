@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <odoo>
-
     <template id="lika_purchase_order_report">
 
         <t t-call="web.html_container">
@@ -9,16 +7,16 @@
             <t t-foreach="docs" t-as="o">
 
                 <!-- ==================================================
-                     BASIC LAYOUT
-                     ================================================== -->
+                    BASIC LAYOUT
+                    ================================================== -->
 
                 <t t-call="web.basic_layout">
 
                     <style>
 
                         /* ==================================================
-                           GLOBAL
-                           ================================================== */
+                        GLOBAL
+                        ================================================== */
 
                         * {
                             font-family: Arial, sans-serif;
@@ -40,8 +38,8 @@
 
 
                         /* ==================================================
-                           PURCHASE ORDER HEADER
-                           ================================================== */
+                        PURCHASE ORDER HEADER
+                        ================================================== */
 
                         .po-header {
                             width: 100%;
@@ -59,8 +57,8 @@
 
 
                         /* ==================================================
-                           COMPANY
-                           ================================================== */
+                        COMPANY
+                        ================================================== */
 
                         .company-section {
                             width: auto;
@@ -108,8 +106,8 @@
 
 
                         /* ==================================================
-                           PURCHASE ORDER INFORMATION
-                           ================================================== */
+                        PURCHASE ORDER INFORMATION
+                        ================================================== */
 
                         .po-title-section {
                             width: auto;
@@ -117,8 +115,8 @@
                             margin-left: auto;
                             text-align: right;
                             padding: 0;
-                            position:relative;
-                            bottom:45px;
+                            position: relative;
+                            bottom: 45px;
                         }
 
                         .po-title-main {
@@ -150,13 +148,15 @@
                             padding: 0;
                             font-weight: normal;
                         }
+
+
                         /* ==================================================
-                           VENDOR
-                           ================================================== */
+                        VENDOR
+                        ================================================== */
 
                         .vendor-section {
                             width: 100%;
-                            margin-top:-37px;
+                            margin-top: -37px;
                             padding: 0;
                         }
 
@@ -191,8 +191,8 @@
 
 
                         /* ==================================================
-                           VENDOR SPACE
-                           ================================================== */
+                        VENDOR SPACE
+                        ================================================== */
 
                         .vendor-space {
                             width: 100%;
@@ -204,8 +204,8 @@
 
 
                         /* ==================================================
-                           MAIN ITEM TABLE
-                           ================================================== */
+                        MAIN ITEM TABLE
+                        ================================================== */
 
                         .po-table {
                             width: 100%;
@@ -213,35 +213,35 @@
                             table-layout: fixed;
                             margin: 0;
                             padding: 0;
-
-                            border-top:1px solid #555 !important;
-                            border-left:none !important;
-                            border-right:none !important;
-                            border-bottom:none !important;
+                            border-top: 1px solid #555 !important;
+                            border-left: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
                         }
 
                         .po-table thead {
                             display: table-header-group;
-                            border-left:none !important;
-                            border-right:none !important;
-                            border-bottom:none !important;
+                            border-left: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
                         }
 
                         .po-table tbody {
                             display: table-row-group;
-                            border-left:none !important;
-                            border-right:none !important;
-                            border-bottom:none !important;
+                            border-left: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
                         }
 
                         .po-line {
                             page-break-inside: avoid;
-                            border:none !important;
+                            border: none !important;
                         }
 
+
                         /* ==================================================
-                           COLUMN WIDTH
-                           ================================================== */
+                        COLUMN WIDTH
+                        ================================================== */
 
                         .line-no {
                             width: 5%;
@@ -269,14 +269,14 @@
 
 
                         /* ==================================================
-                           ITEM HEADER
-                           ================================================== */
+                        ITEM HEADER
+                        ================================================== */
 
                         .line-header {
                             border-top: 1px solid #555;
                             border-bottom: 1px solid #555;
-                            border-right:none !important;
-                            border-left:none !important;
+                            border-right: none !important;
+                            border-left: none !important;
                         }
 
                         .line-header th {
@@ -285,11 +285,10 @@
                             font-size: 13px;
                             vertical-align: middle;
                             line-height: 1.2;
-
-                            border-top:none !important;
-                            border-right:none !important;
-                            border-bottom:none !important;
-                            border-left:none !important;
+                            border-top: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
+                            border-left: none !important;
                         }
 
                         .line-header .line-no {
@@ -319,25 +318,23 @@
 
 
                         /* ==================================================
-                           ORDER LINE
-                           ================================================== */
+                        ORDER LINE
+                        ================================================== */
 
                         .po-line td {
                             padding: 3px 4px;
                             vertical-align: top;
                             font-size: 12px;
                             line-height: 1.2;
-
-                            border-top:none !important;
-                            border-right:none !important;
-                            border-bottom:none !important;
-                            border-left:none !important;
+                            border-top: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
+                            border-left: none !important;
                         }
 
                         .po-line .line-no {
                             text-align: center;
-
-                            border:none !important;
+                            border: none !important;
                         }
 
                         .po-line .line-description {
@@ -347,44 +344,42 @@
                             word-wrap: break-word;
                             overflow-wrap: break-word;
                             word-break: break-word;
-                            border:none !important;
+                            border: none !important;
                         }
 
                         .po-line .line-qty {
                             text-align: right;
                             white-space: nowrap;
-
-                            border:none !important;
+                            border: none !important;
                         }
 
                         .po-line .line-unit {
                             text-align: center;
                             white-space: nowrap;
-                            border:none !important;
-
+                            border: none !important;
                         }
 
                         .po-line .line-price {
                             text-align: right;
                             white-space: nowrap;
-
-                            border:none !important;
+                            border: none !important;
                         }
 
                         .po-line .line-total {
                             text-align: right;
                             white-space: nowrap;
+                            border-top: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
 
-                            border-top:none !important;
-                            border-right:none !important;
-                            border-bottom:none !important;
+                            /* GARIS VERTIKAL KOLOM TOTAL */
                             border-left: 1px solid #555 !important;
                         }
 
 
                         /* ==================================================
-                           PRODUCT
-                           ================================================== */
+                        PRODUCT
+                        ================================================== */
 
                         .product-name {
                             font-size: 14px;
@@ -411,26 +406,105 @@
 
 
                         /* ==================================================
-                           SECTION
-                           ================================================== */
+                        SECTION
+                        ================================================== */
+
+                        .section-row {
+                            page-break-inside: avoid;
+                        }
+
+                        .section-row td {
+                            border-top: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
+                        }
 
                         .section-line {
                             font-weight: bold;
                             padding-top: 8px !important;
                             padding-bottom: 4px !important;
+                            border: none !important;
+                            border-left: none !important;
+                            border-right: none !important;
+                            border-top: none !important;
+                            border-bottom: none !important;
+                            text-align: left;
+                        }
+
+                        /*
+                        * PENTING:
+                        * Section sekarang terdiri dari:
+                        *
+                        * colspan="5" = No + Description + Qty + Unit + Unit Price
+                        *
+                        * td terakhir = kolom Total
+                        *
+                        * sehingga garis Total tetap tersambung.
+                        */
+
+                        .section-row .section-total-line {
+                            width: 20%;
+                            padding: 0 !important;
+                            border-top: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
+                            border-left: 1px solid #555 !important;
                         }
 
 
                         /* ==================================================
-                           NOTE
-                           ================================================== */
+                        NOTE
+                        ================================================== */
+
+                        .note-row {
+                            page-break-inside: avoid;
+                        }
+
+                        .note-row td {
+                            border-top: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
+                        }
+
+                        .note-empty-cell {
+                            border-left: none !important;
+                            border-right: none !important;
+                            border-top: none !important;
+                            border-bottom: none !important;
+                            padding: 3px 4px !important;
+                        }
 
                         .note-line {
                             font-style: italic;
                             word-wrap: break-word;
                             overflow-wrap: break-word;
                             word-break: break-word;
+                            border: none !important;
+                            border-left: none !important;
+                            border-right: none !important;
+                            border-top: none !important;
+                            border-bottom: none !important;
                         }
+
+                        /*
+                        * NOTE:
+                        *
+                        * td pertama  = No
+                        * colspan 4   = Description + Qty + Unit + Unit Price
+                        * td terakhir = Total
+                        *
+                        * Dengan demikian garis Total tidak terputus.
+                        */
+
+                        .note-row .note-total-line {
+                            width: 20%;
+                            padding: 0 !important;
+                            border-top: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
+                            border-left: 1px solid #555 !important;
+                        }
+
 
                         /* ==================================================
                         EMPTY ROWS
@@ -444,12 +518,12 @@
                         .empty-line td {
                             height: 16px;
                             padding: 0;
-
                             border-top: none !important;
                             border-right: none !important;
                             border-bottom: none !important;
                             border-left: none !important;
                         }
+
 
                         /* ==================================================
                         EMPTY ROW - TOTAL COLUMN
@@ -462,7 +536,22 @@
                             border-bottom: none !important;
                             border-left: 1px solid #555 !important;
                         }
-                        /* ================================================
+
+
+                        /* ==================================================
+                        PASTIKAN SECTION / NOTE TETAP MEMILIKI GARIS TOTAL
+                        ================================================== */
+
+                        .po-table .section-row .section-total-line,
+                        .po-table .note-row .note-total-line {
+                            border-left: 1px solid #555 !important;
+                            border-right: none !important;
+                            border-top: none !important;
+                            border-bottom: none !important;
+                        }
+
+
+                        /* ==================================================
                         SUMMARY
                         ================================================== */
 
@@ -473,12 +562,9 @@
                             table-layout: fixed;
                             margin: 0;
                             padding: 0;
-
-                            /* GARIS PALING BAWAH */
                             border-bottom: 1px solid #555 !important;
                         }
 
-                        /* Jangan memberikan border umum */
                         .summary-container tbody,
                         .summary-container tr,
                         .summary-container td {
@@ -522,11 +608,7 @@
                             padding: 4px 0 4px 10px;
                             white-space: nowrap;
                             font-size: 13px;
-
-                            /* GARIS VERTIKAL */
                             border-left: 1px solid #555 !important;
-
-                            /* Tidak ada border lain */
                             border-top: none !important;
                             border-right: none !important;
                             border-bottom: none !important;
@@ -541,17 +623,14 @@
                             page-break-inside: avoid;
                         }
 
-                        /* Garis atas hanya mulai dari label sampai value */
                         .summary-subtotal .summary-label,
                         .summary-subtotal .summary-value {
                             border-top: 1px solid #555 !important;
-
                             font-weight: bold;
                             padding-top: 5px;
                             padding-bottom: 5px;
                         }
 
-                        /* Pertahankan garis vertikal pada value */
                         .summary-subtotal .summary-value {
                             border-left: 1px solid #555 !important;
                         }
@@ -569,13 +648,11 @@
                         .summary-tax .summary-value {
                             border-top: none !important;
                             border-bottom: none !important;
-
                             font-weight: bold;
                             padding-top: 3px;
                             padding-bottom: 3px;
                         }
 
-                        /* Garis vertikal tetap ada */
                         .summary-tax .summary-value {
                             border-left: 1px solid #555 !important;
                         }
@@ -589,25 +666,21 @@
                             page-break-inside: avoid;
                         }
 
-                        /* Garis atas Total */
                         .summary-total .summary-label,
                         .summary-total .summary-value {
                             border-top: 1px solid #555 !important;
-
                             font-weight: bold;
                             padding-top: 5px;
                             padding-bottom: 5px;
                         }
 
-                        /* Garis vertikal */
                         .summary-total .summary-value {
                             border-left: 1px solid #555 !important;
-                        }
-
-                        .summary-total .summary-value {
                             font-size: 13px;
                         }
-                        ====================================
+
+
+                        /* ==================================================
                         TERMS AND CONDITIONS
                         ================================================== */
 
@@ -649,11 +722,6 @@
                             table-layout: fixed;
                             border: none !important;
                         }
-
-
-                        /* ==================================================
-                        REMOVE ALL BORDERS
-                        ================================================== */
 
                         .terms-table,
                         .terms-table tbody,
@@ -725,19 +793,19 @@
 
 
                         /* ==================================================
-                           NOTES
-                           ================================================== */
+                        NOTES
+                        ================================================== */
 
                         .notes {
                             font-size: 14px;
                             font-weight: bold;
-                            margin-top:60px;
+                            margin-top: 60px;
                         }
 
 
                         /* ==================================================
-                           FOOTER
-                           ================================================== */
+                        FOOTER
+                        ================================================== */
 
                         .footer {
                             width: 100% !important;
@@ -749,38 +817,33 @@
                             width: 100% !important;
                             margin: 0 !important;
                             padding: 0 !important;
-
                             font-size: 11px !important;
                             font-weight: normal !important;
                             line-height: 1.2 !important;
                         }
+
                     </style>
 
 
                     <!-- ==================================================
-                         PAGE
-                         ================================================== -->
+                        PAGE
+                        ================================================== -->
 
                     <div class="page">
 
 
                         <!-- ==================================================
-                             PURCHASE ORDER HEADER
-                             ================================================== -->
+                            PURCHASE ORDER HEADER
+                            ================================================== -->
 
                         <div class="po-header">
-
-
-                            <!-- ==================================================
-                                 COMPANY + PURCHASE ORDER
-                                 ================================================== -->
 
                             <div class="po-header-top">
 
 
                                 <!-- ==================================================
-                                     COMPANY
-                                     ================================================== -->
+                                    COMPANY
+                                    ================================================== -->
 
                                 <div class="company-section">
 
@@ -815,8 +878,8 @@
 
 
                                 <!-- ==================================================
-                                     PURCHASE ORDER
-                                     ================================================== -->
+                                    PURCHASE ORDER
+                                    ================================================== -->
 
                                 <div class="po-title-section">
 
@@ -860,8 +923,8 @@
 
 
                             <!-- ==================================================
-                                 VENDOR
-                                 ================================================== -->
+                                VENDOR
+                                ================================================== -->
 
                             <div class="vendor-section">
 
@@ -869,13 +932,7 @@
                                     Vendor/Supp.
                                 </div>
 
-
                                 <div class="vendor-box">
-
-
-                                    <!-- ==================================================
-                                         PARENT COMPANY
-                                         ================================================== -->
 
                                     <t t-if="o.partner_id.parent_id">
 
@@ -896,11 +953,6 @@
                                         />
 
                                     </t>
-
-
-                                    <!-- ==================================================
-                                         DIRECT VENDOR
-                                         ================================================== -->
 
                                     <t t-else="">
 
@@ -923,9 +975,7 @@
                                     </t>
 
 
-                                    <!-- ==================================================
-                                         PHONE
-                                         ================================================== -->
+                                    <!-- PHONE -->
 
                                     <div
                                         class="vendor-phone"
@@ -958,9 +1008,7 @@
                                     </div>
 
 
-                                    <!-- ==================================================
-                                         VENDOR REFERENCE
-                                         ================================================== -->
+                                    <!-- VENDOR REFERENCE -->
 
                                     <div
                                         t-if="o.partner_ref"
@@ -979,18 +1027,17 @@
 
 
                             <!-- ==================================================
-                                 VENDOR SPACE
-                                 ================================================== -->
+                                VENDOR SPACE
+                                ================================================== -->
 
-                            <div class="vendor-space">
-                            </div>
+                            <div class="vendor-space"></div>
 
                         </div>
 
 
                         <!-- ==================================================
-                             ITEM TABLE
-                             ================================================== -->
+                            ITEM TABLE
+                            ================================================== -->
 
                         <table class="po-table">
 
@@ -1018,8 +1065,8 @@
 
 
                             <!-- ==================================================
-                                 ITEM HEADER
-                                 ================================================== -->
+                                ITEM HEADER
+                                ================================================== -->
 
                             <thead>
 
@@ -1063,8 +1110,8 @@
 
 
                                 <!-- ==================================================
-                                     ORDER LINES
-                                     ================================================== -->
+                                    ORDER LINES
+                                    ================================================== -->
 
                                 <t
                                     t-foreach="o.order_line"
@@ -1073,17 +1120,27 @@
 
 
                                     <!-- ==================================================
-                                         SECTION
-                                         ================================================== -->
+                                        SECTION
+                                        ================================================== -->
 
                                     <t
                                         t-if="line.display_type == 'line_section'"
                                     >
 
-                                        <tr class="po-line">
+                                        <tr class="po-line section-row">
+
+                                            <!-- SECTION CONTENT -->
+                                            <!--
+                                                5 kolom:
+                                                No
+                                                Description
+                                                Qty
+                                                Unit
+                                                Unit Price
+                                            -->
 
                                             <td
-                                                colspan="6"
+                                                colspan="5"
                                                 class="section-line"
                                             >
 
@@ -1091,26 +1148,42 @@
 
                                             </td>
 
+
+                                            <!-- TOTAL COLUMN -->
+                                            <!-- GARIS TETAP TERSAMBUNG -->
+
+                                            <td class="line-total section-total-line"></td>
+
                                         </tr>
 
                                     </t>
 
 
                                     <!-- ==================================================
-                                         NOTE
-                                         ================================================== -->
+                                        NOTE
+                                        ================================================== -->
 
                                     <t
                                         t-elif="line.display_type == 'line_note'"
                                     >
 
-                                        <tr class="po-line">
+                                        <tr class="po-line note-row">
 
-                                            <td>
-                                            </td>
+                                            <!-- NO COLUMN -->
+
+                                            <td class="note-empty-cell"></td>
+
+
+                                            <!--
+                                                4 kolom:
+                                                Description
+                                                Qty
+                                                Unit
+                                                Unit Price
+                                            -->
 
                                             <td
-                                                colspan="5"
+                                                colspan="4"
                                                 class="note-line"
                                             >
 
@@ -1118,14 +1191,20 @@
 
                                             </td>
 
+
+                                            <!-- TOTAL COLUMN -->
+                                            <!-- GARIS TETAP TERSAMBUNG -->
+
+                                            <td class="line-total note-total-line"></td>
+
                                         </tr>
 
                                     </t>
 
 
                                     <!-- ==================================================
-                                         NORMAL PRODUCT
-                                         ================================================== -->
+                                        NORMAL PRODUCT
+                                        ================================================== -->
 
                                     <t t-else="">
 
@@ -1133,7 +1212,6 @@
                                             t-set="line_no"
                                             t-value="line_no + 1"
                                         />
-
 
                                         <tr class="po-line">
 
@@ -1158,7 +1236,6 @@
                                                     />
 
                                                 </div>
-
 
                                                 <div
                                                     t-if="line.name"
@@ -1238,56 +1315,46 @@
 
 
                                 <!-- ==================================================
-                                     EMPTY ROWS
-                                     ================================================== -->
+                                    EMPTY ROWS
+                                    ================================================== -->
 
                                 <tr class="empty-line">
 
-                                    <td colspan="5">
-                                    </td>
+                                    <td colspan="5"></td>
 
-                                    <td class="line-total">
-                                    </td>
+                                    <td class="line-total"></td>
 
                                 </tr>
 
                                 <tr class="empty-line">
 
-                                    <td colspan="5">
-                                    </td>
+                                    <td colspan="5"></td>
 
-                                    <td class="line-total">
-                                    </td>
+                                    <td class="line-total"></td>
 
                                 </tr>
 
                                 <tr class="empty-line">
 
-                                    <td colspan="5">
-                                    </td>
+                                    <td colspan="5"></td>
 
-                                    <td class="line-total">
-                                    </td>
+                                    <td class="line-total"></td>
 
                                 </tr>
 
                                 <tr class="empty-line">
 
-                                    <td colspan="5">
-                                    </td>
+                                    <td colspan="5"></td>
 
-                                    <td class="line-total">
-                                    </td>
+                                    <td class="line-total"></td>
 
                                 </tr>
 
                                 <tr class="empty-line">
 
-                                    <td colspan="5">
-                                    </td>
+                                    <td colspan="5"></td>
 
-                                    <td class="line-total">
-                                    </td>
+                                    <td class="line-total"></td>
 
                                 </tr>
 
@@ -1297,22 +1364,19 @@
 
 
                         <!-- ==================================================
-                             SUMMARY
-                             ================================================== -->
+                            SUMMARY
+                            ================================================== -->
 
                         <table class="summary-container">
 
                             <tbody>
 
 
-                                <!-- ==================================================
-                                     SUBTOTAL
-                                     ================================================== -->
+                                <!-- SUBTOTAL -->
 
                                 <tr class="summary-subtotal">
 
-                                    <td class="summary-spacer">
-                                    </td>
+                                    <td class="summary-spacer"></td>
 
                                     <td class="summary-label">
                                         Subtotal
@@ -1334,9 +1398,7 @@
                                 </tr>
 
 
-                                <!-- ==================================================
-                                     TAX
-                                     ================================================== -->
+                                <!-- TAX -->
 
                                 <t
                                     t-if="
@@ -1362,8 +1424,7 @@
 
                                             <tr class="summary-tax">
 
-                                                <td class="summary-spacer">
-                                                </td>
+                                                <td class="summary-spacer"></td>
 
                                                 <td class="summary-label">
 
@@ -1403,9 +1464,7 @@
                                 </t>
 
 
-                                <!-- ==================================================
-                                     FALLBACK TAX
-                                     ================================================== -->
+                                <!-- FALLBACK TAX -->
 
                                 <t
                                     t-if="
@@ -1417,8 +1476,7 @@
 
                                     <tr class="summary-tax">
 
-                                        <td class="summary-spacer">
-                                        </td>
+                                        <td class="summary-spacer"></td>
 
                                         <td class="summary-label">
                                             Tax
@@ -1442,14 +1500,11 @@
                                 </t>
 
 
-                                <!-- ==================================================
-                                     TOTAL
-                                     ================================================== -->
+                                <!-- TOTAL -->
 
                                 <tr class="summary-total">
 
-                                    <td class="summary-spacer">
-                                    </td>
+                                    <td class="summary-spacer"></td>
 
                                     <td class="summary-label">
                                         Total
@@ -1475,6 +1530,10 @@
                         </table>
 
 
+                        <!-- ==================================================
+                            TERMS AND CONDITIONS
+                            ================================================== -->
+
                         <div class="terms-container">
 
                             <div class="terms-title">
@@ -1484,10 +1543,6 @@
                             <table class="terms-table">
 
                                 <tbody>
-
-                                    <!-- ==================================================
-                                        DELIVERY POINT
-                                        ================================================== -->
 
                                     <tr>
 
@@ -1502,7 +1557,11 @@
                                         <td class="terms-value">
 
                                             <t t-if="o.delivery_address">
-                                                <span t-field="o.delivery_address"/>
+
+                                                <span
+                                                    t-field="o.delivery_address"
+                                                />
+
                                             </t>
 
                                             <t t-else="">
@@ -1513,10 +1572,6 @@
 
                                     </tr>
 
-
-                                    <!-- ==================================================
-                                        PAYMENT TERM
-                                        ================================================== -->
 
                                     <tr>
 
@@ -1531,7 +1586,11 @@
                                         <td class="terms-value">
 
                                             <t t-if="o.payment_term_id">
-                                                <span t-field="o.payment_term_id"/>
+
+                                                <span
+                                                    t-field="o.payment_term_id"
+                                                />
+
                                             </t>
 
                                             <t t-else="">
@@ -1542,10 +1601,6 @@
 
                                     </tr>
 
-
-                                    <!-- ==================================================
-                                        INVOICING
-                                        ================================================== -->
 
                                     <tr>
 
@@ -1582,36 +1637,45 @@
 
 
                         <!-- ==================================================
-                             NOTES
-                             ================================================== -->
+                            NOTES
+                            ================================================== -->
 
                         <div class="notes">
 
                             This document is computer-generated.
+
+                            <br/>
+
                             No signature or company stamp is required.
 
                         </div>
 
-
-                        <!-- ==================================================
-                             FOOTER
-                             NO TABLE
-                             ================================================== -->
-
-                        
-
                     </div>
+
+
+                    <!-- ==================================================
+                        FOOTER
+                        NO TABLE
+                        ================================================== -->
+
                     <div class="footer">
+
                         <div class="po-footer-right">
-                            <span style="
-                                font-size: 13px !important;
-                            ">
+
+                            <span style="font-size: 13px !important;">
+
                                 Page
+
                                 <span class="page"/>
+
                                 of
+
                                 <span class="topage"/>
+
                             </span>
+
                         </div>
+
                     </div>
 
                 </t>
