@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_spare_part_specification_user,spare.part.specification.user,model_spare_part_specification,base.group_user,1,1,1,1
+access_spare_part_images_user,spare.part.images.user,model_spare_part_images,base.group_user,1,1,1,1

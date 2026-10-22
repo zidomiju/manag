@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_spare_part_form" model="ir.ui.view">
+        <field name="name">spare.part.form</field>
+        <field name="model">spare.part</field>
+        <field name="arch" type="xml">
+            <form string="Spare Part">
+                <sheet>
+                    <!-- Section A: Information -->
+                    <separator string="A. Information" class="mt-4"/>
+
+                    <!-- Section A Header -->
+                     <div class="oe_title mb-3">
+                        <label for="part_number" string="Part Number"/>
+                        <h1>
+                            <field name="part_number" placeholder="e.g. HG:288.1424-803"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <!-- Right Column: Part Diagram / Image -->
+                        <div class="span-2">
+                            <field name="image_1920" 
+                                widget="image_fullscreen" 
+                                nolabel="1"
+                                options="{'preview_image': 'image_1920'}"
+                                style="max-width: 400px; max-height: 400px; width: 100%; object-fit: contain; cursor: pointer;"/>
+                        </div>
+                    </group>
+                    
+                    <grid class="o_grid_4col gap-3">
+                        <!-- Left Column: Specs -->
+                        <div>
+                            <group>
+                                <!-- Make dropdown with quick create -->
+                                <field name="make_id" 
+                                    string="Make"
+                                    options="{'no_quick_create': True}"
+                                    placeholder="Select or type new make..."/>
+                                <label for="drawing_no" string="Drawing No / Pos"/>
+                                <div class="o_row">
+                                    <field name="drawing_no"/>
+                                    <field name="drawing_pos"/>
+                                </div>
+                                <field name="uom_id"/>
+                                <field name="barcode"/>
+                                <label for="sales_price" string="Sales Price"/>
+                                <div class="o_row">
+                                    <field name="sales_currency_id" options="{'no_create': True}"/>
+                                    <field name="sales_price"/>
+                                </div>
+                                <label for="local_price" string="Local Price"/>
+                                <div class="o_row">
+                                    <field name="local_currency_id" options="{'no_create': True}"/>
+                                    <field name="local_price"/>
+                                </div>
+                                <field name="weight"/>
+                                <field name="dimensions"/>
+                                <field name="part_type"/>
+                                <field name="sp_category_id"/>
+                            </group>
+                        </div>
+
+                        <!-- Middle Column: Descriptions & Inventory -->
+                        <div>
+                            <group>
+                                <field name="part_description" placeholder="Part Description..."/>
+                                <field name="sales_description" placeholder="Sales Description..."/>
+                                <field name="material"/>
+                            </group>
+
+                            <group string="Inventory">
+                                <group>
+                                    <field name="qty_add"/>
+                                    <field name="qty_reserved"/>
+                                </group>
+                                <group>
+                                    <field name="qty_backorder"/>
+                                    <field name="qty_sales_order"/>
+                                </group>
+                                <field name="location_line_ids" nolabel="1">
+                                    <list editable="bottom">
+                                        <field name="location_id"/>
+                                        <field name="quantity"/>
+                                    </list>
+                                </field>
+                            </group>
+                            <group>
+                                <field name="notes" placeholder="Notes..."/>
+                                <field name="manufacture"/>
+                            </group>
+                        </div>
+                    </grid>
+
+                    <!-- Section A Notebook Tabs -->
+                    <notebook class="mt-4">
+                        <page string="Specifications">
+                            <field name="specification_ids">
+                                <list editable="bottom">
+                                    <field name="title"/>
+                                    <field name="file_name" invisible="1" optional="hide"/>
+                                    <field name="attachment" widget="binary" filename="file_name"/>
+
+                                    <!-- action button view document -->
+                                    <button name="action_view_file" type="object" string="View" icon="fa-eye"
+                                            class="btn btn-primary btn-sm"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Images">
+                            <field name="image_ids">
+                                <list editable="bottom">
+                                    <field name="title"/>
+                                    <field name="file_name" invisible="1" optional="hide"/>
+                                    <field name="attachment" widget="binary" filename="file_name"/>
+
+                                    <!-- action button view image -->
+                                    <button name="action_view_image" type="object" string="View" icon="fa-eye"
+                                            class="btn btn-primary btn-sm"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <notebook class="mt-4">
+                        <page string="Sub Assembly">
+                            <field name="sub_assembly_ids">
+                                <list editable="bottom">
+                                    <field name="component_part_id" 
+                                        string="Component Part"
+                                        domain="[('type', '=', 'consu')]"
+                                        options="{'no_quick_create': True}"
+                                        placeholder="Select a product..."/>
+                                    <field name="quantity"/>
+                                    <field name="position"/>
+                                    <field name="drawing_no"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Related Parts">
+                            <field name="related_part_ids">
+                                <list>
+                                    <field name="part_number"/>
+                                    <field name="part_description"/>
+                                    <field name="sp_category_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <!-- Section B: Vendor Supplying Part -->
+                    <separator string="B. Vendor Supplying Part" class="mt-4"/>
+                    
+                    <notebook>
+                        <page string="Vendor Parts">
+                            <field name="vendor_supplier_ids">
+                                <list editable="bottom">
+                                    <field name="vendor_id" 
+                                           context="{'default_supplier_rank': 1, 'res_partner_search_mode': 'supplier'}" 
+                                           options="{'no_quick_create': False}"/>
+                                    <field name="purchase_description"/>
+                                    <field name="cost_price"/>
+                                    <field name="currency_id"/>
+                                    <field name="vendor_part_number"/>
+                                    <field name="uom_id"/>
+                                    <field name="delivery_schedule"/>
+                                    <field name="notes"/>
+                                    <field name="dated"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+</odoo>

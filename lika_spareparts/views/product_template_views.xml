@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- inherit product_template_view_form to add is_spare_part check -->
+    <record id="product_is_sparepart_inherit_product_template" model="ir.ui.view">
+        <field name="name">product.template.issparepart.view.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <!-- 3. Add Spare Parts Tab inside Notebook (visible only when is_spare_part is True) -->
+            <xpath expr="//notebook" position="inside">
+                <!--                <page string="Spare Part Details" name="spare_part_details" invisible="not is_spare_part">-->
+                <page string="Sub-Parts" name="part_sub_part" invisible="type not in ('consu', 'combo')">
+                    <separator string="Sub Assembly"/>
+                    <field name="sub_assembly_ids">
+                        <list>
+                            <field name="display_name" string="Component Part"/>
+                            <field name="qty_available" string="Quantity"/>
+                            <field name="drawing_pos" string="Position"/>
+                            <field name="drawing_no" string="Drawing No"/>
+                        </list>
+                    </field>
+
+                    <separator string="Related Parts"/>
+                    <field name="related_part_ids">
+                        <list>
+                            <field name="default_code" string="Part Number"/>
+                            <field name="part_description"/>
+                            <field name="categ_id"/>
+                        </list>
+                    </field>
+                </page>
+                <page name="part_document" string="Documents" invisible="type not in ('consu', 'combo')">
+                    <separator string="Specification"/>
+                    <field name="specification_ids">
+                        <list editable="bottom">
+                            <field name="title"/>
+                            <field name="file_name" invisible="1" optional="hide"/>
+                            <field name="attachment" widget="binary" filename="file_name"/>
+
+                            <!-- action button view document -->
+                            <button name="action_view_file" type="object" string="View" icon="fa-eye"
+                                    class="btn btn-primary btn-sm"/>
+                        </list>
+                    </field>
+
+                    <separator string="Images"/>
+                    <field name="image_ids">
+                        <list editable="bottom">
+                            <field name="title"/>
+                            <field name="file_name" invisible="1" optional="hide"/>
+                            <field name="attachment" widget="binary" filename="file_name"/>
+
+                            <!-- action button view image -->
+                            <button name="action_view_image" type="object" string="View" icon="fa-eye"
+                                    class="btn btn-primary btn-sm"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    Add dimension field to Inventory -->
+    <record id="product_template_form_view_inherit_volume" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.volume</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='sale_delay']" position="before">
+                <label for="dimensions" invisible="type not in ('consu', 'combo')"/>
+                <div invisible="type not in ('consu', 'combo')">
+                    <field name="dimensions" class="oe_inline" style="vertical-align:baseline"/>
+                    L x W x H
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    add part details to Product form below qty_available -->
+    <record id="product_template_form_view_inherit_custom" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.custom</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='o_row w-100']" position="after">
+                <field name="make_id" options="{'no_create': True}" invisible="type not in ('consu', 'combo')"/>
+                <field name="drawing_no" invisible="type not in ('consu', 'combo')"/>
+                <field name="drawing_pos" invisible="type not in ('consu', 'combo')"/>
+                <field name="default_code" string="Part Number" invisible="type not in ('consu', 'combo')"/>
+                <field name="part_description" invisible="type not in ('consu', 'combo')"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

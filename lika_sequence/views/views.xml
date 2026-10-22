@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="sequence_view_inherit" model="ir.ui.view">
+    <field name="name">sequence.view.inherit</field>
+    <field name="model">ir.sequence</field>
+    <field name="inherit_id" ref="base.sequence_view"/>
+    <field name="arch" type="xml">
+      <!-- Add Roman Date labels -->
+      <xpath expr="//page/group[2]/group[1]" position="inside">
+        <span colspan="2">Roman Current Year with Century: %%(rom_year)s</span>
+        <span colspan="2">Roman Current Year without Century: %%(rom_y)s</span>
+        <span colspan="2">Roman Month: %%(rom_month)s</span>
+        <span colspan="2">Roman Day: %%(rom_day)s</span>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

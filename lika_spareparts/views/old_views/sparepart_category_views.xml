@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- list/List View -->
+    <record id="view_spare_part_category_list" model="ir.ui.view">
+        <field name="name">spare.part.category.list</field>
+        <field name="model">spare.part.category</field>
+        <field name="arch" type="xml">
+            <list string="Spare Part Categories" editable="bottom">
+                <field name="sp_category_name" required="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_spare_part_category_form" model="ir.ui.view">
+        <field name="name">spare.part.category.form</field>
+        <field name="model">spare.part.category</field>
+        <field name="arch" type="xml">
+            <form string="Spare Part Category">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sp_category_name" placeholder="Category Name" required="1"/>
+                        </h1>
+                    </div>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <!-- <record id="view_spare_part_category_search" model="ir.ui.view">
+        <field name="name">spare.part.category.search</field>
+        <field name="model">spare.part.category</field>
+        <field name="arch" type="xml">
+            <search string="Search Spare Part Categories">
+                <field name="sp_category_name"/>
+                <group expand="0" string="Group By">
+                    <filter string="Category" name="group_by_category" context="{'group_by': 'sp_category_name'}"/>
+                </group>
+            </search>
+        </field>
+    </record> -->
+
+    <!-- Action -->
+    <record id="action_spare_part_category" model="ir.actions.act_window">
+        <field name="name">Spare Part Categories</field>
+        <field name="res_model">spare.part.category</field>
+        <field name="view_mode">list,form</field>
+        <!-- <field name="search_view_id" ref="view_spare_part_category_search"/> -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new spare part category
+            </p>
+            <p>
+                Categories help you organize and filter spare parts.
+                Examples: Bearings, Seals, Brake Pads, Electrical, Hydraulic, etc.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Items -->
+    <!-- <menuitem id="menu_spare_part_category" 
+              name="Categories" 
+              action="action_spare_part_category"
+              parent="YOUR_PARENT_MENU_ID" 
+              sequence="10"/> -->
+</odoo>

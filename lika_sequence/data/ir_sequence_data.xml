@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Update XML Definition -->
+    <record id="sale.seq_sale_order" model="ir.sequence">
+        <field name="prefix">LK-%(user_initials)s-%(y)s%(month)s-</field>
+        <field name="padding">4</field>
+        <field name="use_date_range" eval="True" />
+        <field name="range_reset">yearly</field>
+    </record>
+
+    <function model="ir.sequence" name="write">
+        <value eval="[ref('sale.seq_sale_order')]"/>
+        <value eval="{
+            'prefix': 'LK-%(user_initials)s-%(y)s%(month)s-',
+            'padding': 4,
+            'use_date_range': True,
+            'range_reset': 'yearly'
+        }"/>
+    </function>
+
+    <record id="seq_account_move_invoice" model="ir.sequence">
+        <field name="name">Account move Invoice</field>
+        <field name="code">sec.account.move.invoice</field>
+        <field name="suffix">/LIKA/INV/%(range_rom_month)s/%(range_year)s</field>
+        <field name="padding">3</field>
+        <field name="use_date_range" eval="True" />
+        <field name="range_reset">yearly</field>
+    </record>
+
+    <record id="seq_proforma_invoice" model="ir.sequence">
+        <field name="name">Proforma Invoice</field>
+        <field name="code">lika.proforma.invoice</field>
+        <field name="prefix">PRO-%(day)s%(month)s%(y)s-</field>
+        <field name="padding">3</field>
+        <field name="use_date_range" eval="True" />
+        <field name="range_reset">yearly</field>
+    </record>
+
+    <!-- <record id="sale.seq_sale_order" model="ir.sequence">
+        <field name="prefix">LK-%(range_month)s%(y)s-</field>
+        <field name="padding">3</field>
+        <field name="use_date_range" eval="True" />
+        <field name="range_reset">yearly</field>
+    </record> -->
+
+    <!-- <record id="seq_account_move_kwitansi" model="ir.sequence">
+        <field name="name">Account move Kwitansi</field>
+        <field name="code">sec.account.move.kwitansi</field>
+        <field name="suffix">/LIKA/KWT/%(rom_month)s/%(year)s</field>
+        <field name="padding">3</field>
+    </record> -->
+
+    <!-- <record id="seq_proforma_invoice" model="ir.sequence">
+        <field name="name">Proforma Invoice</field>
+        <field name="code">lika.proforma.invoice</field>
+        <field name="prefix">PRO-%(day)s%(month)s%(y)s-</field>
+        <field name="padding">3</field>
+        <field name="use_date_range" eval="True" />
+        <field name="range_reset">yearly</field>
+    </record> -->
+
+</odoo>

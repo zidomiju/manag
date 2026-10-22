@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_inherit_initials" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.initials</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook[@colspan='4']" position="before">
+                <!-- <h5 name="h5_phone" class="d-flex align-items-baseline mb-0">
+                    <i class="fa fa-fw fa-user me-1 text-primary" title="Initials"/>
+                    </h5> -->
+                <separator string="ADDITIONAL INFORMATIONS" />
+                <group>
+                    <field name="initials" placeholder="User Initials, e.g. LK. Max 2 characters."/>
+                </group>
+
+                <separator string="OPTIONS" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- views/hr_employee_views.xml -->
+    <!-- <record id="view_employee_form_inherit_initials" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.initials</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h1[@class='d-flex flex-row align-items-center']" position="after">
+                <h5 name="h5_phone" class="d-flex align-items-baseline mb-0">
+                    <i class="fa fa-fw fa-user me-1 text-primary" title="Initials"/>
+                    <field name="initials" required="True" placeholder="User Initials, e.g. LK. Max 2 characters."/>
+                </h5>
+            </xpath>
+        </field>
+    </record> -->
+</odoo>
