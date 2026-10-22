@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_quotation">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <style>
+                        td {
+                            border:1px solid black;
+                            vertical-align: middle;
+                        }
+                        .no-border {
+                            border:0px solid transparent;
+                            vertical-align: middle;
+                        }
+                    </style>
+                    <div class="header">
+                        <div class="oe_structure" id="header_oe_structure" />
+                        <div class="row">
+                            <t t-call="lika_report.report_header_column_address"/>
+                            <div class="col">
+                                <h5 style="text-align: center; font-weight: bold;">
+                                    <!-- <t t-if="o.is_verification_order">
+                                        VERIFICATION ORDER
+                                    </t> -->
+                                    <t t-if="o.state == 'sale'">
+                                        SALE ORDER
+                                    </t>
+                                    <t t-else="">
+                                        QUOTATION
+                                    </t>
+                                </h5>
+                                <table style="border-collapse: collapse; width: 100%; font-size: 14px;" border="1">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 50%; text-align: center; background-color: #D3D3D3;">ID NUMBER</td>
+                                            <td style="width: 50%; text-align: center; background-color: #D3D3D3;">DATE</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <t t-if="o.is_verification_order">
+                                                    <span t-field="o.name"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-field="o.vo_id.name"/>
+                                                </t>
+                                            </td>
+                                            <td style="text-align: center;">
+                                                <span t-field="o.date_order" t-options='{"widget": "date", "format": "dd-MMM-yyyy"}'/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&#160;</td>
+                                            <td style="text-align: center; background-color: #D3D3D3;font-weight:bold">VALID UNTIL</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&#160;</td>
+                                            <td style="text-align: center;">
+                                                <span t-field="o.validity_date" t-options='{"widget": "date", "format": "dd-MMM-yyyy"}'/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page" style="font-size: 14px;">
+                        <div class="row">
+                            <div class="col-5">
+                                <table style="border-collapse: collapse; width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 100%; text-align: center; background-color: #D3D3D3;font-weight:bold;">CUSTOMER DETAIL</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="no-border" style="width: 100%;">
+                                                <t t-if="o.partner_id.parent_id">
+                                                    <span t-field="o.partner_id.parent_id.name" style="font-weight: bold;"/>
+                                                    <br/>
+                                                    <span t-field="o.partner_id.parent_id" t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'></span>
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-field="o.partner_id.name" style="font-weight: bold;"/>
+                                                    <br/>
+                                                    <span t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'></span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table style="border-collapse: collapse; width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="no-border" style="width: 30%;">Email</td>
+                                            <td class="no-border" style="width: 70%;">: <span t-field="o.partner_id.email"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="no-border">
+                                                <strong>Attention</strong>
+                                            </td>
+                                            <td class="no-border">
+                                                <strong>: <span t-field="o.partner_id.name"/></strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <table style="border-collapse: collapse; width: 100%; margin-top: 50px;" border="1">
+                            <tbody>
+                                <tr style="text-align: center; background-color: #D3D3D3; font-weight: bold;">
+                                    <td style="width: 3%;">NO</td>
+                                    <td style="width: 28%;">DESCRIPTION</td>
+                                    <td style="width: 10%">PART NUMBER</td>
+                                    <td style="width: 7%;">QTY</td>
+                                    <td style="width: 7%;">UNIT</td>
+                                    <td style="width: 16%;">
+                                        <t t-if="o.pricelist_id.currency_id.name=='IDR'">
+                                            UNIT PRICE <br/> (IDR)
+                                        </t>
+
+                                        <t t-if="o.pricelist_id.currency_id.name=='SGD'">
+                                            UNIT PRICE <br/> (SGD)
+                                        </t>
+
+                                        <t t-if="o.pricelist_id.currency_id.name=='USD'">
+                                            UNIT PRICE <br/> (USD)
+                                        </t>
+                                    </td>
+                                    <td style="width: 16%;">
+                                        <t t-if="o.pricelist_id.currency_id.name=='IDR'">
+                                            TOTAL (IDR)
+                                        </t>
+
+                                        <t t-if="o.pricelist_id.currency_id.name=='USD'">
+                                            TOTAL (USD)
+                                        </t>
+
+                                        <t t-if="o.pricelist_id.currency_id.name=='SGD'">
+                                            TOTAL (sgd)
+                                        </t>
+                                    </td>
+                                    <td style="width: 13%;">DELIVERY</td>
+                                </tr>
+                                <!-- detect if document contains section lines -->
+                                <t t-set="has_section_lines" t-value="'line_section' in o.order_line.mapped('display_type')"/>
+                                <!-- section_index uses ASCII code for letters (65 = 'A') -->
+                                <t t-set="section_index" t-value="65"/>
+                                <t t-set="order_seq" t-value="1"/>
+                                <t t-foreach="o.order_line" t-as="order">
+                                    <t t-if="order.display_type and order.display_type == 'line_section'">
+                                        <tr>
+                                            <td style="text-align: center; font-weight: bold;"><t t-esc="chr(section_index)"/></td>
+                                            <td colspan="6" style="font-weight: bold; padding: 0px 5px;"><span t-field="order.name"/></td>
+                                        </tr>
+                                        <t t-set="section_index" t-value="section_index + 1"/>
+                                        <!-- reset child numbering for new section -->
+                                        <t t-set="order_seq" t-value="1"/>
+                                    </t>
+                                    <t t-elif="order.display_type and order.display_type == 'line_note'">
+                                        <tr>
+                                            <td>&#160;</td>
+                                            <td style="padding: 0px 5px;"><span t-field="order.name"/></td>
+                                            <td>&#160;</td>
+                                            <td>&#160;</td>
+                                            <td>&#160;</td>
+                                            <td>&#160;</td>
+                                            <td>&#160;</td>
+                                            <td>&#160;</td>
+                                        </tr>
+                                    </t>
+                                    <t t-else="">
+                                        <tr>
+                                            <!-- always render the sequence in the first column -->
+                                            <td style="text-align: center;"><span t-esc="order_seq"/></td>
+                                            <td style="padding: 0px 5px;">
+                                                <span t-field='order.product_id.name'/>
+                                                <br/>
+                                                <em style="display:block;margin-top:5px;">
+                                                    <span t-esc="order.name.split('\n',1)[1] if '\n' in order.name else''"/>
+                                                </em>
+                                            </td>
+                                            <td style="text-align:center;"><span t-esc="order.product_id.default_code"/></td>
+                                            <td style="text-align: center;"><span t-esc="order.product_uom_qty"/></td>
+                                            <td style="text-align: center;"><span t-esc="order.product_uom_id.name"/></td>
+                                            <td style="text-align: right; padding: 0px 5px;"><span t-esc="order.price_unit" t-options='{"widget": "float", "precision": 2}'/></td>
+                                            <td style="text-align: right; padding: 0px 5px;"><span t-esc="order.price_subtotal" t-options='{"widget": "float", "precision": 2}'/></td>
+                                            <td style="text-align: center;"><span t-esc="order.delivery"/></td>
+                                        </tr>
+                                        <t t-set="order_seq" t-value="order_seq + 1"/>
+                                    </t>
+                                </t>
+                                <tr>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                    <td>&#160;</td>
+                                </tr>
+                                <tr>
+                                    <td class="no-border" colspan="2">&#160;</td>
+                                    <td style="font-weight: bold; text-align: center;" colspan="3">
+                                        <t t-if="o.pricelist_id.currency_id.name=='USD'">
+                                                TOTAL IN USD
+                                        </t>
+
+                                        <t t-if="o.pricelist_id.currency_id.name=='SGD'">
+                                            TOTAL IN SGD
+                                        </t>
+
+                                        <t t-if="o.pricelist_id.currency_id.name=='IDR'">
+                                            TOTAL IN IDR
+                                        </t>
+                                    </td>
+                                    <td style="font-weight: bold; text-align: right; padding: 0px 5px;">
+                                        <t t-esc="sum(o.order_line.mapped('price_subtotal'))" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                    <td>&#160;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table style="border-collapse: collapse; width: 40%; margin-top: 20px;" border="1">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #D3D3D3; text-align: center;" colspan="3">TERM AND CONDITION</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 10%; text-align: center;">1</td>
+                                    <td style="width: 40%; padding-left: 5px;">Delivery time</td>
+                                    <td style="width: 50%; padding-left: 5px;"> <span t-field="o.delivery_time" /></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">2</td>
+                                    <td style="padding-left: 5px;">Delivery Point</td>
+                                    <td style="padding-left: 5px;"> <span t-field="o.delivery_point_id.name" /></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">3</td>
+                                    <td style="padding-left: 5px;">Term of Payment</td>
+                                    <td style="padding-left: 5px;"> <span t-field="o.payment_term_id.name" /></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;" colspan="3">Prices are exclusive of VAT/PPN</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p t-field="o.note"></p>
+                        <p style="font-weight: bold; margin-top: 20px;">This document is system-generated and does not require a signature or seal.</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

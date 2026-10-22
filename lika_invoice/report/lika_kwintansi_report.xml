@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="lika_kwintansi_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+
+                    <style>
+                        /* =========================
+                           GENERAL
+                        ========================= */
+                        * {
+                            font-family: Arial, sans-serif;
+                            box-sizing: border-box;
+                        }
+
+                        body {
+                            font-size: 12px;
+                            color: #222;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .page {
+                            width: 100%;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .kwitansi-header-table{
+                            width:100%;
+                            table-layout:fixed;
+                        }
+
+                        .kwitansi-header-table,
+                        .kwitansi-header-table tbody,
+                        .kwitansi-header-table tr,
+                        .kwitansi-header-table td{
+                            border:none !important;
+                        }
+
+                        .logo-column{
+                            vertical-align:top;
+                            position:relative;
+                            right:31px;
+                            bottom:20px;
+                        }
+
+                        .company-logo{
+                            width:170px;
+                            height:auto;
+                        }
+                        .company-column{
+                            vertical-align:top;
+                            font-size:13px;
+                        }
+
+                        .company-name{
+                            font-weight:bold;
+                        }
+
+                        .company-web{
+                            text-decoration:underline;
+                            color: #3976a8;
+                        }
+                        .kwitansi-information{
+                            width:100%;
+                            font-size:15px;
+                            table-layout:fixed;
+                            font-weight:bold;
+                            margin-top:20px;
+                            border-collapse: separate !important;
+                        }
+
+                        .kwitansi-information,
+                        .kwitansi-information tbody,
+                        .kwitansi-information tr,
+                        .kwitansi-information td{
+                            border:none !important;
+                        }
+
+                        .kwitansi-information .invoice-number{
+                            text-align:center;
+                            border:1px solid #333 !important;
+
+                        }
+                        .empty-line{
+                            height:10px;
+                        }
+                        
+                        .footer-kwitansi{
+                            width:100%;
+                            table-layout:fixed;
+                            font-weight:bold;
+                            margin-top:40px;
+                            border-collapse:separate !important;
+                        }
+
+                        .footer-kwitansi,
+                        .footer-kwitansi tbody,
+                        .footer-kwitansi tr,
+                        .footer-kwitansi td{
+                            border:none !important;
+                        }
+
+                        .footer-kwitansi .currency{
+                            font-size:21px;
+                            text-align:left;
+                            border-left:1px solid #333 !important;
+                            border-top:1px solid #333 !important;
+                            border-bottom:1px solid #333 !important;
+                            padding-top:8px;
+                            padding-bottom:8px;
+                            padding-left:5px
+                        }
+                        .footer-kwitansi .nominal{
+                            font-size:21px;
+                            text-align:right;
+                            border-right:1px solid #333 !important;
+                            border-top:1px solid #333 !important;
+                            border-bottom:1px solid #333 !important;
+                            padding-top:8px;
+                            padding-bottom:8px;
+                            padding-right:7px;
+                        }
+                        .footer-kwitansi .no-border{
+                            border:none !important;
+                        }
+                    </style>
+
+                    <!-- =========================
+                         Kwintansi Page
+                    ========================= -->
+                    <div class="page">
+
+                        <!-- =========================
+                             HEADER
+                        ========================= -->
+                        <table class="kwitansi-header-table">
+                            <colgroup>
+                                <col style="width:15%;"/>
+                                <col style="width:55%;"/>
+                                <col style="width:30%;"/>
+                            </colgroup>
+
+                            <tbody>
+                                <tr>
+
+                                    <!-- LOGO -->
+                                    <td class="logo-column">
+                                        <img
+                                            t-att-src="'%s/lika_invoice/static/src/img/logo.png' % web_base_url"
+                                            class="company-logo"
+                                            alt="Lika Cranes"
+                                        />
+                                    </td>
+
+                                    <!-- COMPANY INFORMATION -->
+                                    <td class="company-column">
+                                        <div class="company-text">
+
+                                            <div class="company-name">
+                                                PT Buana Lintas Khatulistiwa (Lika Cranes)
+                                            </div>
+
+                                            <div class="company-address">
+                                                Gedung Kemang 37
+                                                <br/>
+                                                Kemang Raya No. 37, 4th Floor
+                                                <br/>
+                                                Jakarta Selatan, 12730
+                                                <br/>
+                                                Indonesia
+                                            </div>
+
+                                            <div class="company-web">
+                                                www.likacranes.com
+                                            </div>
+
+                                        </div>
+                                    </td>
+
+                                    <td>
+
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <table class="kwitansi-information">
+                            <colgroup>
+                                <col style="width:27%;"/>
+                                <col style="width:3%;"/>
+                                <col style="width:1%;"/>
+                                <col style="width:2%;"/>
+                                <col style="width:33%;"/>
+                                <col style="width:34%;"/>
+                            </colgroup>
+
+                            <tbody>
+
+                                <tr>
+                                    <td colspan="5">Kwitansi</td>
+                                    <td class="invoice-number">
+                                        <span t-esc="o.name"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6" style="font-size:12px;font-style:italic;">Receipt</td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="6"></td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="6"></td>
+                                </tr>
+                                
+                                <tr class="empty-line">
+                                    <td colspan="6"></td>
+                                </tr>
+
+                                <tr style="vertical-align:top;">
+                                    <td colspan="3">
+                                        <div>Diterima dari</div>
+                                        <div style="font-size:12px;font-style:italic;font-weight:normal;">Received from</div>
+                                    </td>
+
+                                    <td>
+                                        :
+                                    </td>
+
+                                    <td colspan="2">
+                                        <span t-field="o.partner_id.name"/>
+                                    </td>
+
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="6"></td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="6"></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="3">
+                                        <div>Terbilang</div>
+                                        <div style="font-size:12px;font-style:italic;font-weight:normal;">Say</div>
+                                    </td>
+                                    <td>:</td>
+                                    <td colspan="2">
+                                        <span
+                                            t-esc="o.currency_id.with_context(lang='id_ID').amount_to_text(round(o.amount_total))"
+                                        />
+                                    </td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="6"></td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="6"></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="3">
+                                        <div>Untuk Pembayaran</div>
+                                        <div style="font-size:12px;font-style:italic;font-weight:normal;">Payment for</div>
+                                    </td>
+
+                                    <td>
+                                        :
+                                    </td>
+
+                                    <td colspan="2">
+                                        <span
+                                            t-esc="o.payment_for"
+                                        />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td style="font-size:12px;font-weight:normal;">Ref.</td>
+                                    <td colspan="2" style="font-size:12px;font-weight:normal">:</td>
+                                    <td colspan="2" style="font-size:12px;font-weight:normal">
+                                        <span t-esc="o.name"/>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+                        <table class="footer-kwitansi">
+                            <colgroup>
+                                <col style="width:5%;"/>
+                                <col style="width:25%;"/>
+                                <col style="width:3%;"/>
+                                <col style="width:1%;"/>
+                                <col style="width:2%"/>
+                                <col style="width:32%;"/>
+                                <col style="width:34%;"/>
+                            </colgroup>
+
+                            <tbody>
+                                <tr>
+                                    <td colspan="4">
+                                    </td>
+
+                                    <td colspan="2">
+                                    </td>
+
+                                    <td style="text-align:center;">
+                                        Jakarta, <span t-esc="o.invoice_date.strftime('%d %b %Y') if o.invoice_date else '-'"/>
+                                    </td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="7">
+                                    </td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="7">
+
+                                    </td>
+                                </tr>
+                                
+                                <tr class="empty-line">
+                                    <td colspan="7">
+                                    </td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="7">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="currency">
+                                        <span t-esc="o.currency_id.symbol"/>
+                                    </td>
+                                    
+                                    <td colspan="3" class="nominal">
+                                        <span t-esc="'{:,.0f}'.format(o.amount_total)"/>
+                                    </td>
+
+                                    <td colspan="3" class="no-border">
+
+                                    </td>
+
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="7">
+                                    </td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="7">
+                                    </td>
+                                </tr>
+                                
+                                <tr class="empty-line">
+                                    <td colspan="7">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">
+                                    </td>
+
+                                    <td style="text-align:center; text-decoration:underline;">
+                                        Rima Ganis
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

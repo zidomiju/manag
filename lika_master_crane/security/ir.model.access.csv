@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crane_model_user,crane.model.user,model_crane_model,base.group_user,1,1,1,1
+access_crane_make_user,crane.make.user,model_crane_make,base.group_user,1,1,1,1
+access_crane_type_user,crane.type.user,model_crane_type,base.group_user,1,1,1,1
+access_crane_document_user,crane.document.user,model_crane_document,base.group_user,1,1,1,1

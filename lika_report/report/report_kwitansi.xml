@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_kwitansi">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="header">
+                        <div class="oe_structure" id="header_oe_structure" />
+                        <div class="row">
+                            <t t-call="lika_report.report_header_column_address"/>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-4">
+                                <span style="font-weight: bold;">Kwitansi</span>
+                                <br/>
+                                <span style="font-style: italic; font-size: 14px;">Receipt</span>
+                            </div>
+                            <div class="col"/>
+                            <div class="col-4" style="border: 2px solid black; padding: 5px; text-align: center;">
+                                <span t-field="o.kwitansi_number" style="font-weight: bold;" />
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-4">
+                                <span style="font-weight: bold;">Diterima dari</span><br/>
+                                <span style="font-style: italic; font-size: 14px;">Received from</span>
+                            </div>
+                            <div class="col">
+                                : <t t-if="o.partner_id.parent_id">
+                                    <span t-field="o.partner_id.parent_id.name" />
+                                </t>
+                                <t t-else="">
+                                    <span t-field="o.partner_id.name" />
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-4">
+                                <span style="font-weight: bold;">Terbilang</span><br/>
+                                <span style="font-style: italic; font-size: 14px;">Say</span>
+                            </div>
+                            <div class="col">
+                                : <span t-esc="o.currency_id.with_context(lang='id_ID').amount_to_text(o.amount_total)"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-4">
+                                <span style="font-weight: bold;">Untuk Pembayaran</span><br/>
+                                <span style="font-style: italic; font-size: 14px;">Payment for</span>
+                            </div>
+                            <div class="col">
+                                : <span t-field="o.kwitansi_note" /> <br/>
+                                <span style="font-size: 14px;">Ref: <span t-field="o.name"></span></span>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 80px;">
+                            <div class="col-4">
+                                <div style="border: 2px solid black;padding: 5px;align-items: center; display: flex; font-size: 20px;">
+                                    <div style="display: table-cell; width: 10%;">
+                                        <span style="font-weight: bold;"><span t-field="o.currency_id.symbol"></span></span>
+                                    </div>
+                                    <div style="display: table-cell; width: 90%; text-align: right;">
+                                        <span t-esc="o.amount_total" style="font-weight: bold;" t-options='{"widget": "float", "precision": 2}'/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col"/>
+                            <div class="col-4">
+                                <table style="border-collapse: collapse; width: 100%; text-align: center;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 100%; border:0px solid transparent; vertical-align: middle;">
+                                                Jakarta,                                                <span t-field="o.invoice_date" t-options='{"widget":    "date", "format": "dd MMMM yyyy"}'/><br/>
+                                                <span style="font-weight: bold;" t-field="o.company_id.name" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 150px; border:0px solid transparent; vertical-align: middle;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:0px solid transparent; vertical-align: middle; font-weight: bold;">
+                                                <t t-if="o.company_id.invoice_report_sign_id">
+                                                    <span t-field="o.company_id.invoice_report_sign_id.name" />
+                                                </t>
+                                                <t t-else="">
+                                                    <span>N/A</span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <p style="color: grey; text-align: right;">Print date: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y %H.%M')"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

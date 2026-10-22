@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_proforma">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <style>
+                        td {
+                            border:0px solid transparent;
+                            vertical-align: middle;
+                        }
+                        .border-bottom {
+                            border-bottom:1px solid black;
+                            vertical-align: middle;
+                        }
+                    </style>
+                    <div class="header">
+                        <div class="oe_structure" id="header_oe_structure" />
+                        <div class="row">
+                            <t t-call="lika_report.report_header_column_address"/>
+                            <div class="col">
+                                <div class="row" style="font-weight: bold;">
+                                    <div class="col-4">
+                                        No. Proforma Invoice
+                                    </div>
+                                    <div class="col" style="border: 2px solid black; padding: 5px; text-align: center;">
+                                        <span t-field="o.no_proforma_invoice"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4"/>
+                                    <div class="col" style="text-align: center; font-weight: bold; font-size: 24px;">
+                                        PROFORMA INVOICE
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page" style="font-size: 14px;">
+                        <div class="row">
+                            <div class="col-7">
+                                <p style="font-weight: bold; font-size: 20px;">CUSTOMER :</p>
+                                <table style="border-collapse: collapse; width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>:</td>
+                                            <td class="border-bottom" colspan="4">
+                                                <span t-field="o.partner_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>: </td>
+                                            <td class="border-bottom" colspan="4"><span t-field="o.partner_id.street"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>&#160;</td>
+                                            <td>:</td>
+                                            <td class="border-bottom" colspan="4"><span t-field="o.partner_id.street2"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 15%;">City</td>
+                                            <td style="width: 5%;">:</td>
+                                            <td class="border-bottom" style="width: 30%;">
+                                            <span t-field="o.partner_id.city"/></td>
+                                            <td style="width: 15%;">Post Code</td>
+                                            <td style="width: 5%;">:</td>
+                                            <td class="border-bottom" style="width: 30%;"><span t-field="o.partner_id.zip"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                <span t-field="o.partner_id.phone"/>
+                                            </td>
+                                            <td>Fax</td>
+                                            <td>:</td>
+                                            <td class="border-bottom"><span t-field="o.partner_id.fax"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col"/>
+                            <div class="col-4">
+                                <p style="font-weight: bold; font-size: 20px;">MISC:</p>
+                                <table style="border-collapse: collapse; width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 40%;">Date</td>
+                                            <td style="width: 5%;">:</td>
+                                            <td class="border-bottom" style="width: 55%;">
+                                                <span t-field="o.date_order" t-options='{"widget": "date", "format": "MMMM dd, yyyy"}'/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. PO/SO</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                <span t-field="o.po_customer_number"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. Contract</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">&#160;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Due Date</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                &#160;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Project</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">&#160;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div style="border-bottom: 2px solid black; margin-top: 20px;" >
+                            <div style="padding: 1px; border-top: 2px solid black; border-bottom: 2px solid black;"/>
+                            <div>
+                                <p style="font-weight: bold;">Please Kindly Pay for :</p>
+                            </div>
+                            <div style="padding: 25px 0; min-height: 350px;">
+                                <table style="border-collapse: collapse; width: 100%;">
+                                    <tbody>
+                                        <tr style="font-weight: bold; text-align: center; border-bottom: 1px solid black;">
+                                            <td style="width: 5%;">No.</td>
+                                            <td style="width: 40%;">Description</td>
+                                            <td style="width: 8%;">Qty</td>
+                                            <td style="width: 12%;">Unit</td>
+                                            <td style="width: 17%;">Unit Price</td>
+                                            <td style="width: 18%;">Total</td>
+                                        </tr>
+                                        
+                                        <!-- True if document contains at least one section line -->
+                                        <t t-set="has_section_lines" t-value="'line_section' in o.order_line.mapped('display_type')"/>
+                                        
+                                        <t t-set="section_index" t-value="65"/>
+                                        <t t-set="index" t-value="1"/>
+                                        <t t-foreach="o.order_line.sorted('sequence')" t-as="line">
+                                            <t t-if="line.display_type and line.display_type == 'line_section'">
+                                                <tr>
+                                                    <td style="text-align: center; font-weight: bold;">
+                                                        <t t-esc="chr(section_index)"/>
+                                                    </td>
+                                                    <td colspan="5" style="font-weight: bold; text-decoration: underline;">
+                                                        <span t-field="line.name"/>
+                                                    </td>
+                                                </tr>
+                                                <t t-set="section_index" t-value="section_index + 1"/>
+
+                                                <!-- Jika terdapat section, maka index ulang dari 1 -->
+                                                <t t-set="index" t-value="1"/>
+                                            </t>
+                                            <t t-else="">
+                                                <tr>
+                                                    <t t-if="has_section_lines">
+                                                        <td style="text-align: center;">
+                                                            &#160;
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="index"/>. <span t-field="line.product_id.name"/>
+                                                        </td>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <td style="text-align: center;">
+                                                            <t t-esc="index"/>.
+                                                        </td>
+                                                        <td>
+                                                            <span t-field="line.product_id.name"/>
+                                                        </td>
+                                                    </t>
+
+                                                    <td style="text-align: center;">
+                                                        <span t-field="line.product_uom_qty"/>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <span t-field="line.product_uom_id.name"/>
+                                                    </td>
+                                                    <td style="text-align: right;">
+                                                        <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                                    </td>
+                                                    <td style="text-align: right;">
+                                                        <span t-field="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                                    </td>
+                                                </tr>
+                                                <t t-set="index" t-value="index + 1"/>
+                                            </t>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <table style="border-collapse: collapse; width: 100%; font-weight: bold;">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 82%;">Total</td>
+                                        <td style="width: 18%; text-align: right; border-top: 1px solid black; border-bottom: 1px double black;">
+                                            <span t-field="o.currency_id.symbol"/>
+                                            <span t-esc="o.amount_untaxed" t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="font-weight: bold; font-style: italic; padding: 10px 0;">
+                                <span style="text-decoration: underline;">Terbilang :</span><br/>
+                                <t t-esc="o.currency_id.with_context(lang='id_ID').amount_to_text(o.amount_untaxed)"/>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <p style="font-weight: bold; font-size: 20px;">TRANSFER TO :</p>
+                            <div class="row">
+                                <div class="col-7">
+                                    <span>For IDR</span>
+                                    <table style="border-collapse: collapse; width: 100%;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 15%;">A/C No.</td>
+                                                <td style="width: 5%;">:</td>
+                                                <td style="width: 80%;">
+                                                    <span t-field="o.partner_bank_id.acc_number"/>
+                                                    &#160;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>A/C Name</td>
+                                                <td>:</td>
+                                                <td>
+                                                    <span t-field="o.partner_bank_id.partner_id.name"/>
+                                                    &#160;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bank</td>
+                                                <td>:</td>
+                                                <td>
+                                                    <span t-field="o.partner_bank_id.bank_id.name"/>
+                                                    &#160;
+                                                </td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td>Branch</td>
+                                                <td>:</td>
+                                                <td>
+                                                    <span t-field="o.partner_bank_id.bank_id.branch"/>
+                                                    &#160;
+                                                </td>
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                    <p style="font-style: italic; margin-top: 10px;">
+                                    <span style="font-weight: bold">NOTES:</span><br/>
+                                    * Please quote our invoice number when remitting your payment<br/>
+                                    ** The Total amount displayed does not include tax.
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <table style="border-collapse: collapse; width: 100%; text-align: center; font-weight: bold;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 100%;">
+                                                    <span t-field="o.company_id.name" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="height: 150px;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <t t-if="o.company_id.invoice_report_sign_id">
+                                                        <span t-field="o.company_id.invoice_report_sign_id.name" />
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span>N/A</span>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <p style="color: grey; text-align: right; font-size: 14px;">Print date: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y %H.%M')"/>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template> 
+
+</odoo>

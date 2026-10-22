@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Quick create form for crane.make -->
+    <record id="view_crane_make_form" model="ir.ui.view">
+        <field name="name">crane.make.form</field>
+        <field name="model">crane.make</field>
+        <field name="arch" type="xml">
+            <form string="Crane Make">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="Make" required="1" placeholder="e.g., Liebherr, Tadano, Demag"/>
+                            <field name="make_code" string="Make Code" placeholder="e.g., LIEB, TAD, DEM"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- List view for crane.make -->
+    <record id="view_crane_make_tree" model="ir.ui.view">
+        <field name="name">crane.make.list</field>
+        <field name="model">crane.make</field>
+        <field name="arch" type="xml">
+            <list string="Crane Makes">
+                <field name="name"/>
+                <field name="make_code"/>
+                <field name="crane_model_count" string="Models"/>
+            </list>
+        </field>
+    </record>
+    
+    <!-- Search view for crane.make -->
+    <record id="view_crane_make_search" model="ir.ui.view">
+        <field name="name">crane.make.search</field>
+        <field name="model">crane.make</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="make_code"/>
+            </search>
+        </field>
+    </record>
+    
+    <!-- Action for crane.make -->
+    <record id="action_crane_make" model="ir.actions.act_window">
+        <field name="name">Crane Makes</field>
+        <field name="res_model">crane.make</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

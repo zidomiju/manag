@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Quick create form for crane.type -->
+    <record id="view_crane_type_form" model="ir.ui.view">
+        <field name="name">crane.type.form</field>
+        <field name="model">crane.type</field>
+        <field name="arch" type="xml">
+            <form string="Crane Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="type" string="Type" required="1" placeholder="e.g., Knuckle Boom Crane"/>                        
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- List view for crane.type -->
+    <record id="view_crane_type_list" model="ir.ui.view">
+        <field name="name">crane.type.list</field>
+        <field name="model">crane.type</field>
+        <field name="arch" type="xml">
+            <list string="Crane Types">
+                <field name="type" />
+            </list>
+        </field>
+    </record>
+    
+    <!-- Search view for crane.type -->
+    <record id="view_crane_type_search" model="ir.ui.view">
+        <field name="name">crane.type.search</field>
+        <field name="model">crane.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="type"/>
+            </search>
+        </field>
+    </record>
+    
+    <!-- Action for crane.type -->
+    <record id="action_crane_type" model="ir.actions.act_window">
+        <field name="name">Crane Types</field>
+        <field name="res_model">crane.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

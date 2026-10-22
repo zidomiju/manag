@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_packing_list">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="company" t-value="o.company_id or user.company_id"/>
+                <t t-call="web.basic_layout">
+                    <style>
+                        td {
+                            border: 0px solid transparent;
+                            vertical-align: middle;
+                        }
+                        .border-bottom {
+                            border-bottom: 1px solid black;
+                            vertical-align: middle;
+                        }
+                    </style>
+                    <div class="page">
+                        <!-- Header Section Moved Inside Page -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <img t-if="company.logo" 
+                                     t-att-src="image_data_uri(company.logo)" 
+                                     style="max-height: 45px;" 
+                                     alt="Company Logo"/>
+                                <div class="company_address mt-2">
+                                    <strong t-field="company.partner_id.name"/>
+                                    <div t-field="company.partner_id" 
+                                         t-options='{"widget": "contact", "fields": ["address", "phone", "email"], "no_marker": true}'/>
+                                </div>
+                            </div>
+                            <div class="col-6 text-end">
+                                <h2 style="margin-top: 15px; color: #000000;">
+                                    <strong>PACKING LIST</strong>
+                                </h2>
+                            </div>
+                        </div>
+
+                        <!-- Customer & Order Details Section -->
+                        <div class="row mb-4">
+                            <!-- DELIVER/SHIP TO -->
+                            <div class="col-4">
+                                <strong>DELIVER / SHIP TO:</strong>
+                                <table style="border-collapse: collapse; width: 100%; font-size: 12px;">
+                                    <tbody>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>:</td>
+                                            <td class="border-bottom" colspan="4">
+                                                <span t-field="o.partner_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>:</td>
+                                            <td class="border-bottom" colspan="4">
+                                                <span t-field="o.partner_id.street"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&#160;</td>
+                                            <td>:</td>
+                                            <td class="border-bottom" colspan="4">
+                                                <span t-field="o.partner_id.street2"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 15%;">City</td>
+                                            <td style="width: 5%;">:</td>
+                                            <td class="border-bottom" style="width: 30%;">
+                                                <span t-field="o.partner_id.city"/>
+                                            </td>
+                                            <td style="width: 15%;">Post Code</td>
+                                            <td style="width: 5%;">:</td>
+                                            <td class="border-bottom" style="width: 30%;">
+                                                <span t-field="o.partner_id.zip"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                <span t-field="o.partner_id.phone"/>
+                                            </td>
+                                            <td>Fax</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                <span t-field="o.partner_id.fax"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- BILL TO -->
+                            <div class="col-4">
+                                <strong>BILL TO:</strong>
+                                <table style="border-collapse: collapse; width: 100%; font-size: 12px;">
+                                    <tbody>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>:</td>
+                                            <td class="border-bottom" colspan="4">
+                                                <span t-field="o.partner_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>:</td>
+                                            <td class="border-bottom" colspan="4">
+                                                <span t-field="o.partner_id.street"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&#160;</td>
+                                            <td>:</td>
+                                            <td class="border-bottom" colspan="4">
+                                                <span t-field="o.partner_id.street2"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 15%;">City</td>
+                                            <td style="width: 5%;">:</td>
+                                            <td class="border-bottom" style="width: 30%;">
+                                                <span t-field="o.partner_id.city"/>
+                                            </td>
+                                            <td style="width: 15%;">Post Code</td>
+                                            <td style="width: 5%;">:</td>
+                                            <td class="border-bottom" style="width: 30%;">
+                                                <span t-field="o.partner_id.zip"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                <span t-field="o.partner_id.phone"/>
+                                            </td>
+                                            <td>Fax</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                <span t-field="o.partner_id.fax"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- DETAILS -->
+                            <div class="col-4">
+                                <strong>DETAILS:</strong><br/>
+                                <table style="border-collapse: collapse; width: 100%; font-size: 12px;">
+                                    <tbody>
+                                        <tr>
+                                            <td>Delivery No.</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                <span t-field="o.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Delivery Date</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                <span t-field="o.scheduled_date" t-options='{"widget":"date", "format": "dd-MMM-yyyy"}'/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>SO No.</td>
+                                            <td>:</td>
+                                            <td class="border-bottom">
+                                                <span t-field="o.sale_id.name"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Product Table -->
+                        <div>
+                            <table class="table table-sm table-borderless" name="stock_move_table" style="font-size: 12px;">
+                                <thead style="border-bottom: 0px double #000000;">
+                                    <tr>
+                                        <th style="border-top: 3px double #000000;"><strong>No.</strong></th>
+                                        <th style="border-top: 3px double #000000;"><strong>Product</strong></th>
+                                        <th style="border-top: 3px double #000000;"><strong>Description</strong></th>
+                                        <th style="border-top: 3px double #000000;" class="text-end"><strong>Weight (<span t-out="o.env['product.template']._get_weight_uom_name_from_ir_config_parameter()"/>)</strong></th>
+                                        <th style="border-top: 3px double #000000;" class="text-end"><strong>Dimension</strong></th>
+                                        <th style="border-top: 3px double #000000;" class="text-end"><strong>Qty</strong></th>
+                                        <th style="border-top: 3px double #000000;" class="text-end"><strong>Unit</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="lines" t-value="o.move_ids.filtered(lambda x: x.state != 'cancel' and (x.product_uom_qty > 0 or x.quantity > 0))"/>
+                                    <tr t-foreach="lines" t-as="move">
+                                        <t t-set="move_qty" t-value="move.quantity if o.state == 'done' else move.product_uom_qty"/>
+                                        <t t-set="line_weight" t-value="(move.product_id.weight or 0.0) * move_qty"/>
+                                        <td><span t-esc="move_index + 1"/></td>
+                                        <td><span t-field="move.product_id"/></td>
+                                        <td><span t-out="move.description_picking or ''"/></td>
+                                        <!-- Displays line total weight (unit weight * quantity) -->
+                                        <td class="text-end"><span t-esc="'%.2f' % line_weight"/></td>
+                                        <!-- Displays move line dimension -->
+                                        <td class="text-end">
+                                            <span t-field="move.dimension"/>
+                                        </td>
+                                        <td class="text-end">
+                                            <span t-esc="'%.2f' % move_qty"/>
+                                        </td>
+                                        <td class="text-end"><span t-field="move.product_uom"/></td>
+                                    </tr>
+                                    <tr style="text-align: right;">
+                                        <td style="border-bottom: 3px double #000000;"></td>
+                                        <td style="text-align: left; border-bottom: 3px double #000000;">
+                                            <b>Qty. total</b>
+                                        </td>
+                                        <td style="border-bottom: 3px double #000000;"></td>
+                                        <td style="border-bottom: 3px double #000000;">
+                                            <span style="font-weight: bold;" t-esc="'%.2f' % sum((m.product_id.weight or 0.0) * (m.quantity if o.state == 'done' else m.product_uom_qty) for m in lines)"/>
+                                        </td>
+                                        <td style="border-bottom: 3px double #000000;"></td>
+                                        <td style="border-bottom: 3px double #000000;">
+                                            <span style="font-weight: bold;" t-esc="'%.2f' % sum(m.quantity if o.state == 'done' else m.product_uom_qty for m in lines)"/>
+                                        </td>
+                                        <td style="border-bottom: 3px double #000000;"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

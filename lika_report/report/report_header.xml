@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_header_column_address">
+        <div class="col-6">
+            <div style="width: 25%; float: left;">
+                <img t-if="env.company.logo" t-att-src="image_data_uri(env.company.logo)" style="width: 100px;" alt="Logo" />
+            </div>
+            <div style="width: 75%; float: right;">
+                <h5 t-field="env.company.name" style="font-weight: bold;"/>
+                <span t-field="env.company.partner_id" t-options='{"widget": "contact", "fields": ["address","website"], "no_marker": True}' style="font-size: 14px;" />
+            </div>
+        </div>
+    </template>
+
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale.action_report_saleorder" model="ir.actions.report">
+        <field name="report_name">lika_report.report_quotation</field>
+        <field name="report_file">lika_report.report_quotation</field>
+        <field name="print_report_name">'Quotation - %s' % object.name if object.is_verification_order else ('Sale Order - %s' % object.name if object.state == 'sale' else 'Quotation - %s' % object.name)</field>
+    </record>
+
+    <record id="sale_pdf_quote_builder.action_report_saleorder_raw" model="ir.actions.report">
+        <field name="report_name">lika_report.report_quotation</field>
+        <field name="report_file">lika_report.report_quotation</field>
+        <field name="print_report_name">'Quotation - %s' % object.name if object.is_verification_order else ('Sale Order - %s' % object.name if object.state == 'sale' else 'Quotation - %s' % object.name)</field>
+    </record>
+
+    <record id="action_report_kwitansi" model="ir.actions.report">
+        <field name="name">Kwitansi</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">lika_report.report_kwitansi</field>
+        <field name="report_file">lika_report.report_kwitansi</field>
+        <field name="print_report_name">'Kwitansi - %s' % object.name</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_report_delivery_order" model="ir.actions.report">
+        <field name="name">Delivery Order</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">lika_report.report_delivery_order</field>
+        <field name="report_file">lika_report.report_delivery_order</field>
+        <field name="print_report_name">'Delivery Order - %s' % object.name</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="lika_report.report_delivery_order_paperformat"/>
+    </record>
+
+    <record id="action_report_packing_list" model="ir.actions.report">
+        <field name="name">Packing List</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">lika_report.report_packing_list</field>
+        <field name="report_file">lika_report.report_packing_list</field>
+        <field name="print_report_name">'Packing List - %s' % object.name</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_report_invoice" model="ir.actions.report">
+        <field name="name">Invoice</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">lika_report.report_invoice</field>
+        <field name="report_file">lika_report.report_invoice</field>
+        <field name="print_report_name">'Invoice - %s' % object.name</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="sale.action_report_pro_forma_invoice" model="ir.actions.report">
+        <field name="report_name">lika_report.report_proforma</field>
+        <field name="report_file">lika_report.report_proforma</field>
+    </record>
+
+
+</odoo>
