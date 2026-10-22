@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="spec_10_1" model="suitability.crane.report">
+            <field name="sequence">10.1</field>
+            <field name="item_detail">CRANE CHECK</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">10</field>
+        </record>
+
+        <record id="spec_10_1_1" model="suitability.crane.report">
+            <field name="sequence">10.1.1</field>
+            <field name="item_detail">CRANE IS FITTED WITH INDEPENDENT METHOD OF BASKET RETRIEVAL (I E MANUAL LOAD LOWERING ETC)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">11</field>
+        </record>
+
+        <record id="spec_10_1_2" model="suitability.crane.report">
+            <field name="sequence">10.1.2</field>
+            <field name="item_detail">
+                CRANE CLEARLY MARKED 'SUITABLE FOR MANRIDING' IN THE OPERATORS CABIN</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">12</field>
+        </record>
+
+        <record id="spec_10_1_3" model="suitability.crane.report">
+            <field name="sequence">10.1.3</field>
+            <field name="item_detail">ALL HOIST BRAKES OPERATING CORRECTLY</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">13</field>
+        </record>
+
+        <record id="spec_10_1_4" model="suitability.crane.report">
+            <field name="sequence">10.1.4</field>
+            <field name="item_detail">ALL HOIST BRAKES APPLIED WHEN CONTROLS RELEASED TO NEUTRAL</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">14</field>
+        </record>
+
+        <record id="spec_10_1_5" model="suitability.crane.report">
+            <field name="sequence">10.1.5</field>
+            <field name="item_detail">HYDRAULIC SYSTEM OPERATING CORRECTLY AND BRAKING EFFECT OF HYDRAULICS CLEARLY OPERATING EFFECTIVELY</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">15</field>
+        </record>
+
+        <record id="spec_10_1_6" model="suitability.crane.report">
+            <field name="sequence">10.1.6</field>
+            <field name="item_detail">TEST OPERATION OF EMERGENCY LOWERING / RETRIEVAL SYSTEMS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">16</field>
+        </record>
+
+        <record id="spec_10_1_7" model="suitability.crane.report">
+            <field name="sequence">10.1.7</field>
+            <field name="item_detail">TEST OPERATION OF EMERGENCY LOWERING / RETRIEVAL SYSTEMS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">17</field>
+        </record>
+
+        <record id="spec_10_1_8" model="suitability.crane.report">
+            <field name="sequence">10.1.8</field>
+            <field name="item_detail">EMERGENCY LOAD RELEASE CLEARLY MARKED AND GUARDED TO PREVENT ACCIDENTAL OPERATION DURING MANRIDING DUTIES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">18</field>
+        </record>
+
+        <record id="spec_10_1_9" model="suitability.crane.report">
+            <field name="sequence">10.1.9</field>
+            <field name="item_detail">ALL HOIST LIMITS OPERATIONAL PRIOR TO ANY MANRIDING</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">19</field>
+        </record>
+
+        <record id="spec_10_1_10" model="suitability.crane.report">
+            <field name="sequence">10.1.10</field>
+            <field name="item_detail">SAFE LOAD INDICATOR CLEARLY VISIBLE, OPERATIONAL AND CALIBRATED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">20</field>
+        </record>
+
+        <record id="spec_10_1_11" model="suitability.crane.report">
+            <field name="sequence">10.1.11</field>
+            <field name="item_detail">REVISED LOAD CHARTS FOR MANRIDING (PERCENTAGE OF NORMAL RATED CAPACITIES) CLEARLY VISIBLE TO OPERATOR</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">21</field>
+        </record>
+
+        <record id="spec_10_2" model="suitability.crane.report">
+            <field name="sequence">10.2</field>
+            <field name="item_detail">PROCEDURAL CHECK</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">22</field>
+        </record>
+
+        <record id="spec_10_2_1" model="suitability.crane.report">
+            <field name="sequence">10.2.1</field>
+            <field name="item_detail">MANRIDING PROCEDURES IN PLACE, INCORPORATING LIFTING PLAN, PROCEDURE AND RISK ASSESSMENT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">23</field>
+        </record>
+
+        <record id="spec_10_2_2" model="suitability.crane.report">
+            <field name="sequence">10.2.2</field>
+            <field name="item_detail">RIG/PLATFORM WRITTEN INSTRUCTIONS TO INCLUDE ALL MANRIDING PROCEDURES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">24</field>
+        </record>
+
+        <record id="spec_10_2_3" model="suitability.crane.report">
+            <field name="sequence">10.2.3</field>
+            <field name="item_detail">DURING CRANE MANRIDING CONTACT BY WAY OF RADIO TO BE MAINTAINED BETWEEN THOSE WHICH ARE BEING LIFTED AND THE CRANE OPERATOR</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">25</field>
+        </record>
+
+        <record id="spec_10_2_4" model="suitability.crane.report">
+            <field name="sequence">10.2.4</field>
+            <field name="item_detail">IN THE EVENT OF ANY CRANE PROBLEMS/FAILURE AN EMERGENCY PROCEDURE MUST BE IN PLACE TO ENABLE RETRIEVAL OF THE PERSONNEL BASKET</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">26</field>
+        </record>
+
+        <record id="spec_10_2_5" model="suitability.crane.report">
+            <field name="sequence">10.2.5</field>
+            <field name="item_detail">RESCUE AND RECOVERY PROCEDURES IN PLACE SHOULD RETRIEVAL FROM THE SEA BE REQUIRED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">27</field>
+        </record>
+
+        <record id="spec_10_2_6" model="suitability.crane.report">
+            <field name="sequence">10.2.6</field>
+            <field name="item_detail">CRANE OPERATOR, BANKSMAN AND SUPERVISOR TRAINED TO PERFORM MANRIDING DUTIES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">28</field>
+        </record>
+
+        <record id="spec_10_3" model="suitability.crane.report">
+            <field name="sequence">10.3</field>
+            <field name="item_detail">PERSONNEL CARRIER CHECK</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">29</field>
+        </record>
+
+        <record id="spec_10_3_1" model="suitability.crane.report">
+            <field name="sequence">10.3.1</field>
+            <field name="item_detail">PERSONNEL CARRIER/WORK BASKET OF APPROVED DESIGN AND IN COMPLIANCE OF ALL STANDARDS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">30</field>
+        </record>
+
+        <record id="spec_10_3_2" model="suitability.crane.report">
+            <field name="sequence">10.3.2</field>
+            <field name="item_detail">RECORD NAME AND SERIAL NUMBER OF PERSONNEL CARRIER/WORK BASKET</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">31</field>
+        </record>
+
+        <record id="spec_10_3_3" model="suitability.crane.report">
+            <field name="sequence">10.3.3</field>
+            <field name="item_detail">RECORD DATE OF NEXT REQUIRED INSPECTION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">32</field>
+        </record>
+
+        <record id="spec_10_3_4" model="suitability.crane.report">
+            <field name="sequence">10.3.4</field>
+            <field name="item_detail">PERSONNEL CARRIER/WORK BASKET FITTED WITH A SECONDARY BACK UP SLING</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">33</field>
+        </record>
+
+        <record id="spec_10_3_5" model="suitability.crane.report">
+            <field name="sequence">10.3.5</field>
+            <field name="item_detail">ALL PASSENGERS PROVIDED WITH APPROPRIATE PPE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">34</field>
+        </record>
+
+        <record id="spec_10_3_6" model="suitability.crane.report">
+            <field name="sequence">10.3.6</field>
+            <field name="item_detail">ALL PERSONNEL CARRIERS/WORK BASKETS TO BE CLEARLY MARKED 'SUITABLE FOR THE TRANSFER OF PERSONNEL'</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">35</field>
+        </record>
+
+        <record id="spec_10_3_7" model="suitability.crane.report">
+            <field name="sequence">10.3.7</field>
+            <field name="item_detail">TEST CERTIFICATES CURRENT AND READILY AVAILABLE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">36</field>
+        </record>
+    </data>
+</odoo>

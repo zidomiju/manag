@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="delivery_point_menuitem"
+        name="Delivery Points"
+        sequence="100"
+        parent="sale.menu_sale_config"
+        action="lika_sale.delivery_point_action"/>
+
+</odoo>

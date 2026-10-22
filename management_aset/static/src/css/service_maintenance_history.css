@@ -1,0 +1,24 @@
+.service_maintenance th,
+.service_maintenance td{
+    text-align:center !important;
+}
+
+.service_maintenance th[data-name="date"]{
+    width:20% !important;
+}
+
+.service_maintenance th[data-name="service_type_id"]{
+    width:20% !important;
+}
+
+.service_maintenance th[data-name="service_provider"]{
+    width:20% !important;
+}
+
+.service_maintenance th[data-name="next_inspection"]{
+    width:20% !important;
+}
+
+.service_maintenance th[data-name="notes"]{
+    width:20% !important;
+}

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="platform_vessel_list_view" model="ir.ui.view">
+        <field name="name">platform.vessel.list.view</field>
+        <field name="model">platform.vessel</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="type_asset"/>
+                <field name="name"/>
+                <field name="previous_name"/>
+                <field name="latest_effective_date"/>
+                <field name="imo_llods"/>
+                <field name="class_id"/>
+                <field name="ship_yard"/>
+                <field name="year_built"/>
+                <field name="type_id"/>
+                <field name="notes"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="platform_vessel_kanban_view" model="ir.ui.view">
+        <field name="name">platform.vessel.kanban.view</field>
+        <field name="model">platform.vessel</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="imo_llods"/>
+                <field name="image_asset"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_record p-2">
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="flex-grow-1">
+                                    <div class="fw-bold fs" style="font-size:16px;">
+                                        <field name="name"/>
+                                    </div>
+                                    <div class="text_muted">
+                                        <field name="type_asset"/>
+                                    </div>
+
+                                    <div class="d-flex align-items-center mt-2 gap-2">
+                                        <field name="current_owner_id" widget="many2one_avatar_user"/>
+                                        <field name="current_owner_id"/>
+                                    </div>
+                                    
+                                    <div>
+                                        <field name="country_id"/>
+                                    </div>
+                                </div>
+
+                                <div class="ms-3">
+                                    <field name="image_asset" widget="image" options="{'size': [60, 60]}"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="platform_vessel_form_view" model="ir.ui.view">
+        <field name="name">platform.vessel.form.view</field>
+        <field name="model">platform.vessel</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <label for="name"/>
+                            <h1 style="width:130%;">
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <div class="o_kanban_image">
+                            <field name="image_asset" widget="image" class="oe_field_widget oe_field_image oe_avatar"/>
+                        </div>
+                    </div>
+
+                    
+                    <div class="d-flex align-items-center mb-2">
+                        <label for="type_asset" class="fw-bold mb-2 me-4" style="white-space:nowrap;"/>
+                        <field name="type_asset" widget="radio" options="{'horizontal':true}"/>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-2">
+                        <label for="status_asset" class="fw-bold mb-2 me-4" style="white-space:nowrap;"/>`
+                        <field name="status_asset" widget="radio" options="{'horizontal':true}"/>
+                    </div>
+                    <notebook>
+                        <page string="General Information">
+                            <group>
+                                <field name="imo_llods"/>
+                                <field name="ship_yard"/>
+                                <field name="year_built"/>
+                                <field name="hull_number"/>
+                                <field name="type_id"/>
+                                <field name="country_id"/>
+                                <field name="credit_status"/>
+                                <field name="credit_limit"/>
+                                <field name="notes"/>
+                            </group>
+                            
+                            <group string="VESSEL / PLATFORM NAME HISTORY">
+                            </group>
+                            <field name="name_history_ids" nolabel="1" class="vessel-history" readonly="1">
+                                <list 
+                                    create="0"
+                                    edit="0"
+                                    delete="0">
+                                    <field name="new_name"/>
+                                    <field name="effective_date"/>
+                                </list>
+                            </field>
+                            
+                            <group string="Owner / Customer History">
+                            </group>
+
+                            <field name="owner_history_ids" class="owner-history-list">
+                                <list editable="bottom" create="1" edit="1" delete="1">
+                                    <field name="owner_id"/>
+                                    <field name="association"/>
+                                    <field name="effective_date"/>
+                                </list>
+                            </field>
+
+                            <group string="CRANE REGISTRATION HISTORY">
+                            </group>
+                            
+                            <field name="crane_regist_ids" readonly="1" class="crane-regist-list">
+                                <list
+                                    create="0"
+                                    delete="0"
+                                    edit="0">
+                                    <field name="make" string="Crane Manufacture"/>
+                                    <field name="serial_number"/>
+                                    <field name="model_id" options="{'no_open':True}"/>
+                                    <field name="year_built"/>
+                                </list>
+                            </field>
+
+                            <group string="QUOTATION AND ORDER HISTORY">
+                            </group>
+                            <field name="quatation_sales_ids" readonly="1" class="sales-asset-list">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="date_order"/>
+                                    <field name="partner_id"/>
+                                    <field name="amount_total"/>
+                                    <field name="state"
+                                           widget="badge"
+                                           decoration-info="state in ('draft','sent')"
+                                           decoration-success="state=='sale'"
+                                           decoration-danger="state=='cancel'"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Documents">
+                            <group string="SERVICE REPORT">
+                            </group>
+
+                            <field name="service_report_ids">
+                                <list
+                                    editable="bottom"
+                                    create="1"
+                                    delete="1"
+                                    edit="1">
+                                    <field name="file_pdf" widget="binary"/>
+                                    <field name="name"/>
+                                    <field name="file_date"/>
+                                    <button
+                                        name="action_view_file"
+                                        type="object"
+                                        string="View"
+                                        icon="fa-eye"
+                                    />
+                                </list>
+                            </field>
+
+                            <group string="MANUALS">
+                            </group>
+                            <field name="manual_report_ids">
+                                    <list
+                                        editable="bottom"
+                                        create="1"
+                                        delete="1"
+                                        edit="1">
+                                        <field name="file_pdf" widget="binary"/>
+                                        <field name="name"/>
+                                        <field name="file_date"/>
+                                        <button
+                                            name="action_view_file"
+                                            type="object"
+                                            string="View"
+                                            icon="fa-eye"
+                                        />
+                                    </list>
+                            </field>
+                            <group string="DRAWINGS">
+                            </group>
+                            <field name="drawing_report_ids">
+                                <list
+                                    editable="bottom"
+                                    create="1"
+                                    delete="1"
+                                    edit="1">
+                                    <field name="file_pdf" widget="binary"/>
+                                    <field name="name"/>
+                                    <field name="file_date"/>
+                                    <button
+                                        name="action_view_file"
+                                        type="object"
+                                        string="View"
+                                        icon="fa-eye"
+                                    />
+                                </list>
+                            </field>
+
+                            <group string="CORRESPONDENCE">
+                            </group>
+                            <field name="correspondence_report_ids">
+                                <list
+                                    editable="bottom"
+                                    create="1"
+                                    edit="1"
+                                    delete="1">
+                                    <field name="file_pdf" widget="binary"/>
+                                    <field name="name"/>
+                                    <field name="file_date"/>
+                                    <button
+                                        name="action_view_file"
+                                        type="object"
+                                        string="View"
+                                        icon="fa-eye"
+                                    />
+                                </list>
+                            </field>
+
+                            <group string="IMAGES">
+                            </group>
+
+                            <field name="image_report_ids">
+                                <list
+                                    editable="bottom"
+                                    create="1"
+                                    edit="1"
+                                    delete="1">
+                                    <field name="img_file" widget="binary"/>
+                                    <field name="name"/>
+                                    <field name="file_date"/>
+                                    <button
+                                        action="action_view_file"
+                                        type="object"
+                                        string="View"
+                                        icon="fa-eye"
+                                    />
+                                </list>
+                            </field>
+                        </page>
+
+                        
+                    </notebook>
+
+                </sheet>
+                <chatter>
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                </chatter>
+            </form>
+        </field>
+    </record>
+</odoo>

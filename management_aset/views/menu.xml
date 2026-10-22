@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_platform_vessel" model="ir.actions.act_window">
+        <field name="name">Vessel / Platform</field>
+        <field name="res_model">platform.vessel</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define the Vessel / Platform
+            </p>
+        </field>
+    </record>
+
+    <record id="action_crane_registration" model="ir.actions.act_window">
+        <field name="name">Crane Registration</field>
+        <field name="res_model">crane.registration</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define the Crane 
+            </p>
+        </field>
+    </record>
+
+    <record id="action_unit_conditional_report" model="ir.actions.act_window">
+        <field name="name">Unit Conditional Report</field>
+        <field name="res_model">unit.condition.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define The Report
+            </p>
+        </field>
+    </record>
+
+    <record id="action_service_transaction_history" model="ir.actions.act_window">
+        <field name="name">Service and Transaction History Per Asset</field>
+        <field name="res_model">service.transaction.history</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Crane Registration to access this menu
+            </p>
+        </field>
+    </record>
+    
+    <record id="action_registered_country" model="ir.actions.act_window">
+        <field name="name">Registered Country</field>
+        <field name="res_model">registered.country</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="action_class_vessel_platform" model="ir.actions.act_window">
+        <field name="name">Class Vessel / Platform </field>
+        <field name="res_model">class.vessel.platform</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="action_type_vessel_platform" model="ir.actions.act_window">
+        <field name="name">Type Vessel / Platform </field>
+        <field name="res_model">type.vessel.platform</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <menuitem
+        id="menu_management_asset"
+        name="Management Asset"
+        sequence="1"
+    />
+    
+    <menuitem
+        id="menu_platform_vessel_app"
+        name="Platform / Vessel"
+        parent="menu_management_asset"
+        action="action_platform_vessel"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_crane_registration_app"
+        name="Crane Registration"
+        parent="menu_management_asset"
+        action="action_crane_registration"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_unit_conditional_report_app"
+        name="Unit Condition Report"
+        parent="menu_management_asset"
+        action="action_unit_conditional_report"
+        sequence="30"
+    />
+
+    <menuitem
+        id="service_transaction_history_app"
+        name="Service &amp; Transaction History"
+        parent="menu_management_asset"
+        action="action_service_transaction_history"
+        sequence="40"
+    />
+    <menuitem
+        id="menu_management_asset_configuration_app"
+        name="Configuration"
+        parent="menu_management_asset"
+        sequence="70"
+    />
+
+    <menuitem
+        id="menu_platform_vessel_title"
+        name="Vessel / Platform "
+        parent="menu_management_asset_configuration_app"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_crane_registration_title"
+        name="Crane Registration"
+        parent="menu_management_asset_configuration_app"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_registered_country_config_sub_app"
+        name="Registered Country"
+        parent="menu_platform_vessel_title"
+        action="action_registered_country"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_class_vessel_platform_config_sub_app"
+        name="Class"
+        parent="menu_platform_vessel_title"
+        action="action_class_vessel_platform"
+        sequence="20"
+    />
+
+    <!-- Menu Item (Appears under Management Aset -> Configuration ) -->
+    <menuitem id="menu_crane_make_config"
+              name="Crane Make"
+              parent="management_aset.menu_crane_registration_title"
+              action="lika_master_crane.action_crane_make"
+              sequence="10"/>
+
+    <!-- Menu Item (Appears under Management Aset -> Configuration ) -->
+    <menuitem id="menu_crane_model_config"
+              name="Crane Models"
+              parent="management_aset.menu_crane_registration_title"
+              action="lika_master_crane.action_crane_model"
+              sequence="20"/>
+
+    <menuitem
+        id="menu_type_vessel_platform_config_sub_app"
+        name="Type"
+        parent="menu_platform_vessel_title"
+        action="action_type_vessel_platform"
+        sequence="30"
+    />
+
+
+</odoo>

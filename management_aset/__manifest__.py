@@ -1,0 +1,52 @@
+{
+    'name':'Asset Mgmt',
+    'version':'1.0',
+    'category':'General',
+    'depends':['base','mail','contacts','sale','lika_master_crane'],
+    'description':"""
+    This Module for PT Buana Lintas Khatulistiwa
+    """,
+    'data':[
+        'data/wire_rope_specification_data.xml',
+        'data/specification_data.xml',
+        'data/general_visual_data.xml',
+        'data/inspection_control_data.xml',
+        'data/structure_primary_data.xml',
+        'data/wire_hook_data.xml',
+        'data/hoist_slew_data.xml',
+        'data/prime_mover_data.xml',
+        'data/hydraulic_pneumatic_data.xml',
+        'data/electrical_system_data.xml',
+        'data/suitability_crane_data.xml',
+        'security/ir.model.access.csv',
+        'views/registered_country.xml',
+        'views/class_vessel_platform.xml',
+        'views/type_vessel_platform.xml',
+        'views/platform_vessel.xml',
+        'views/crane_registration.xml',
+        'views/unit_condition_report.xml',
+        'views/service_transaction_history.xml',
+        'views/service_maintenance_history.xml',
+        'views/sale_order_views.xml',
+        'report/report_paperformat.xml',
+        'report/unit_condition_report.xml',
+        'report/unit_condition_report_action.xml',
+        'views/menu.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'management_aset/static/src/css/checklist.css',
+            'management_aset/static/src/css/specification_style.css',
+            'management_aset/static/src/css/owner_history_style.css',
+            'management_aset/static/src/css/vessel_history.css',
+            'management_aset/static/src/css/crane_regist_platform_vessel.css',
+            'management_aset/static/src/css/list_sales_platform.css',
+            'management_aset/static/src/css/service_maintenance_history.css',
+            'management_aset/static/src/css/inspection_history.css',
+        ],
+    },
+    'installable':True,
+    'author':'Mr X',
+    'license': 'LGPL-3'
+
+}

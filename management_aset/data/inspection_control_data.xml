@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <data noupdate="1">
+
+       <record id="spec_3_1" model="instrumentation.control.report">
+            <field name="sequence">3.1</field>
+            <field name="item_detail">OPERATOR CONTROLS AND INSTRUMENTS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">10</field>
+        </record>
+
+        <record id="spec_3_1_1" model="instrumentation.control.report">
+            <field name="sequence">3.1.1</field>
+            <field name="item_detail">VERIFY THAT ALL CONTROLS AND INSTRUMENTS ARE CORRECTLY IDENTIFIED WITH PERMANENT LABELS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">11</field>
+        </record>
+
+        <record id="spec_3_1_2" model="instrumentation.control.report">
+            <field name="sequence">3.1.2</field>
+            <field name="item_detail">FUNCTION CHECK ALL OPERATOR CONSOLES AND VERIFY CORRECT OPERATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">12</field>
+        </record>
+
+        <record id="spec_3_1_3" model="instrumentation.control.report">
+            <field name="sequence">3.1.3</field>
+            <field name="item_detail">CHECK ALL INSTRUMENTATION FOR CORRECT INDICATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">13</field>
+        </record>
+
+        <record id="spec_3_2" model="instrumentation.control.report">
+            <field name="sequence">3.2</field>
+            <field name="item_detail">SAFETY DEVICES</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">14</field>
+        </record>
+
+        <record id="spec_3_2_1" model="instrumentation.control.report">
+            <field name="sequence">3.2.1</field>
+            <field name="item_detail">RECORD THE RATED CAPACITY INDICATOR MAKE, MODEL AND SERIAL NUMBER</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">15</field>
+        </record>
+
+        <record id="spec_3_2_2" model="instrumentation.control.report">
+            <field name="sequence">3.2.2</field>
+            <field name="item_detail">TEST THE FUNCTIONS AND OPERATION OF THE RATED CAPACITY INDICATOR</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">16</field>
+        </record>
+
+        <record id="spec_3_2_3" model="instrumentation.control.report">
+            <field name="sequence">3.2.3</field>
+            <field name="item_detail">TEST THE READOUT OF THE RATED CAPACITY INDICATOR USING A CALIBRATED LOAD LINK OR &apos;KNOWN&apos; WEIGHT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">17</field>
+        </record>
+
+        
+        <record id="spec_3_2_4" model="instrumentation.control.report">
+            <field name="sequence">3.2.4</field>
+            <field name="item_detail">CHECK THE BOOM ANGLE INDICATOR OVER THE FULL RANGE OF BOOM MOVEMENT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">18</field>
+        </record>
+
+        <record id="spec_3_2_5" model="instrumentation.control.report">
+            <field name="sequence">3.2.5</field>
+            <field name="item_detail">VERIFY THE AUDIBLE AND VISUAL RATED CAPACITY INDICATOR ALARM SETPOINTS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">19</field>
+        </record>
+
+        <record id="spec_3_2_6" model="instrumentation.control.report">
+            <field name="sequence">3.2.6</field>
+            <field name="item_detail">CHECK THE MECHANICAL RADIUS INDICATOR OVER THE ENTIRE RANGE OF BOOM UP/ DOWN MOVEMENT (IF FITTED)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">20</field>
+        </record>
+
+        <record id="spec_3_2_7" model="instrumentation.control.report">
+            <field name="sequence">3.2.7</field>
+            <field name="item_detail">RECORD THE CRANE CAMERA SYSTEM MAKE, MODEL AND SERIAL NUMBER</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">21</field>
+        </record>
+
+        <record id="spec_3_2_8" model="instrumentation.control.report">
+            <field name="sequence">3.2.8</field>
+            <field name="item_detail">TEST THE FUNCTIONS / OPERATIONS OF THE CRANE CAMERA SYSTEM</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">22</field>
+        </record>
+
+        <record id="spec_3_2_9" model="instrumentation.control.report">
+            <field name="sequence">3.2.9</field>
+            <field name="item_detail">VERIFY THE AUDIBLE WARNINGS FUNCTION ON ALARM CONDITIONS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">23</field>
+        </record>
+
+        <record id="spec_3_2_10" model="instrumentation.control.report">
+            <field name="sequence">3.2.10</field>
+            <field name="item_detail">TEST THE HYDRAULIC SYSTEM LOW CHARGE PRESSURE ALARM AND CUTOUT (IF APPLICABLE)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">24</field>
+        </record>
+
+        <record id="spec_3_2_11" model="instrumentation.control.report">
+            <field name="sequence">3.2.11</field>
+            <field name="item_detail">TEST THE HYDRAULIC SYSTEM LOW CONTROL PRESSURE ALARM  AND CUTOUT (IF APPLICABLE)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">25</field>
+        </record>
+
+        <record id="spec_3_2_12" model="instrumentation.control.report">
+            <field name="sequence">3.2.12</field>
+            <field name="item_detail">FUNCTION TEST THE EMERGENCY STOP. PLEASE CHECK PHYSICAL OPERATION ONCE ONLY</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">26</field>
+        </record>
+
+        <record id="spec_3_2_13" model="instrumentation.control.report">
+            <field name="sequence">3.2.13</field>
+            <field name="item_detail">FUNCTION TEST THE HORN</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">27</field>
+        </record>
+
+        <record id="spec_3_2_14" model="instrumentation.control.report">
+            <field name="sequence">3.2.14</field>
+            <field name="item_detail">FUNCTION TEST THE RIG SAVER (INTAKE AIR SHUT-OFF)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">28</field>
+        </record>
+
+        <record id="spec_3_2_15" model="instrumentation.control.report">
+            <field name="sequence">3.2.15</field>
+            <field name="item_detail">FUNCTION TEST THE LOW OIL PRESSURE ALARM</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">29</field>
+        </record>
+
+        <record id="spec_3_2_16" model="instrumentation.control.report">
+            <field name="sequence">3.2.16</field>
+            <field name="item_detail">FUNCTION TEST THE OVERSPEED TRIP</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">30</field>
+        </record>
+
+        <record id="spec_3_2_17" model="instrumentation.control.report">
+            <field name="sequence">3.2.17</field>
+            <field name="item_detail">VERIFY A FIRE EXTINGUISHER IS FITTED IN CRANE AND INSPECTION TAG IS UP-TO-DATE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">31</field>
+        </record>
+
+        <record id="spec_3_2_18" model="instrumentation.control.report">
+            <field name="sequence">3.2.18</field>
+            <field name="item_detail">CHECK BOOM UPPER AND LOWER LIMITS FOR CORRECT OPERATION AND CONDITION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">32</field>
+        </record>
+
+        <record id="spec_3_2_19" model="instrumentation.control.report">
+            <field name="sequence">3.2.19</field>
+            <field name="item_detail">CHECK MAIN HOIST UPPER AND LOWER HOIST LIMITS FOR OPERATION AND CONDITION.</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">33</field>
+        </record>
+
+        <record id="spec_3_2_20" model="instrumentation.control.report">
+            <field name="sequence">3.2.20</field>
+            <field name="item_detail">CHECK AUXILIARY HOIST UPPER AND LOWER HOIST LIMITS FOR OPERATION AND CONDITION.</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">34</field>
+        </record>
+
+        <record id="spec_3_3" model="instrumentation.control.report">
+            <field name="sequence">3.3</field>
+            <field name="item_detail">COMMUNICATION SYSTEMS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">35</field>
+        </record>
+
+        <record id="spec_3_3_1" model="instrumentation.control.report">
+            <field name="sequence">3.3.1</field>
+            <field name="item_detail">CHECK THE OPERATION OF THE VHF RADIO</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">36</field>
+        </record>
+
+        <record id="spec_3_3_2" model="instrumentation.control.report">
+            <field name="sequence">3.3.2</field>
+            <field name="item_detail">CHECK THE PA SYSTEM IS OPERATIONAL</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">37</field>
+        </record>
+
+        <record id="spec_3_3_3" model="instrumentation.control.report">
+            <field name="sequence">3.3.3</field>
+            <field name="item_detail">CHECK THE RIG TELEPHONE IS OPERATIONAL</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">38</field>
+        </record>
+    </data>
+
+    
+</odoo>

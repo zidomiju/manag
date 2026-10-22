@@ -1,0 +1,9 @@
+.sales-asset-list table{
+    width:100% !important;
+    table-layout:fixed !important;
+}
+
+.sales-asset-list th,
+.sales-asset-list td{
+    width:20% !important;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="service_maintenance_history_view_form" model="ir.ui.view">
+        <field name="name">service.maintenance.history.view.form</field>
+        <field name="model">service.maintenance.history</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="serial_number"/>
+                        <field name="model_id"/>
+                        <field name="date"/>
+                        <field name="service_type_id"/>
+                        <field name="service_provider"/>
+                        <field name="next_inspection"/>
+                        <field name="notes"/>
+                    </group>
+                    <notebook>
+                        <page string="Document Upload">
+                            <field name="document_ids">
+                                <list
+                                    editable="bottom"
+                                    create="1"
+                                    delete="1"
+                                    edit="1">
+                                    <field name="name"/>
+                                    <field name="file_upload"/>
+                                    <button
+                                        name="action_view_file"
+                                        type="object"
+                                        string="View"
+                                        icon="fa-eye"
+                                    />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet> 
+            </form>
+        </field>
+    </record>
+</odoo>

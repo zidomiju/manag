@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="specification_report_view_list" model="ir.ui.view">
+
+        <field name="name">
+            specification.report.view.list
+        </field>
+
+        <field name="model">
+            specification.report
+        </field>
+
+        <field name="arch" type="xml">
+
+            <list>
+
+                <field name="sequence"/>
+
+                <field name="item_detail"/>
+
+                <field name="is_section"/>
+
+                <field name="sort_order"/>
+
+                <field name="active"/>
+
+            </list>
+
+        </field>
+
+    </record>
+
+
+    <record id="specification_report_view_form" model="ir.ui.view">
+
+        <field name="name">
+            specification.report.view.form
+        </field>
+
+        <field name="model">
+            specification.report
+        </field>
+
+        <field name="arch" type="xml">
+
+            <form>
+
+                <sheet>
+
+                    <group>
+
+                        <field name="sequence"/>
+
+                        <field name="sort_order"/>
+
+                        <field name="item_detail"/>
+
+                        <field name="is_section"/>
+
+                        <field name="active"/>
+
+                    </group>
+
+                </sheet>
+
+            </form>
+
+        </field>
+
+    </record>
+
+
+    <record id="action_specification_report" model="ir.actions.act_window">
+
+        <field name="name">
+            Specification Master
+        </field>
+
+        <field name="res_model">
+            specification.report
+        </field>
+
+        <field name="view_mode">
+            list,form
+        </field>
+
+    </record>
+
+
+    <menuitem
+        id="menu_specification_report"
+        name="Specification Master"
+        action="action_specification_report"
+    />
+
+</odoo>

@@ -1,0 +1,3157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="report_unit_condition">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="o">
+
+                <style>
+
+                    /* =========================================================
+                       GENERAL
+                    ========================================================= */
+
+                    html,
+                    body {
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+
+                    .crane-report-cover,
+                    .crane-report-introduction {
+                        width: 100%;
+                        margin: 0 !important;
+                        box-sizing: border-box;
+                        font-family: Arial;
+                    }
+
+
+                    /* =========================================================
+                       PAGE 1 - COVER
+                    ========================================================= */
+
+                    .crane-report-cover {
+                        min-height: 100%;
+                        padding: 0 !important;
+
+                        font-size: 12px;
+                        color: #333333;
+
+                        /*
+                         * Hanya COVER yang membuat page break.
+                         * Setelah cover selesai, pindah ke halaman berikutnya.
+                         */
+                        page-break-after: always !important;
+                        page-break-inside: avoid !important;
+                    }
+
+
+                    /* =========================================================
+                       COVER HEADER
+                       Logo kiri + informasi perusahaan kanan
+                    ========================================================= */
+
+                    .cover-header {
+                        width: 100%;
+
+                        margin: 0 !important;
+                        padding: 0 !important;
+
+                        border: 0;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+
+                        table-layout: fixed;
+                    }
+
+                    .cover-header tr {
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+
+                    .cover-header td {
+                        margin: 0 !important;
+                        padding: 0 !important;
+
+                        border: 0;
+
+                        vertical-align: top;
+                    }
+
+
+                    /* =========================================================
+                       COVER LOGO
+                    ========================================================= */
+
+                    .cover-logo-cell {
+                        width: 45%;
+
+                        text-align: left;
+                        vertical-align: top;
+
+                        padding-left: 55px !important;
+                        padding-top: 25px !important;
+                    }
+
+                    .lika-logo-cover {
+                        width: 135px;
+                        height: auto;
+
+                        display: block;
+
+                        margin: 0 !important;
+                        padding: 0 !important;
+
+                        border: 0;
+                    }
+
+
+                    /* =========================================================
+                       COMPANY INFORMATION
+                    ========================================================= */
+
+                    .cover-company-cell {
+                        width: 55%;
+
+                        text-align: right;
+                        vertical-align: top;
+
+                        padding-right: 35px !important;
+                        padding-top: 35px !important;
+                    }
+
+                    .company-name {
+                        font-size: 14px;
+                        font-weight: bold;
+                        line-height: 16px;
+
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+
+                    .company-address {
+                        font-size: 11px;
+                        font-weight: normal;
+                        line-height: 14px;
+
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+
+                    .company-contact {
+                        font-size: 11px;
+                        font-weight: normal;
+                        line-height: 14px;
+
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+
+
+                    /* =========================================================
+                       COVER CONTENT
+                    ========================================================= */
+
+                    .cover-content {
+                        width: 100%;
+
+                        text-align: center;
+
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+
+
+                    /* =========================================================
+                       ASSET
+                    ========================================================= */
+
+                    .cover-asset {
+                        margin-top: 80px;
+
+                        font-size: 25px;
+                        font-weight: bold;
+                        line-height: 22px;
+                    }
+
+
+                    /* =========================================================
+                       TITLE
+                    ========================================================= */
+
+                    .cover-title {
+                        margin-top: 150px;
+
+                        font-size: 25px;
+                        font-weight: bold;
+                        line-height: 22px;
+                    }
+
+
+                    /* =========================================================
+                       CRANE
+                    ========================================================= */
+
+                    .cover-crane {
+                        margin-top: 200px;
+
+                        font-size: 25px;
+                        font-weight: bold;
+                        line-height: 22px;
+                    }
+
+
+                    /* =========================================================
+                       DOCUMENT
+                    ========================================================= */
+
+                    .cover-document {
+                        margin-top: 250px;
+
+                        font-size: 25px;
+                        font-weight: bold;
+                        line-height: 18px;
+                    }
+
+                    .document-number {
+                        margin-top: 10px;
+
+                        font-size: 18px;
+                        font-weight: normal;
+                        line-height: 18px;
+                    }
+
+
+                    /* =========================================================
+                       PAGE 2 - CRANE CONDITION EVALUATION
+                    ========================================================= */
+
+                    .crane-report-introduction {
+                        width: 100%;
+
+                        margin: 0 !important;
+                        padding: 0 15px !important;
+
+                        box-sizing: border-box;
+
+                        font-family: Arial;
+
+                        color: #222222;
+
+                        /*
+                         * JANGAN gunakan page-break-after: always
+                         * pada halaman kedua.
+                         */
+                        page-break-before: auto !important;
+                        page-break-after: auto !important;
+                        page-break-inside: avoid !important;
+                    }
+
+
+                    /* =========================================================
+                       INTRODUCTION HEADER
+                    ========================================================= */
+
+                    .introduction-header {
+                        width: 100%;
+
+                        border-collapse: collapse;
+                        border-spacing: 0;
+
+                        margin: 0 !important;
+                        padding: 0 !important;
+
+                        table-layout: fixed;
+                    }
+
+                    .introduction-header tr {
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+
+                    .introduction-header td {
+                        border: 0;
+
+                        padding: 0 !important;
+
+                        vertical-align: top;
+                    }
+
+
+                    /* =========================================================
+                       INTRODUCTION TITLE
+                    ========================================================= */
+
+                    .introduction-title {
+                        width: 80%;
+
+                        font-size: 24px;
+                        font-weight: normal;
+                        line-height: 24px;
+
+                        text-align: left;
+                        position:relative;
+                        top:55px;
+                        left:5px;
+                    }
+
+
+                    /* =========================================================
+                       INTRODUCTION LOGO
+                    ========================================================= */
+
+                    .introduction-logo {
+                        width: 20%;
+
+                        text-align: right;
+
+                        padding-top: 5px !important;
+                    }
+
+                    .introduction-logo-img {
+                        width: 140px;
+                        height: auto;
+
+                        display: inline-block;
+                        position:relative;
+                        right:7px;
+                    }
+
+
+                    /* =========================================================
+                       HEADER LINE
+                    ========================================================= */
+
+                    .introduction-line-top {
+                        width: 80%;
+
+                        border-top: 1px solid #e5b84b;
+
+                        position:relative;
+                        top:30px;
+                        height: 0;
+                    }
+
+                    .introduction-line-bottom {
+                        width: 80%;
+
+                        border-top: 1px solid #e5b84b;
+                        position:relative;
+                        bottom:33px;
+                        height: 0;
+                    }
+
+                   /* =========================================================
+                    INTRODUCTION CONTENT
+                    ========================================================= */
+
+                    .introduction-content {
+                        width: 100%;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        position:relative;
+                        top:40px;
+                        table-layout: fixed;
+                    }
+
+
+                    /* =========================================================
+                    TABLE CELL
+                    ========================================================= */
+
+                    .introduction-content td {
+                        vertical-align: top;
+                        border: 0;
+                        padding-top: 0 !important;
+                        padding-bottom: 0 !important;
+                    }
+
+
+                    /* =========================================================
+                    LEFT COLUMN
+                    ========================================================= */
+
+                    .introduction-left {
+                        width: 53%;
+
+                        /* posisi awal kolom kiri */
+                        padding-left: 0 !important;
+
+                        /* jarak menuju kolom kanan */
+                        padding-right: 35px !important;
+                    }
+
+
+                    /* =========================================================
+                    RIGHT COLUMN
+                    ========================================================= */
+
+                    .introduction-right {
+                        width: 47%;
+
+                        /* supaya kolom kanan lebih ke pinggir */
+                        padding-left: 0 !important;
+
+                        padding-right: 0 !important;
+                    }
+
+
+                    /* =========================================================
+                    CONTENT TEXT
+                    ========================================================= */
+
+                    .introduction-left div,
+                    .introduction-right div {
+                        font-size: 13px;
+                        line-height: 16px;
+
+                        font-style: italic;
+
+                        margin: 0 !important;
+
+                        /* space antar item */
+                        padding: 0 0 12px 0 !important;
+                    }
+
+
+                    /* =========================================================
+                    PART TITLE
+                    ========================================================= */
+
+                    .introduction-left b,
+                    .introduction-right b {
+                        display: block;
+
+                        font-size: 13px;
+                        line-height: 16px;
+
+                        font-style: italic;
+
+                        margin: 0 !important;
+
+                        /* sedikit space sebelum Part */
+                        padding: 6px 0 10px 0 !important;
+                    }
+                    .crane-report-page {
+                        width: 100%;
+                        margin: 0 !important;
+                        padding: 0 15px !important;
+                        box-sizing: border-box;
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: #222222;
+
+                        /* Paksa mulai halaman baru */
+                        page-break-before: always !important;
+                    }
+
+                    /* =========================================================
+                    PAGE HEADER
+                    ========================================================= */
+
+                    .report-page-header {
+                        width: 100%;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+
+                    /* Garis atas */
+                    .report-header-line-top {
+                        width: 80%;
+                        border-top: 1px solid #e5b84b;
+                        position: relative;
+                        top: 33px;
+                        height: 0;
+                    }
+
+                    /* Header table */
+                    .report-header-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        table-layout: fixed;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+
+                    .report-header-table td {
+                        border: 0;
+                        padding: 0 !important;
+                        vertical-align: top;
+                    }
+
+                    /* Judul */
+                    .report-header-title {
+                        width: 80%;
+                        font-size: 25px;
+                        font-weight: normal;
+                        line-height: 24px;
+                        text-align: left;
+
+                        position: relative;
+                        top: 55px;
+                        left:5px;
+                    }
+
+                    /* Logo */
+                    .report-header-logo {
+                        width: 20%;
+                        text-align: right;
+                        padding-top: 5px !important;
+                    }
+
+                    .report-header-logo img {
+                        width: 140px;
+                        height: auto;
+                        display: inline-block;
+                        position:relative;
+                        right:7px;
+                    }
+
+                    /* Garis bawah */
+                    .report-header-line-bottom {
+                        width: 80%;
+                        border-top: 1px solid #e5b84b;
+                        position: relative;
+                        bottom: 30px;
+                        height: 0;
+                    }
+
+                    /* =========================================================
+                    PAGE 3 CONTENT
+                    ========================================================= */
+
+                    .ci-content{
+                        width:91%;
+                        margin-top:2px;
+                        margin-left:5%;
+                        margin-right:5%;
+                    }
+
+                    .ci-section{
+                        width:91%;
+                        display:table;
+                        table-layout:fixed;
+                        margin-bottom:10px;
+                    }
+
+                    .ci-letter{
+                        display:table-cell;
+                        width:30px;
+                        vertical-align:top;
+                        font-size:14px;
+                        font-weight:normal;
+                        padding-top:1px;
+                    }
+                    .ci-section-content{
+                        display:table-cell;
+                        vertical-align:top;
+                        width:auto;
+                        font-size:14px;
+                        line-height:21px;
+                    }
+
+                    .ci-section-title{
+                        font-size:14px;
+                        font-weight:bold;
+                        text-decoration:underline;
+                        margin:0 0 14px 0 !important;
+                        padding:0 !important;
+                    }
+
+                    .ci-paragraph{
+                        margin: 0 0 12px 0 !important;
+                        padding:0 !important;
+                        line-height:21px;
+                        text-align:justify;
+                    }
+
+                    .ci-paragraph-section{
+                        margin:0 0 2.9px 0 !important;
+                        padding:0 !important;
+                        line-height:21px
+                        textt-align:justify;
+                    }
+                     .ci-condition-table {
+                        width: 100%;
+                        margin-top: 5px;
+                        margin-bottom: 10px;
+                    }
+
+                    .ci-condition-table td {
+                        border: 0 !important;
+                        vertical-align: top;
+                        padding: 0 0 17px 0 !important;
+                        font-size: 14px;
+                        line-height: 21px;
+                    }
+
+                    .ci-condition-name {
+                        width: 55px;
+                        white-space: nowrap;
+                    }
+
+                    .ci-condition-dash {
+                        width: 25px;
+                        text-align: center;
+                    }
+
+                    .ci-condition-description {
+                        width: auto;
+                        text-align:justify;
+                    }
+
+                    .ci-abbreviation {
+                        width: 100%;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .ci-abbr-row {
+                        display: table;
+                        width: 100%;
+                        table-layout: fixed;
+                        margin: 0;
+                        padding: 0;
+                        line-height: 21px;
+                    }
+
+                    .ci-abbr-code {
+                        display: table-cell;
+                        width: 90px;
+                        text-align: left;
+                        vertical-align: top;
+                    }
+
+                    .ci-abbr-colon {
+                        display: table-cell;
+                        width: 25px;
+                        text-align: center;
+                        vertical-align: top;
+                    }
+
+                    .ci-abbr-description {
+                        display: table-cell;
+                        text-align: left;
+                        vertical-align: top;
+                    }
+                    .crane-checklist-title {
+                        width: 100%;
+                        height: 40px;
+                        box-sizing: border-box;
+
+                        border: 1px solid #222222;
+                        background-color: #eeeeee;
+
+                        text-align: center;
+                        font-family: Arial;
+                        font-size: 20px;
+                        font-weight: bold;
+
+                        line-height: 40px;
+
+                        margin: 0 0 15px 0 !important;
+                        padding: 0 !important;
+                    }
+                    .checklist-info {
+                        width: 100%;
+                        margin-top: 27px;
+                        border-collapse: collapse;
+                        table-layout: fixed;
+                        font-family: Arial;
+                        font-size: 13px;
+                    }
+
+                    .checklist-info td {
+                        border: 1px solid #222222;
+                        padding: 5px 7px;
+                        height:20px;
+                        vertical-align: middle;
+                        box-sizing: border-box;
+                    }
+
+                    /* Label kiri */
+                    .checklist-info .label {
+                        width: 25%;
+                        font-weight: bold;
+                        background-color: #eeeeee;
+                    }
+
+                    /* Value kiri */
+                    .checklist-info .value {
+                        width: 25%;
+                    }
+
+                    /* Label kanan */
+                    .checklist-info .label-right {
+                        width: 25%;
+                        font-weight: bold;
+                        background-color: #eeeeee;
+                    }
+
+                    /* Value kanan */
+                    .checklist-info .value-right {
+                        width: 25%;
+                    }
+                /* =========================================================
+                    CHECKLIST PAGE CONTENT
+                    ========================================================= */
+
+                    .checklist-content {
+                        width: 100%;
+                        margin-top: 18px;
+                        font-family: Arial;
+                        color: #222222;
+                    }
+
+                    /* =========================================================
+                    GENERAL TABLE
+                    ========================================================= */
+
+                    .checklist-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        table-layout: fixed;
+                        font-family: Arial;
+                        font-size: 13px;
+                    }
+
+                    .checklist-table td{
+                        border: 1px solid #222222;
+                        padding: 0px 6px;
+                        vertical-align: middle;
+                    }
+
+                    /* =========================================================
+                    CLIENT PERSONNEL
+                    ========================================================= */
+
+                    .personnel-title {
+                        text-align: center;
+                        font-size: 13px;
+                        font-weight: bold;
+                        background-color: #eeeeee;
+                        height: 26px;
+                    }
+
+                    .personnel-header {
+                        text-align: center;
+                        font-weight: bold;
+                        background-color: #eeeeee;
+                        height: 26px;
+                    }
+
+                    .personnel-name {
+                        width: 50%;
+                        text-align: center;
+                    }
+
+                    .personnel-job {
+                        width: 50%;
+                        text-align: center;
+                    }
+
+                    .personnel-row {
+                        height: 26px;
+                    }
+
+                    /* =========================================================
+                    PART TITLE
+                    ========================================================= */
+
+                    .part-title {
+                        margin-top: 23px;
+                        font-size: 17px;
+                        font-weight: bold;
+                        font-style: italic;
+                        text-decoration: underline;
+                    }
+
+                    /* =========================================================
+                    SECTION TITLE
+                    ========================================================= */
+
+                    .section-title {
+                        margin-top: 17px;
+                        margin-bottom: 17px;
+                        font-size: 13px;
+                        font-weight: bold;
+                        font-style: italic;
+                        text-decoration: underline;
+                    }
+
+                    .sub-section-title {
+                        margin-top: 15px;
+                        margin-bottom: 15px;
+                        font-size: 13px;
+                        font-weight: bold;
+                        font-style: italic;
+                        text-decoration: underline;
+                    }
+
+                    /* =========================================================
+                    DESCRIPTION
+                    ========================================================= */
+
+                    .checklist-description {
+                        font-size: 13px;
+                        font-weight: bold;
+                        line-height: 16px;
+                        margin-bottom: 17px;
+                        margin-top:px;
+                    }
+
+                    /* =========================================================
+                    CRANE SPECIFICATION
+                    ========================================================= */
+
+                    .crane-specification {
+                        width: 100%;
+                        border-collapse: collapse;
+                        table-layout: fixed;
+                        font-size: 13px;
+                    }
+
+                    .crane-specification td {
+                        border: 1px solid #222222;
+                        padding: 4px 6px;
+                        height: 16px;
+                        vertical-align: middle;
+                    }
+
+                    .spec-label {
+                        width: 25%;
+                        font-weight: bold;
+                        background-color: #eeeeee;
+                    }
+
+                    .spec-value {
+                        width: 25%;
+                    }
+                    .wire-rope-specification {
+                        width: 100%;
+                        border-collapse: collapse;
+                        table-layout: fixed;
+                        margin-top: 5px;
+                        margin-bottom: 9px;
+                        font-size: 13px;
+                    }
+
+                    .wire-rope-specification td {
+                        border: 1px solid #000;
+                        padding: 6px 8px;
+                        vertical-align: middle;
+                    }
+
+                    .wire-rope-header {
+                        text-align: center;
+                        font-weight: bold;
+                        background-color: #e7e7e7;
+                        height: 33px;
+                    }
+
+                    /* Column width */
+                    .wire-rope-specification td:nth-child(1) {
+                        width: 20%;
+                    }
+
+                    .wire-rope-specification td:nth-child(2) {
+                        width: 19%;
+                        text-align: center;
+                    }
+
+                    .wire-rope-specification td:nth-child(3) {
+                        width: 27%;
+                    }
+
+                    .wire-rope-specification td:nth-child(4) {
+                        width: 15%;
+                        text-align: center;
+                    }
+
+                    .wire-rope-specification td:nth-child(5) {
+                        width: 19%;
+                    }
+
+                    .wire-rope-row {
+                        height: 34px;
+                    }
+
+                    .wire-rope-row td {
+                        height: 30px;
+                    }
+                   /* ========================================================= */
+                    /* CRANE INSPECTION TABLE                                   */
+                    /* ========================================================= */
+
+                    .crane-inspection-table {
+                        width: 100% !important;
+                        border-collapse: collapse;
+                        table-layout: fixed;
+                        page-break-inside: auto;
+                    }
+
+
+                    /* ========================================================= */
+                    /* HEADER DIULANG SETIAP HALAMAN                             */
+                    /* ========================================================= */
+
+                    .crane-inspection-table thead {
+                        display: table-header-group;
+                    }
+
+
+                    /* ========================================================= */
+                    /* PROPORSI KOLOM                                            */
+                    /* ========================================================= */
+
+                    .crane-inspection-table col:nth-child(1) {
+                        width: 9%;
+                    }
+
+                    .crane-inspection-table col:nth-child(2) {
+                        width: 34%;
+                    }
+
+                    .crane-inspection-table col:nth-child(3) {
+                        width: 6%;
+                    }
+
+                    .crane-inspection-table col:nth-child(4) {
+                        width: 6%;
+                    }
+
+                    .crane-inspection-table col:nth-child(5) {
+                        width: 6%;
+                    }
+
+                    .crane-inspection-table col:nth-child(6) {
+                        width: 6%;
+                    }
+
+                    .crane-inspection-table col:nth-child(7) {
+                        width: 33%;
+                    }
+
+
+                    /* ========================================================= */
+                    /* HEADER REPORT                                             */
+                    /* ========================================================= */
+
+                    .crane-report-header-row th {
+                        border: none !important;
+                        padding: 0 !important;
+                        background: #ffffff !important;
+                    }
+
+
+                    /* ========================================================= */
+                    /* REPORT HEADER                                             */
+                    /* ========================================================= */
+
+                    .crane-report-header {
+                        width: 100%;
+                        background: #ffffff;
+                        padding: 0;
+                    }
+
+
+                    /* Garis atas */
+
+                    .crane-report-header-line-top {
+                        width: 80%;
+                        border-top: 1px solid #e5a62a;
+                        margin-top: 8px;
+                    }
+
+
+                    /* ========================================================= */
+                    /* TITLE + LOGO                                              */
+                    /* ========================================================= */
+
+                    .crane-report-header-content {
+                        width: 100%;
+                        display: table;
+                        table-layout: fixed;
+                        padding-top:0;
+                        padding-bottom:0;
+                    }
+
+
+                    .crane-report-title {
+                        display: table-cell;
+                        width: 70%;
+                        vertical-align: middle;
+                        text-align: left;
+
+                        font-size: 25px;
+                        line-height: 1.05;
+                        font-weight: normal;
+
+                        color: #000;
+
+                        padding: 0;
+                    }
+
+
+                    .crane-report-logo {
+                        display: table-cell;
+                        width: 30%;
+                        vertical-align: middle;
+                        text-align: right;
+                        padding: 0;
+                    }
+
+
+                    .crane-report-logo img {
+                        width: 140px;
+                        height: auto;
+                        display: inline-block;
+                    }
+
+
+                    /* Garis bawah */
+
+                    .crane-report-header-line-bottom {
+                        width: 80%;
+                        border-top: 1px solid #e5a62a;
+                        margin-bottom: 35px;
+
+                    }
+
+
+                    /* ========================================================= */
+                    /* HEADER TABEL                                              */
+                    /* ========================================================= */
+
+                    .crane-inspection-table thead th {
+                        border: 1px solid #000;
+
+                        background-color: #e7e7e7;
+
+                        text-align: center;
+                        vertical-align: middle;
+
+                        font-weight: bold;
+
+                        padding: 3.7px;
+
+                        font-size: 13px;
+
+                        line-height: 1.05;
+                    }
+
+
+                    /* Header utama */
+
+                    .inspection-header-main {
+                        height: 30px;
+                    }
+
+
+                    /* Header Green / Amber / Red / N/A */
+
+                    .inspection-header-condition th {
+                        height: 16px;
+                        font-size:10px !important;
+                    }
+
+
+                    /* ========================================================= */
+                    /* BODY TABEL                                                */
+                    /* ========================================================= */
+
+                    .crane-inspection-table tbody td {
+                        border: 1px solid #000;
+
+                        padding: 7px 8px;
+
+                        vertical-align: top;
+
+                        font-size: 13px;
+
+                        line-height: 1.20;
+
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                    }
+
+
+                    /* ========================================================= */
+                    /* NO                                                        */
+                    /* ========================================================= */
+
+                    .inspection-no-cell {
+                        text-align: left;
+                        vertical-align: top !important;
+                    }
+
+
+                    /* ========================================================= */
+                    /* ITEM DETAIL                                               */
+                    /* ========================================================= */
+
+                    .inspection-item-cell {
+                        text-align: left;
+                        vertical-align: top !important;
+
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                    }
+
+
+                    /* ========================================================= */
+                    /* CONDITION                                                 */
+                    /* ========================================================= */
+
+                    .condition-cell {
+                        text-align: center;
+                        vertical-align: middle !important;
+
+                        padding: 1.8px !important;
+
+                        font-size: 13px !important;
+                    }
+
+
+                    /* ========================================================= */
+                    /* OBSERVATIONS                                              */
+                    /* ========================================================= */
+
+                    .inspection-observation-cell {
+                        text-align: left;
+                        vertical-align: top !important;
+
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                    }
+                    .check-mark:after {
+                        content: "\2713";
+                        font-family: DejaVu Sans;
+                        font-size: 13px;
+                    }
+
+
+                    /* ========================================================= */
+                    /* SECTION ROW                                               */
+                    /* ========================================================= */
+
+                    .crane-inspection-table .inspection-section-row td {
+                        font-weight: bold;
+                    }
+
+
+                    /* ========================================================= */
+                    /* PAGE BREAK                                                */
+                    /* ========================================================= */
+
+                    .crane-inspection-table tbody tr {
+                        page-break-inside: avoid;
+                    }
+                </style>
+
+
+                <!-- =========================================================
+                     PAGE 1 - COVER
+                ========================================================== -->
+
+                <div class="crane-report-cover">
+
+                    <!-- =====================================================
+                         COVER HEADER
+                    ====================================================== -->
+
+                    <table class="cover-header">
+
+                        <tr>
+
+                            <!-- =================================================
+                                 LOGO
+                            ================================================== -->
+
+                            <td class="cover-logo-cell">
+
+                                <img
+                                    t-att-src="'%s/management_aset/static/src/img/logo.png' % web_base_url"
+                                    class="lika-logo-cover"
+                                />
+
+                            </td>
+
+
+                            <!-- =================================================
+                                 COMPANY INFORMATION
+                            ================================================== -->
+
+                            <td class="cover-company-cell">
+
+                                <div class="company-name">
+                                    LIKA CRANES
+                                </div>
+
+                                <div class="company-address">
+                                    PT.Buana Lintas Khatulistiwa
+                                    Gedung Kemang 37, 4th Floor
+                                    <br/>
+                                    Jalan Kemang Raya No.37
+                                    Jakarta Selatan 12730
+                                </div>
+
+                                <div class="company-contact">
+                                    Email : sales@lika-cranes.com
+                                    <br/>
+                                    Phone: +62 21 71791780
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+
+                    <!-- =====================================================
+                         COVER CONTENT
+                    ====================================================== -->
+
+                    <div class="cover-content">
+
+                        <!-- =================================================
+                             ASSET
+                        ================================================== -->
+
+                        <div class="cover-asset">
+
+                            ASSET:
+
+                            <span t-field="o.platform_vessel_id.name"/>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             TITLE
+                        ================================================== -->
+
+                        <div class="cover-title">
+
+                            CRANE ANNUAL MAINTENANCE
+
+                        </div>
+
+
+                        <!-- =================================================
+                             CRANE
+                        ================================================== -->
+
+                        <div class="cover-crane">
+
+                            CRANE:
+
+                            <span t-field="o.crane_registration_id.serial_number"/>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             DOCUMENT
+                        ================================================== -->
+
+                        <div class="cover-document">
+
+                            DOCUMENT REF NUMBER
+
+                            <div class="document-number">
+
+                                <span t-field="o.job_no.name"/>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================================
+                     PAGE 2 - CRANE CONDITION EVALUATION
+                ========================================================== -->
+
+                <div class="crane-report-introduction">
+
+
+                    <!-- =====================================================
+                         INTRODUCTION HEADER
+                    ====================================================== -->
+                    <div class="introduction-line-top"></div>
+                    <table class="introduction-header">
+
+                        <tr>
+
+                            <!-- =================================================
+                                 TITLE
+                            ================================================== -->
+
+                            <td class="introduction-title">
+
+                                CRANE CONDITION EVALUATION
+
+                            </td>
+
+
+                            <!-- =================================================
+                                 LOGO
+                            ================================================== -->
+
+                            <td class="introduction-logo">
+
+                                <img
+                                    t-att-src="'%s/management_aset/static/src/img/logo.png' % web_base_url"
+                                    class="introduction-logo-img"
+                                />
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+
+                    <!-- =====================================================
+                         HEADER LINE
+                    ====================================================== -->
+
+                    <div class="introduction-line-bottom"></div>
+
+
+                    <!-- =====================================================
+                         INTRODUCTION CONTENT
+                    ====================================================== -->
+
+                    <table class="introduction-content">
+
+                        <tr>
+
+                            <!-- =================================================
+                                 KOLOM KIRI
+                            ================================================== -->
+
+                            <td class="introduction-left">
+
+                                <b>
+                                    Introduction
+                                </b>
+
+                                <div>
+                                    A - SCOPE
+                                </div>
+
+                                <div>
+                                    B - RESPONSIBILITIES
+                                </div>
+
+                                <div>
+                                    C - GUIDANCE ON SURVEY
+                                </div>
+
+                                <div>
+                                    D - REPORT DISTRIBUTION
+                                </div>
+
+                                <div>
+                                    E - IDENTIFICATION, TERMINOLOGY &amp; ABBREVIATIONS
+                                </div>
+
+                                <div>
+                                    F - GENERAL CONSIDERATIONS
+                                </div>
+
+                                <div>
+                                    G - SAFETY PRECAUTIONS
+                                </div>
+
+                                <div>
+                                    H - RESOURCES
+                                </div>
+
+
+                                <!-- PART 1 -->
+
+
+                                <b>
+                                    Part 1.0 - Crane Records
+                                </b>
+
+                                <div>
+                                    1.1 - Specification
+                                </div>
+
+                                <div>
+                                    1.2 - Certification
+                                </div>
+
+                                <div>
+                                    1.3 - Planned maintenance
+                                </div>
+
+                                <div>
+                                    1.4 - Crane spare parts
+                                </div>
+
+
+                                <!-- PART 2 -->
+
+
+                                <b>
+                                    Part 2.0 - General Visual Checks
+                                </b>
+
+                                <div>
+                                    2.1 - Crane overall
+                                </div>
+
+                                <div>
+                                    2.2 - Machinery house / Column
+                                </div>
+
+                                <div>
+                                    2.3 - Operator's cab / station
+                                </div>
+
+                                <div>
+                                    2.4 - Trolleys / Beams - (N/A)
+                                </div>
+
+
+                                <!-- PART 3 -->
+
+
+                                <b>
+                                    Part 3.0 - Instrumentation and Controls
+                                </b>
+
+                                <div>
+                                    3.1 - Operators controls and instruments
+                                </div>
+
+                                <div>
+                                    3.2 - Safety Devices
+                                </div>
+
+                                <div>
+                                    3.3 - Communication systems
+                                </div>
+
+
+                                <!-- PART 4 -->
+
+                                <b>
+                                    Part 4.0 - Structure / Primary Load Path Elements
+                                </b>
+
+                                <div>
+                                    4.1 - Crosshead
+                                </div>
+
+                                <div>
+                                    4.2 - Boom assembly
+                                </div>
+
+                                <div>
+                                    4.3 - Lattice boom assembly - (N/A)
+                                </div>
+
+                                <div>
+                                    4.4 - Slewing System
+                                </div>
+
+                                <div>
+                                    4.5 - Revolving chassis
+                                </div>
+
+                                <div>
+                                    4.6 - Beam / Rails - (N/A)
+                                </div>
+
+                            </td>
+
+
+                            <!-- =================================================
+                                 KOLOM KANAN
+                            ================================================== -->
+
+                            <td class="introduction-right">
+
+                                <div>
+                                    4.7 - Long travel Beams - (N/A)
+                                </div>
+
+                                <div>
+                                    4.8 - Cross Travel Trolley Assemblies - (N/A)
+                                </div>
+
+                                <div>
+                                    4.9 - Boom Rest
+                                </div>
+
+
+                                <!-- PART 5 -->
+
+                                <b>
+                                    Part 5.0 - Wire Ropes / Chains and Hooks
+                                </b>
+
+                                <div>
+                                    5.1 - Wire ropes / Chains
+                                </div>
+
+                                <div>
+                                    5.2 - Main and auxiliary hooks
+                                </div>
+
+
+                                <!-- PART 6 -->
+
+                                <b>
+                                    Part 6.0 - Hoists(s) and Slow Machinery
+                                </b>
+
+                                <div>
+                                    6.1 - Winch hoists and brakes
+                                </div>
+
+                                <div>
+                                    6.2 - Slew Machinery
+                                </div>
+
+
+                                <!-- PART 7 -->
+
+                                <b>
+                                    Part 7.0 - Prime Mover and Drive Train
+                                </b>
+
+                                <div>
+                                    7.1 - Diesel Engine
+                                </div>
+
+                                <div>
+                                    7.2 - Clutch
+                                </div>
+
+                                <div>
+                                    7.3 - Drive / splitter gearbox
+                                </div>
+
+
+                                <!-- PART 8 -->
+
+                                <b>
+                                    Part 8.0 - Hydraulic and Pneumatic Systems
+                                </b>
+
+                                <div>
+                                    8.1 - Hydraulic tanks, piping, valves and filters
+                                </div>
+
+                                <div>
+                                    8.2 - Hydraulic motors
+                                </div>
+
+                                <div>
+                                    8.3 - Hydraulic pumps
+                                </div>
+
+                                <div>
+                                    8.4 - Hydraulic rams
+                                </div>
+
+                                <div>
+                                    8.5 - Pressure vessels
+                                </div>
+
+
+                                <!-- PART 9 -->
+
+                                <b>
+                                    Part 9.0 - Electrical System
+                                </b>
+
+                                <div>
+                                    9.1 - Wires, cables and appliances
+                                </div>
+
+                                <div>
+                                    9.2 - Lighting
+                                </div>
+
+
+                                <!-- PART 10 -->
+
+                                <b>
+                                    Part 10.0 - Suitability of Crane for Manriding Duties - (N/A)
+                                </b>
+
+
+                                <br/>
+                                <br/>
+
+                                <div>
+                                    Crane Survey Report.
+                                </div>
+
+                                <div>
+                                    Summary &amp; Recommendations.
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+                <!-- =========================================================
+                PAGE 3 - CRANE CONDITION EVALUATION
+                ========================================================== -->
+
+                <div class="crane-report-page">
+                    <div class="report-page-header">
+
+                        <!-- TOP LINE -->
+                        <div class="report-header-line-top"></div>
+
+                        <!-- HEADER TABLE -->
+                        <table class="report-header-table">
+                            <tr>
+
+                                <!-- TITLE -->
+                                <td class="report-header-title">
+                                    CRANE CONDITION EVALUATION
+                                </td>
+
+                                <!-- LOGO -->
+                                <td class="report-header-logo">
+                                    <img
+                                        t-att-src="'%s/management_aset/static/src/img/logo.png' % web_base_url"
+                                    />
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <!-- BOTTOM LINE -->
+                        <div class="report-header-line-bottom"></div>
+
+                    </div>
+
+
+                    <!-- =====================================================
+                        PAGE 3 CONTENT
+                    ====================================================== -->
+
+                    <div class="ci-content">
+                        <div class="ci-section">
+
+                            <div class="ci-letter">
+                                A
+                            </div>
+
+                            <div class="ci-section-content">    
+                                <div class="ci-section-title">
+                                    Scope
+                                </div>
+
+
+                                <div class="ci-paragraph">
+                                    This document has been developed by Lika Cranes, to provide a means by which it is possible to record the findings of a crane survey and categorise the findings in terms of criticality in relation to continued crane operational service.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ci-section">
+                            <div class="ci-letter">
+                                B
+                            </div>
+
+                            <div class="ci-section-content">
+                                <div class="ci-section-title">
+                                    Responsibilities
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    It is the responsibility of the person carrying out the inspection to ensure that all findings are noted.  However, where a situation arises that prevents either a thorough inspection or condition evaluation, then the person performing the inspection must make note accordingly.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ci-section">
+
+                            <div class="ci-letter">
+                                C
+                            </div>
+
+                            <div class="ci-section-content">
+                                <div class="ci-section-title">
+                                    Guidance on Survey
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    The format of the survey checklist includes a condition evaluation selection with definitions as follows:
+                                </div>
+
+                                <table class="ci-condition-table">
+
+                                    <tr>
+
+                                        <td class="ci-condition-name">
+                                            "Green"
+                                        </td>
+
+                                        <td class="ci-condition-dash">
+                                            -
+                                        </td>
+
+                                        <td class="ci-condition-description">
+                                            Good Operational Condition, continue
+                                            with regular maintenance and inspection.
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td class="ci-condition-name">
+                                            "Amber"
+                                        </td>
+
+                                        <td class="ci-condition-dash">
+                                            -
+                                        </td>
+
+                                        <td class="ci-condition-description">
+                                            Corrective Action identified but
+                                            operating performance is not compromised,
+                                            if not addressed in appropriate timescale
+                                            performance issue may result, CCE corrective
+                                            action requires to be completed before the
+                                            next scheduled annual crane condition evaluation.
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td class="ci-condition-name">
+                                            "Red"
+                                        </td>
+
+                                        <td class="ci-condition-dash">
+                                            -
+                                        </td>
+
+                                        <td class="ci-condition-description">
+                                            Unsafe Condition identified, these apply
+                                            to critical operational systems which mean
+                                            the crane sub system or in certain instances
+                                            the crane cannot be safely operated.
+                                            Therefore the CRANE SYSTEM / CRANE IS NOT
+                                            TO BE USED until the deficiency is repaired
+                                            or an alternative solution is found subject
+                                            to the approval of the authorized personnel.
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="ci-section">
+                            <div class="ci-letter">
+                                D
+                            </div>
+
+                            <div class="ci-section-content">
+                                <div class="ci-section-title">
+                                    Report Distribution
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    The final survey report would normally be distributed via the Lika support engineer. 
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    Prior to leaving the rig the surveyor must leave a copy of each crane summary report with the responsible installation parties such as maintenance supervisor, rig supervisor or OIM.
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+                <div class="crane-report-page">
+                    <div class="report-page-header">
+
+                        <!-- TOP LINE -->
+                        <div class="report-header-line-top"></div>
+
+                        <!-- HEADER TABLE -->
+                        <table class="report-header-table">
+                            <tr>
+
+                                <!-- TITLE -->
+                                <td class="report-header-title">
+                                    CRANE CONDITION EVALUATION
+                                </td>
+
+                                <!-- LOGO -->
+                                <td class="report-header-logo">
+                                    <img
+                                        t-att-src="'%s/management_aset/static/src/img/logo.png' % web_base_url"
+                                    />
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <!-- BOTTOM LINE -->
+                        <div class="report-header-line-bottom"></div>
+
+                    </div>
+
+
+                    <!-- =====================================================
+                        PAGE 3 CONTENT
+                    ====================================================== -->
+
+                    <div class="ci-content">
+                        <div class="ci-section">
+
+                            <div class="ci-letter">
+                                E
+                            </div>
+
+                            <div class="ci-section-content">    
+                                <div class="ci-section-title">
+                                    Definitions - Terminology - Abbreviations
+                                </div>
+
+
+                                <div class="ci-abbreviation">
+
+                                    <div class="ci-abbr-row">
+                                        <div class="ci-abbr-code">MPI</div>
+                                        <div class="ci-abbr-colon">:</div>
+                                        <div class="ci-abbr-description">Magnetic Particle Inspection</div>
+                                    </div>
+
+                                    <div class="ci-abbr-row">
+                                        <div class="ci-abbr-code">NDT</div>
+                                        <div class="ci-abbr-colon">:</div>
+                                        <div class="ci-abbr-description">Non-Destructive Testing</div>
+                                    </div>
+
+                                    <div class="ci-abbr-row">
+                                        <div class="ci-abbr-code">UT</div>
+                                        <div class="ci-abbr-colon">:</div>
+                                        <div class="ci-abbr-description">Ultrasonic Testing</div>
+                                    </div>
+
+                                    <div class="ci-abbr-row">
+                                        <div class="ci-abbr-code">ICP</div>
+                                        <div class="ci-abbr-colon">:</div>
+                                        <div class="ci-abbr-description">Independent Competent Person</div>
+                                    </div>
+
+                                    <div class="ci-abbr-row">
+                                        <div class="ci-abbr-code">SME</div>
+                                        <div class="ci-abbr-colon">:</div>
+                                        <div class="ci-abbr-description">Subject Matter Expert</div>
+                                    </div>
+
+                                    <div class="ci-abbr-row">
+                                        <div class="ci-abbr-code">RMA</div>
+                                        <div class="ci-abbr-colon">:</div>
+                                        <div class="ci-abbr-description">Rig Manager Asset</div>
+                                    </div>
+
+                                </div>
+
+                                <br/>
+                                <div class="ci-paragraph">
+                                    Condition Evaluation   :  - an assessment of equipment condition.
+                                </div>
+
+                                <br/>
+
+                                <div class="ci-paragraph">
+                                    Condition Evaluation Checklist: - a compilation of checks, to be made, with criteria applicable to a particular make and model of crane.
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    Condition Evaluation Report: - a standardised report, describing the findings of the condition evaluation shall consist of the completed checklist, plus a summary of the findings and recommendations.  The findings shall be reported as:
+                                </div>
+
+                                <table class="ci-condition-table">
+
+                                    <tr>
+
+                                        <td class="ci-condition-name">
+                                            "Green"
+                                        </td>
+
+                                        <td class="ci-condition-dash">
+                                            -
+                                        </td>
+
+                                        <td class="ci-condition-description">
+                                            Good Operational Condition, continue with regular maintenance and inspection as defined within the Computerized Maintenance Management System (CMMS)
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td class="ci-condition-name">
+                                            "Amber"
+                                        </td>
+
+                                        <td class="ci-condition-dash">
+                                            -
+                                        </td>
+
+                                        <td class="ci-condition-description">
+                                            Corrective Action identified but operating performance is not compromised, if not addressed in an appropriate timescale performance issue may result, CCE corrective action requires to be completed before the next scheduled annual crane condition evaluation.
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td class="ci-condition-name">
+                                            "Red"
+                                        </td>
+
+                                        <td class="ci-condition-dash">
+                                            -
+                                        </td>
+
+                                        <td class="ci-condition-description">
+                                            Unsafe Condition identified, these apply to critical operational systems which mean the crane sub system or in certain instances the crane cannot be safely operated. Therefore, the CRANE SUB SYSTEM / CRANE IS NOT TO BE USED until the deficiency is repaired or an alternative solution is found subject to the approval of the ICP / SME / RMA.
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <div class="crane-report-page">
+                    <div class="report-page-header">
+
+                        <!-- TOP LINE -->
+                        <div class="report-header-line-top"></div>
+
+                        <!-- HEADER TABLE -->
+                        <table class="report-header-table">
+                            <tr>
+
+                                <!-- TITLE -->
+                                <td class="report-header-title">
+                                    CRANE CONDITION EVALUATION
+                                </td>
+
+                                <!-- LOGO -->
+                                <td class="report-header-logo">
+                                    <img
+                                        t-att-src="'%s/management_aset/static/src/img/logo.png' % web_base_url"
+                                    />
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <div class="report-header-line-bottom"></div>
+
+                    </div>
+
+
+                    <div class="ci-content">
+                        <div class="ci-section">
+
+                            <div class="ci-letter">
+                                F
+                            </div>
+
+                            <div class="ci-section-content">    
+                                <div class="ci-section-title">
+                                    General Considerations
+                                </div>
+
+
+                                <div class="ci-paragraph">
+                                    Crane condition evaluations are performed to meet quality system requirements for hardware inspections, compliance audits or when taking over management of a rig.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ci-section">
+                            <div class="ci-letter">
+                                G
+                            </div>
+
+                            <div class="ci-section-content">
+                                <div class="ci-section-title">
+                                    Safety Precautions
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    All inspection work will be completed under and comply with the companies SMS (Safety Management System) requirements including the requirements for task planning and risk assessment.
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    Obtain a Permit to Work, prior to commencing any work on the Cranes
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    Ensure all guards are in place prior to running any of the crane machinery
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    Ensure that all fluid systems are relieved of pressure prior to disconnecting any lines of fitting.
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    Ensure that adequate provision has been made to safely contain and dispose of oil, fuel and coolant, waste.
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Before carrying out any maintenance on the hydraulic system, ensure; the crane is shut down and the boom in the rest, the hydraulic oil system isolated, pressure relieved from the system the engine start is inhibited.
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    DO NOT START warning notices have been clearly displayed
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    Before carrying out maintenance work on the electrical system ensure that:  Electrical Isolation Work Permit has been issued, isolations have been put in place and witnessed by the Lika Engineers.
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    All electrical equipment has been isolated; fuses removed and suitable warning notices posted.
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+                <div class="crane-report-page">
+                    <div class="report-page-header">
+
+                        <!-- TOP LINE -->
+                        <div class="report-header-line-top"></div>
+
+                        <!-- HEADER TABLE -->
+                        <table class="report-header-table">
+                            <tr>
+
+                                <!-- TITLE -->
+                                <td class="report-header-title">
+                                    CRANE CONDITION EVALUATION
+                                </td>
+
+                                <!-- LOGO -->
+                                <td class="report-header-logo">
+                                    <img
+                                        t-att-src="'%s/management_aset/static/src/img/logo.png' % web_base_url"
+                                    />
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <div class="report-header-line-bottom"></div>
+
+                    </div>
+
+
+                    <div class="ci-content">
+
+                        <div class="ci-section">
+                            <div class="ci-letter">
+                                H
+                            </div>
+
+                            <div class="ci-section-content">
+                                <div class="ci-section-title">
+                                    Resources
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Equipment Maintenance History Files
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Manufactures Manuals and Drawings
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Handtools
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Dial Indicator
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Sheave Groove Gauge
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Vernier Callipers
+                                </div>
+
+                                <br/>
+                                <div class="ci-paragraph">
+                                    The purpose of the crane condition evaluation is to assess the condition of the cranes, with a minimum amount of disassembly and with a minimum amount of disruption to operations.  It is not intended to replace the routine planned maintenance requirements performed aboard the vessel / rig.
+                                </div>
+
+                                <div class="ci-paragraph">
+                                    Some crane components cannot be fully inspected without removal from the crane, or without major disassembly, as in the case of , engines, pumps, winches and crane booms.  However, the following techniques will be used to ensure a meaningful assessment is performed:-
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Review of certification and maintenance records
+                                </div>
+                                <br/>
+
+                                <div class="ci-paragraph-section">
+                                    Visual Inspection
+                                </div>
+                                <div class="ci-paragraph-section">
+                                    Lubricant Analysis
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Wear Measurements
+                                </div>
+
+                                <div class="ci-paragraph-section">
+                                    Function Tests
+                                </div>
+
+                                <br/>
+
+                                <div class="ci-paragraph">
+                                    Magnetic Particle and Ultrasound Inspection of structural components and hooks and fittings are part of the regular planned maintenance programme.  MPI/UT will be performed as part of the condition evaluation, if the regularly scheduled MPI/UT is overdue, or in the event visual inspections reveal the need for additional MPI/UT.
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+                <div class="crane-report-page">
+                    <div class="report-page-header">
+
+                        <!-- TOP LINE -->
+                        <div class="report-header-line-top"></div>
+
+                        <!-- HEADER TABLE -->
+                        <table class="report-header-table">
+                            <tr>
+
+                                <!-- TITLE -->
+                                <td class="report-header-title">
+                                    Crane Condition Evaluation
+                                </td>
+
+                                <!-- LOGO -->
+                                <td class="report-header-logo">
+                                    <img
+                                        t-att-src="'%s/management_aset/static/src/img/logo.png' % web_base_url"
+                                    />
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <div class="report-header-line-bottom"></div>
+                    </div>
+
+                    <div class="crane-checklist-title">
+                        CRANE SURVEY CHECKLIST
+                    </div>
+
+                    <table class="checklist-info">
+
+                        <tr>
+
+                            <td class="label">
+                                Client Name:
+                            </td>
+
+                            <td class="value">
+                                <span t-field="o.customer_id"/>
+                            </td>
+
+                            <td class="label-right">
+                                Name of Installation,
+                                Platform/Rig/Vessel:
+                            </td>
+
+                            <td class="value-right">
+                                <span t-field="o.platform_vessel_id"/>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="label">
+                                Engineer:
+                            </td>
+
+                            <td class="value">
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                            <td class="label-right">
+                                Inspection date:
+                            </td>
+
+                            <td class="value-right">
+                                <span t-field="o.start_date"/>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="label">
+                                Lika Job No.:
+                            </td>
+
+                            <td class="value">
+                                <span t-field="o.job_no"/>
+                            </td>
+
+                            <td class="label-right">
+                                Current Location:
+                            </td>
+
+                            <td class="value-right">
+                                <span t-field="o.location"/>
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                    <!-- =========================================================
+                        CHECKLIST CONTENT
+                    ========================================================== -->
+
+                    <div class="checklist-content">
+
+                        <!-- =====================================================
+                            CLIENT PERSONNEL MET DURING VISIT
+                        ====================================================== -->
+
+                        <table class="checklist-table">
+
+                        <!-- =====================================================
+                            TITLE
+                        ====================================================== -->
+
+                            <tr>
+                                <td colspan="2" class="personnel-title">
+                                    Client Personnel Met During Visit
+                                </td>
+                            </tr>
+
+
+                            <!-- =====================================================
+                                HEADER
+                            ====================================================== -->
+
+                            <tr class="personnel-header">
+
+                                <td class="personnel-name">
+                                    Name
+                                </td>
+
+                                <td class="personnel-job">
+                                    Job Title
+                                </td>
+
+                            </tr>
+
+
+                            <!-- =====================================================
+                                DATA PERSONNEL
+                                Maksimal 4 orang
+                            ====================================================== -->
+
+                            <t t-foreach="o.client_name_ids[:5]" t-as="person">
+
+                                <tr class="personnel-row">
+
+                                    <td>
+                                        <span t-field="person.name"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-field="person.job_title"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- =====================================================
+                                EMPTY ROW
+                                Selalu lengkapi sampai 4 baris
+                            ====================================================== -->
+
+                           <t t-foreach="range(4 - min(len(o.client_name_ids), 4))" t-as="empty_row">
+                                <tr class="personnel-row">
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </t>
+
+                        </table>
+
+
+                        <!-- =====================================================
+                            PART 1.0
+                        ====================================================== -->
+
+                        <div class="part-title">
+                            Part 1.0 - Crane Records
+                        </div>
+
+
+                        <!-- =====================================================
+                            1.1 SPECIFICATION
+                        ====================================================== -->
+
+                        <div class="section-title">
+                            1.1 - Specification
+                        </div>
+
+
+                        <!-- =====================================================
+                            1.1.1 CRANE SPECIFICATION
+                        ====================================================== -->
+
+                        <div class="sub-section-title">
+                            1.1.1 - Crane Specification
+                        </div>
+
+
+                        <div class="checklist-description">
+                            Record the following crane particulars and verify they
+                            correctly identify the crane as installed:
+                        </div>
+
+
+                        <!-- =====================================================
+                            CRANE SPECIFICATION TABLE
+                        ====================================================== -->
+
+                        <table class="crane-specification">
+
+                            <!-- ROW 1 -->
+                            <tr>
+
+                                <td class="spec-label">
+                                    Crane Make:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.make"/>
+                                </td>
+
+                                <td class="spec-label">
+                                    SWL Main:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.swl_main"/>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 2 -->
+                            <tr>
+
+                                <td class="spec-label">
+                                    Crane Model:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.model"/>
+                                </td>
+
+                                <td class="spec-label">
+                                    Min. Radius:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.min_radius"/>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 3 -->
+                            <tr>
+
+                                <td class="spec-label">
+                                    Crane Serial No:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.crane_registration_id"/>
+                                </td>
+
+                                <td class="spec-label">
+                                    Max. Radius:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.max_radius"/>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 4 -->
+                            <tr>
+
+                                <td class="spec-label">
+                                    Year Manufactured:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.year_built"/>
+                                </td>
+
+                                <td class="spec-label">
+                                    SWL Whip / Aux:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.swl_whip_aux"/>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 5 -->
+                            <tr>
+
+                                <td class="spec-label">
+                                    Boom Length:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.boom_length"/>
+                                </td>
+
+                                <td class="spec-label">
+                                    Engine Hours:
+                                </td>
+
+                                <td class="spec-value">
+                                    <span t-field="o.engine_hours"/>
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                        <div class="sub-section-title">
+                            1.1.2 - Wire Rope Specification
+                        </div>
+
+                        <div class="checklist-description">
+                            Record the following wire rope particulars and verify they correspond
+                            with the manufacturer&apos;s recommendations as installed:
+                        </div>
+
+                        <table class="wire-rope-specification">
+
+                            <tr>
+                                <td class="wire-rope-header">
+                                    Location
+                                </td>
+
+                                <td class="wire-rope-header">
+                                    Nominal<br/>
+                                    Diameter
+                                </td>
+
+                                <td class="wire-rope-header">
+                                    Rope<br/>
+                                    Description
+                                </td>
+
+                                <td class="wire-rope-header">
+                                    Date*<br/>
+                                    Installed
+                                </td>
+
+                                <td class="wire-rope-header">
+                                    Certificate No.
+                                </td>
+                            </tr>
+
+                            <t t-foreach="o.spec_wire_id" t-as="wire">
+
+                                <tr class="wire-rope-row">
+
+                                    <td>
+                                        <span t-field="wire.location"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-field="wire.nominal_diameter"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-field="wire.rope_description"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-field="wire.date_install"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-field="wire.certificate_no"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+                        </table>
+
+                    </div>
+                    
+
+                </div>
+
+                <div class="crane-report-page">
+
+                    <!-- ===================================================== -->
+                    <!-- CRANE INSPECTION TABLE                                -->
+                    <!-- ===================================================== -->
+
+                    <table class="crane-inspection-table">
+
+                        <!-- ================================================= -->
+                        <!-- HEADER YANG AKAN DIULANG SETIAP HALAMAN           -->
+                        <!-- ================================================= -->
+
+                        <colgroup>
+                            <col style="width: 10%;"/>
+                            <col style="width: 33%;"/>
+                            <col style="width: 6%;"/>
+                            <col style="width: 6%;"/>
+                            <col style="width: 6%;"/>
+                            <col style="width: 6%;"/>
+                            <col style="width: 33%;"/>
+                        </colgroup>
+                        <thead>
+
+                            <!-- ============================================= -->
+                            <!-- REPORT HEADER                                  -->
+                            <!-- ============================================= -->
+
+                            <tr class="crane-report-header-row">
+
+                                <th colspan="7">
+
+                                    <div class="crane-report-header">
+
+                                        <!-- TOP LINE -->
+                                        <div class="crane-report-header-line-top"></div>
+
+                                        <!-- TITLE + LOGO -->
+                                        <div class="crane-report-header-content">
+
+                                            <div class="crane-report-title">
+
+                                                Crane Condition Evaluation
+                                                <br/>
+                                                Checklist - Offshore
+
+                                            </div>
+
+                                            <div class="crane-report-logo">
+
+                                                <img
+                                                    t-att-src="'%s/management_aset/static/src/img/logo.png' % web_base_url"
+                                                />
+
+                                            </div>
+
+                                        </div>
+
+                                        <!-- BOTTOM LINE -->
+                                        <div class="crane-report-header-line-bottom"></div>
+
+                                    </div>
+
+                                </th>
+
+                            </tr>
+
+
+                            <!-- ============================================= -->
+                            <!-- TABLE HEADER                                    -->
+                            <!-- ============================================= -->
+
+                            <tr class="inspection-header-main">
+
+                                <!-- NO -->
+                                <th
+                                    rowspan="2"
+                                    class="inspection-no-header"
+                                >
+                                    NO
+                                </th>
+
+                                <!-- ITEM DETAIL -->
+                                <th
+                                    rowspan="2"
+                                    class="inspection-item-header"
+                                >
+                                    ITEM DETAIL
+                                </th>
+
+                                <!-- CONDITION -->
+                                <th
+                                    colspan="4"
+                                    class="inspection-condition-header"
+                                >
+                                    CONDITION
+                                </th>
+
+                                <!-- OBSERVATION -->
+                                <th
+                                    rowspan="2"
+                                    class="inspection-observation-header"
+                                >
+                                    OBSERVATIONS /
+                                    <br/>
+                                    RECOMMENDATIONS
+                                </th>
+
+                            </tr>
+
+
+                            <!-- ============================================= -->
+                            <!-- CONDITION HEADER                                -->
+                            <!-- ============================================= -->
+
+                            <tr class="inspection-header-condition">
+
+                                <th class="condition-green-header">
+                                    Green
+                                </th>
+
+                                <th class="condition-amber-header">
+                                    Amber
+                                </th>
+
+                                <th class="condition-red-header">
+                                    Red
+                                </th>
+
+                                <th class="condition-na-header">
+                                    N/A
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <!-- ================================================= -->
+                        <!-- TABLE BODY                                         -->
+                        <!-- ================================================= -->
+
+                        <tbody>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS                                        -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <!-- NO -->
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <!-- ITEM DETAIL -->
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <!-- GREEN -->
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <!-- AMBER -->
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span>.</t>
+                                    </td>
+
+                                    <!-- RED -->
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <!-- N/A -->
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <!-- OBSERVATION -->
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS 2                                      -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids2" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS 3                                      -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids3" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS 4                                      -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids4" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS 5                                      -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids5" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS 6                                      -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids6" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS 7                                      -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids7" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS 8                                      -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids8" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS 9                                      -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids9" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+
+                            <!-- ================================================= -->
+                            <!-- RESULT IDS 10                                     -->
+                            <!-- ================================================= -->
+
+                            <t t-foreach="o.result_ids10" t-as="line">
+
+                                <tr
+                                    t-att-class="'inspection-section-row' if line.is_section else 'inspection-data-row'"
+                                >
+
+                                    <td class="inspection-no-cell">
+                                        <span t-field="line.sequence"/>
+                                    </td>
+
+                                    <td class="inspection-item-cell">
+                                        <span t-esc="line.item_detail"/>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'green'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'amber'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'red'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="condition-cell">
+                                        <t t-if="line.condition == 'na'"><span class="check-mark"></span></t>
+                                    </td>
+
+                                    <td class="inspection-observation-cell">
+                                        <span t-field="line.observation"/>
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>

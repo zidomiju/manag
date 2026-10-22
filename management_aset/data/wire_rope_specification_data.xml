@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="1" model="wire.rope.specification">
+            <field name="location">Boom Line</field>
+            <field name="sort_order">10</field>
+        </record>
+
+        <record id="2" model="wire.rope.specification">
+            <field name="location">Main Line</field>
+            <field name="sort_order">11</field>
+        </record>
+
+        <record id="3" model="wire.rope.specification">
+            <field name="location">Whip Line</field>
+            <field name="sort_order">12</field>
+        </record>
+
+        <record id="4" model="wire.rope.specification">
+            <field name="location">Boom Pendants</field>
+            <field name="sort_order">13</field>
+        </record>
+    </data>
+</odoo>

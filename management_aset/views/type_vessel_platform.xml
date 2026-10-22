@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="type_vessel_platform_view_list" model="ir.ui.view">
+        <field name="name">type.vessel.platform.view.list</field>
+        <field name="model">type.vessel.platform</field>
+        <field name="arch" type="xml">
+            <list
+                editable="bottom"
+                create="1"
+                edit="1"
+                delete="1">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+</odoo>

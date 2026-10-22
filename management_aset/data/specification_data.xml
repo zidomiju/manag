@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <data noupdate="1">
+
+        <record id="spec_1_2" model="specification.report">
+            <field name="sequence">1.2</field>
+            <field name="item_detail">Certification</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">10</field>
+        </record>
+
+        <record id="spec_1_2_0" model="specification.report">
+            <field name="sequence">1.2.0</field>
+            <field name="item_detail">REVIEW THE RIG&apos;S CRANE RELATED CERTIFICATION AND CHECK THE FOLLOWING ARE UP-TO-DATE:</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">11</field>
+        </record>
+
+        <record id="spec_1_2_1" model="specification.report">
+            <field name="sequence">1.2.1</field>
+            <field name="item_detail">5 YEARLY LOAD TEST (RECORD DATE)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">12</field>
+        </record>
+
+        <record id="spec_1_2_2" model="specification.report">
+            <field name="sequence">1.2.2</field>
+            <field name="item_detail">ANNUAL LIFTING GEAR REGISTER AND ASSOCIATED NDT REPORTS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">13</field>
+        </record>
+
+        <record id="spec_1_2_3" model="specification.report">
+            <field name="sequence">1.2.3</field>
+            <field name="item_detail">WIRE ROPE CERTIFICATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">14</field>
+        </record>
+
+        <record id="spec_1_2_4" model="specification.report">
+            <field name="sequence">1.2.4</field>
+            <field name="item_detail">MAIN HOOK BLOCK CERTIFICATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">15</field>
+        </record>
+
+        <record id="spec_1_2_5" model="specification.report">
+            <field name="sequence">1.2.5</field>
+            <field name="item_detail">WHIP HOOK BLOCK CERTIFICATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">16</field>
+        </record>
+
+        <record id="spec_1_2_6" model="specification.report">
+            <field name="sequence">1.2.6</field>
+            <field name="item_detail">OPEN WEDGE SOCKET CERTIFICATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">17</field>
+        </record>
+
+        <record id="spec_1_2_7" model="specification.report">
+            <field name="sequence">1.2.7</field>
+            <field name="item_detail">SLEW BEARING CHANGEOUT DEFERRAL CERTIFICATE (NOTE DATE OF ISSUE-MANDATORY REQUIREMENT FOR NORTH SEA)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">18</field>
+        </record>
+
+        <record id="spec_1_2_8" model="specification.report">
+            <field name="sequence">1.2.8</field>
+            <field name="item_detail">RATED CAPACITY INDICATOR CALIBRATION / CERTIFICATION CHECKS / QUARTERLY DOWN LOADS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">19</field>
+        </record>
+
+        <record id="spec_1_2_9" model="specification.report">
+            <field name="sequence">1.2.9</field>
+            <field name="item_detail">AIR START RECEIVER PRESSURE TEST / INSPECTION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">20</field>
+        </record>
+
+        <record id="spec_1_2_10" model="specification.report">
+            <field name="sequence">1.2.10</field>
+            <field name="item_detail">HYDRAULIC HOSE CERTIFICATION FOR ALL REPLACEMENT HOSES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">21</field>
+        </record>
+
+
+        <record id="spec_1_3" model="specification.report">
+            <field name="sequence">1.3</field>
+            <field name="item_detail">Planned Maintenance</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">22</field>
+        </record>
+
+        <record id="spec_1_3_1" model="specification.report">
+            <field name="sequence">1.3.1</field>
+            <field name="item_detail">REVIEW THE DAILY AND WEEKLY CHECKLISTS, GOING BACK ONE MONTH AND CHECK FOR COMPLIANCE WITH PM SYSTEM. VERIFY THAT REPORTED PROBLEMS HAVE BEEN CORRECTED (HISTORY NOTES ADDED TO SUPPORT ABOVE  YES  /  NO)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">23</field>
+        </record>
+
+        <record id="spec_1_3_2" model="specification.report">
+            <field name="sequence">1.3.2</field>
+            <field name="item_detail">DISCUSS CONTENTS AND REPORTING NEEDS OF DAILY AND WEEKLY CHECKLISTS WITH CRANE OPERATOR / MECHANIC NOTING ANY CONCERNS OR SHORTFALLS THEY MAY HAVE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">24</field>
+        </record>
+
+        <record id="spec_1_3_3" model="specification.report">
+            <field name="sequence">1.3.3</field>
+            <field name="item_detail">REVIEW THE LAST MONTHLY, 6 MONTHLY AND ANNUAL PM TASKS, VERIFYING COMPLIANCE WITH PM SYSTEM. VERIFY THAT REPORTED PROBLEMS HAVE BEEN CORRECTED (HISTORY NOTES ADDED TO SUPPORT ABOVE  YES  /  NO)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">25</field>
+        </record>
+
+        <record id="spec_1_0_0" model="specification.report">
+            <field name="sequence"></field>
+            <field name="item_detail">VERIFY /VIEW THE FOLLOWING HAVE BEEN COMPLETED ON SCHEDULE:</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">26</field>
+        </record>
+
+        <record id="spec_1_3_4" model="specification.report">
+            <field name="sequence">1.3.4</field>
+            <field name="item_detail">VERIFY DATE OF LAST CRANE DROPS SURVEY</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">27</field>
+        </record>
+
+        <record id="spec_1_3_5" model="specification.report">
+            <field name="sequence">1.3.5</field>
+            <field name="item_detail">SLEW BEARING ROCKING TESTS AND GREASE ANALYSIS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">28</field>
+        </record>
+        
+        <record id="spec_1_3_6" model="specification.report">
+            <field name="sequence">1.3.6</field>
+            <field name="item_detail">WIRE ROPE INSPECTION / DISCARD LOGS BEING COMPLETED ON A MONTHLY BASIS (ADEQUATE REPORTING HISTORY AVAILABLE  YES  /  NO)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">29</field>
+        </record>
+
+        <record id="spec_1_3_7" model="specification.report">
+            <field name="sequence">1.3.7</field>
+            <field name="item_detail">PRESSURE GAUGE OPERATION AND CONDITION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">30</field>
+        </record>
+
+        <record id="spec_1_3_8" model="specification.report">
+            <field name="sequence">1.3.8</field>
+            <field name="item_detail">REVIEW RMS COMPLETION OF NDT WORK PERFORMED (HISTORY NOTES ADDED TO SUPPORT  YES  /  NO)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">31</field>
+        </record>
+
+        <record id="spec_1_3_9" model="specification.report">
+            <field name="sequence">1.3.9</field>
+            <field name="item_detail">SLEW BEARING BOLT INSPECTION / REPLACEMENT PROGRAMME</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">32</field>
+        </record>
+
+        <record id="spec_1_3_10" model="specification.report">
+            <field name="sequence">1.3.10</field>
+            <field name="item_detail">
+                PRESSURE VESSEL INSPECTION
+            </field>
+            <field name="is_section">False</field>
+            <field name="sort_order">33</field>
+        </record>
+
+        <record id="spec_1_3_11" model="specification.report">
+            <field name="sequence">1.3.11</field>
+            <field name="item_detail">
+                AIR RECEIVER SAFETY VALVE TEST
+            </field>
+            <field name="is_section">False</field>
+            <field name="sort_order">34</field>
+        </record>
+
+        <record id="spec_1_3_12" model="specification.report">
+            <field name="sequence">1.3.12</field>
+            <field name="item_detail">
+                ENGINE OVERSPEED SHUTDOWN TEST. PLEASE CHECK PHYSICAL OPERATION WITH ENGINE NOT RUNNING AT FULL REVS
+            </field>
+            <field name="is_section">False</field>
+            <field name="sort_order">35</field>
+        </record>
+
+        <record id="spec_1_3_13" model="specification.report">
+            <field name="sequence">1.3.13</field>
+            <field name="item_detail">
+                RATED CAPACITY INDICATOR CALIBRATION
+            </field>
+            <field name="is_section">False</field>
+            <field name="sort_order">36</field>
+        </record>
+        
+        <record id="spec_1_3_14" model="specification.report">
+            <field name="sequence">1.3.14</field>
+            <field name="item_detail">
+                VERIFY AND NOTE ANY PLC / MIPEG SOFTWARE / LAP TOP IS READILY AVAILABLE ON BOARD AND RECORD DATE OF ISSUE
+            </field>
+            <field name="is_section">False</field>
+            <field name="sort_order">37</field>
+        </record>
+
+        <record id="spec_1_3_15" model="specification.report">
+            <field name="sequence">1.3.15</field>
+            <field name="item_detail">
+                RECORD THE CURRENT LIFTING EQUIPMENT COLOUR CODE AND VERIFY IT IS CONSISTENT WITH THE COLOUR CODING ON THE CRANE COMPONENTS
+            </field>
+            <field name="is_section">False</field>
+            <field name="sort_order">38</field>
+        </record>
+
+        <record id="spec_1_0_1" model="specification.report">
+            <field name="sequence"></field>
+            <field name="item_detail">IN THE EVENT THE MAINTENANCE IS NOT UP TO DATE, ALL OVERDUE CHECKS SHOULD BE PERFORMED AS PART OF THE CONDITION EVALUATION.</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">39</field>
+        </record>
+
+        <record id="spec_1_4" model="specification.report">
+            <field name="sequence">1.4</field>
+            <field name="item_detail">MAJOR CRANE SPARES</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">40</field>
+        </record>
+
+        <record id="spec_1_4_1" model="specification.report">
+            <field name="sequence">1.4.1</field>
+            <field name="item_detail">LOCATE AND REVIEW THE CONDITION OF ALL MAJOR CRANE SPARES (I.E. WINCHES, GEARBOXES, PUMPS, MOTORS, ETC)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">41</field>
+        </record>
+
+        <record id="spec_1_4_2" model="specification.report">
+            <field name="sequence">1.4.2</field>
+            <field name="item_detail">VERIFY ALL SPARES ARE RECORDED ON THE RIG ICS SYSTEM.  OBTAIN A PRINT OUT, AND LIST ANY MAJOR SPARES NOT RECORDED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">42</field>
+        </record>
+
+        <record id="spec_1_4_3" model="specification.report">
+            <field name="sequence">1.4.3</field>
+            <field name="item_detail">VERIFY VALID EQUIPMENT CERTIFICATION AND / OR TEST REPORTS ARE READILY AVAILABLE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">43</field>
+        </record>
+
+        <record id="spec_1_4_4" model="specification.report">
+            <field name="sequence">1.4.4</field>
+            <field name="item_detail">RECORD ALL MAJOR SPARES MANUFACTURE AND MODEL NUMBER</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">44</field>
+        </record>
+
+        <record id="spec_1_4_5" model="specification.report">
+            <field name="sequence">1.4.5</field>
+            <field name="item_detail">VERIFY MAJOR SPARES ARE STORED IN A SUITABLE LOCATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">45</field>
+        </record>
+
+        <record id="spec_1_4_6" model="specification.report">
+            <field name="sequence">1.4.6</field>
+            <field name="item_detail">QUARANTINE ANY COMPONENTS FOUND TO BE IN A SUBSTANDARD CONDITION OR WITHOUT CERTIFICATION.  NOTE IF THIS WAS DONE AND DETAIL REASONS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">46</field>
+        </record>
+
+        <record id="spec_1_4_7" model="specification.report">
+            <field name="sequence">1.4.7</field>
+            <field name="item_detail">PHOTOGRAPH ALL MAJOR SPARES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">47</field>
+        </record>
+    </data>
+
+</odoo>

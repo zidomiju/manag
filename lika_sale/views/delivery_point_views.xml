@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="delivery_point_view_tree" model="ir.ui.view">
+        <field name="name">delivery.point.view.tree</field>
+        <field name="model">delivery.point</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="delivery_point_action" model="ir.actions.act_window">
+        <field name="name">Delivery Points</field>
+        <field name="res_model">delivery.point</field>
+        <field name="view_mode">list</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling">
+                Create the first delivery point
+            </p>
+        </field>
+    </record>
+
+</odoo>

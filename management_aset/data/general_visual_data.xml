@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <data noupdate="1">
+
+        <record id="spec_2_1" model="general.visual.report">
+            <field name="sequence">2.1</field>
+            <field name="item_detail">CRANE OVERALL</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">10</field>
+        </record>
+        
+        <record id="spec_2_1_1" model="general.visual.report">
+            <field name="sequence">2.1.1</field>
+            <field name="item_detail">OVERALL CONDITION OF CRANE STEELWORK/ PAINTWORK/ HOUSEKEEPING</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">11</field>
+        </record>
+
+        <record id="spec_2_1_2" model="general.visual.report">
+            <field name="sequence">2.1.2</field>
+            <field name="item_detail">SAFE WORKING LOAD AND RADIUS CLEARLY MARKED ON CRANE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">12</field>
+        </record>
+
+        <record id="spec_2_1_3" model="general.visual.report">
+            <field name="sequence">2.1.3</field>
+            <field name="item_detail">WIND SOCK VISIBLE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">13</field>
+        </record>
+
+
+        <record id="spec_2_2" model="general.visual.report">
+            <field name="sequence">2.2</field>
+            <field name="item_detail">MACHINERY HOUSE / COLUMN</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">14</field>
+        </record>
+
+        <record id="spec_2_2_1" model="general.visual.report">
+            <field name="sequence">2.2.1</field>
+            <field name="item_detail">EVALUATE THE CONDITION OF THE PAINT. ANY COATING DAMAGE SHOULD BE NOTED AND REPAIRED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">15</field>
+        </record>
+
+        <record id="spec_2_2_2" model="general.visual.report">
+            <field name="sequence">2.2.2</field>
+            <field name="item_detail">CHECK SHEET METAL WORK FOR CORROSION AND DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">16</field>
+        </record>
+
+        <record id="spec_2_2_3" model="general.visual.report">
+            <field name="sequence">2.2.3</field>
+            <field name="item_detail">CHECK GENERAL CONDITION OF DOORS AND HATCHES, ENSURING THE SEALS, LATCHES AND HINGES ARE IN GOOD CONDITION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">17</field>
+        </record>
+
+        <record id="spec_2_2_4" model="general.visual.report">
+            <field name="sequence">2.2.4</field>
+            <field name="item_detail">CHECK ALL WINDOWS ARE IN PLACE AND IN GOOD CONDITION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">18</field>
+        </record>
+
+        <record id="spec_2_2_5" model="general.visual.report">
+            <field name="sequence">2.2.5</field>
+            <field name="item_detail">CHECK RADIATOR SHUTTERS AND OPERATING CYLINDERS FOR CORRECT OPERATION. CHECK FOR CORROSION OR MECHANICAL DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">19</field>
+        </record>
+
+        <record id="spec_2_2_6" model="general.visual.report">
+            <field name="sequence">2.2.6</field>
+            <field name="item_detail">CHECK DRIP PANS ARE IN PLACE AND DRAINS ARE NOT PLUGGED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">20</field>
+        </record>
+
+        <record id="spec_2_2_7" model="general.visual.report">
+            <field name="sequence">2.2.7</field>
+            <field name="item_detail">CHECK THE FUEL TANK FOR SIGNS OF LEAKS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">21</field>
+        </record>
+
+        <record id="spec_2_2_8" model="general.visual.report">
+            <field name="sequence">2.2.8</field>
+            <field name="item_detail">CHECK CONDITION OF CENTRAL LUBRICATION SYSTEM, ENSURE GREASE IS DISTRIBUTED TO ALL INTENDED LOCATIONS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">22</field>
+        </record>
+
+        <record id="spec_2_2_9" model="general.visual.report">
+            <field name="sequence">2.2.9</field>
+            <field name="item_detail">CHECK ALL FLUID LEVELS ARE BEING MAINTAINED: FUEL, HYDRAULIC FLUID, ENGINE OIL, COOLANT, GEAR OILS ETC.</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">23</field>
+        </record>
+
+        <record id="spec_2_3" model="general.visual.report">
+            <field name="sequence">2.3</field>
+            <field name="item_detail">OPERATOR&apos;S CAB / STATION</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">24</field>
+        </record>
+
+        <record id="spec_2_3_1" model="general.visual.report">
+            <field name="sequence">2.3.1</field>
+            <field name="item_detail">EVALUATE THE CONDITION OF THE PAINT. ANY COATING DAMAGE SHOULD BE NOTED AND REPAIRED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">25</field>
+        </record>
+
+        <record id="spec_2_3_2" model="general.visual.report">
+            <field name="sequence">2.3.2</field>
+            <field name="item_detail">CHECK SHEET METAL WORK  / STRUCTURE FOR CORROSION AND DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">26</field>
+        </record>
+
+        <record id="spec_2_3_3" model="general.visual.report">
+            <field name="sequence">2.3.3</field>
+            <field name="item_detail">CHECK THE SEALS, LATCHES AND HINGES OF DOORS FOR CORRECT OPERATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">27</field>
+        </record>
+
+        <record id="spec_2_3_4" model="general.visual.report">
+            <field name="sequence">2.3.4</field>
+            <field name="item_detail">CHECK ALL WINDOWS ARE IN PLACE AND FREE FROM DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">28</field>
+        </record>
+
+        <record id="spec_2_3_5" model="general.visual.report">
+            <field name="sequence">2.3.5</field>
+            <field name="item_detail">CHECK THE WINDSHIELD WIPERS AND WASHERS ARE IN WORKING ORDER</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">29</field>
+        </record>
+
+        <record id="spec_2_3_6" model="general.visual.report">
+            <field name="sequence">2.3.6</field>
+            <field name="item_detail">CHECK THE DRIVER'S SEAT IS IN GOOD CONDITION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">30</field>
+        </record>
+
+        <record id="spec_2_3_7" model="general.visual.report">
+            <field name="sequence">2.3.7</field>
+            <field name="item_detail">CHECK THE HEATER/ BLOWER/ AIR CONDITIONING IS IN GOOD WORKING ORDER</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">31</field>
+        </record>
+
+        <record id="spec_2_3_8" model="general.visual.report">
+            <field name="sequence">2.3.8</field>
+            <field name="item_detail">ENSURE THE CORRECT LOAD CHART IS AVAILABLE AND VISIBLE IN THE OPERATOR'S CAB / STATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">32</field>
+        </record>
+
+        <record id="spec_2_4" model="general.visual.report">
+            <field name="sequence">2.4</field>
+            <field name="item_detail">TROLLEYS/BEAMS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">33</field>
+        </record>
+    </data>
+
+    
+</odoo>

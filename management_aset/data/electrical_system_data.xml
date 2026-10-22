@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="spec_9_1" model="electrical.system.report">
+            <field name="sequence">9.1</field>
+            <field name="item_detail">WIRES, CABLES AND APPLIANCES</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">10</field>
+        </record>
+
+        <record id="spec_9_1_1" model="electrical.system.report">
+            <field name="sequence">9.1.1</field>
+            <field name="item_detail">VISUALLY INSPECT SLIPRING, MOUNTING AND FIXTURES FOR SIGNS OF DAMAGE, CORROSION.  ENSURE ALL COVERS, SEALS AND GLANDS ARE INTACT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">11</field>
+        </record>
+
+        <record id="spec_9_1_2" model="electrical.system.report">
+            <field name="sequence">9.1.2</field>
+            <field name="item_detail">VISUALLY INSPECT ALL POWER SUPPLY AND DISTRIBUTION PANELS, CHECKING FOR SIGNS OF DAMAGE, CORROSION. ENSURE ALL COVERS, SEALS AND GLANDS ARE INTACT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">12</field>
+        </record>
+
+        <record id="spec_9_1_3" model="electrical.system.report">
+            <field name="sequence">9.1.3</field>
+            <field name="item_detail">VISUALLY INSPECT ALL WIRES AND CABLES FOR SIGNS OF DAMAGE. ENSURE THEY ARE NOT LYING LOOSE, BUT ARE SECURELY STRAPPED IN PLACE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">13</field>
+        </record>
+
+        <record id="spec_9_1_4" model="electrical.system.report">
+            <field name="sequence">9.1.4</field>
+            <field name="item_detail">REVIEW THE LAST MEGGER READINGS ON CRANE ELECTRICAL SYSTEMS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">14</field>
+        </record>
+
+        <record id="spec_9_1_5" model="electrical.system.report">
+            <field name="sequence">9.1.5</field>
+            <field name="item_detail">VISUALLY INSPECT THE GENERAL CONDITION OF SOLENOID VALVES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">15</field>
+        </record>
+
+        <record id="spec_9_1_6" model="electrical.system.report">
+            <field name="sequence">9.1.6</field>
+            <field name="item_detail">FUNCTION TEST THE CABIN HEATER/ BLOWER/ AIR CONDITIONER</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">16</field>
+        </record>
+
+        <record id="spec_9_2" model="electrical.system.report">
+            <field name="sequence">9.2</field>
+            <field name="item_detail">LIGHTING</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">17</field>
+        </record>
+
+        <record id="spec_0_9_0" model="electrical.system.report">
+            <field name="sequence"></field>
+            <field name="item_detail">CHECK THE FOLLOWING LIGHTS ARE INSTALLED AND ARE IN GOOD WORKING ORDER:</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">18</field>
+        </record>
+
+        <record id="spec_9_2_1" model="electrical.system.report">
+            <field name="sequence">9.2.1</field>
+            <field name="item_detail">CONFIRM ALL CRANE FLOODLIGHT SAFETY FIXTURES ARE IN PLACE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">19</field>
+        </record>
+
+        <record id="spec_9_2_2" model="electrical.system.report">
+            <field name="sequence">9.2.2</field>
+            <field name="item_detail">FIXED RED NAVIGATION LIGHTS - BOOM AND &apos;A&apos; FRAME</field><field name="is_section">False</field>
+            <field name="sort_order">20</field>
+        </record>
+
+        <record id="spec_9_2_3" model="electrical.system.report">
+            <field name="sequence">9.2.3</field>
+            <field name="item_detail">BOOM FLOOD INSIDE BOOM</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">21</field>
+        </record>
+
+        <record id="spec_9_2_4" model="electrical.system.report">
+            <field name="sequence">9.2.4</field>
+            <field name="item_detail">CRANE CAB FLOOD LIGHT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">22</field>
+        </record>
+
+        <record id="spec_9_2_5" model="electrical.system.report">
+            <field name="sequence">9.2.5</field>
+            <field name="item_detail">DECK ILLUMINATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">23</field>
+        </record>
+
+        <record id="spec_9_2_6" model="electrical.system.report">
+            <field name="sequence">9.2.6</field>
+            <field name="item_detail">TAIL SWING CLEARANCE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">24</field>
+        </record>
+
+        <record id="spec_9_2_7" model="electrical.system.report">
+            <field name="sequence">9.2.7</field>
+            <field name="item_detail">EMERGENCY LIGHT IN MACHINERY SPACE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">25</field>
+        </record>
+
+        <record id="spec_9_2_8" model="electrical.system.report">
+            <field name="sequence">9.2.8</field>
+            <field name="item_detail">EMERGENCY TORCH LIGHT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">26</field>
+        </record>
+    </data>
+</odoo>

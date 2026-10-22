@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="registered_country_list_view" model="ir.ui.view">
+        <field name="name">registered_country_list_view</field>
+        <field name="model">registered.country</field>
+        <field name="arch" type="xml">
+            <list 
+                editable="bottom"
+                create="1"
+                edit="1"
+                delete="1">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    
+</odoo>

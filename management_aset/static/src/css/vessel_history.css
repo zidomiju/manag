@@ -1,0 +1,11 @@
+.vessel-history th,
+.vessel-history td{
+    text-align:center !important;
+}
+
+.vessel-history th[data-name="new_name"]{
+    width:50% !important;
+}
+.vessel-history th[data-name="effective_date"]{
+    width:50% !important;
+}

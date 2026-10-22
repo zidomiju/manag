@@ -1,0 +1,20 @@
+.crane-regist-list th,
+.crane-regist-list td{
+    text-align:center !important;
+}
+
+.crane-regist-list th[data-name="crane_name"]{
+    width:25% !important;
+}
+
+.crane-regist-list th[data-name="serial_number"]{
+    width:25% !important;
+}
+
+.crane-regist-list th[data-name="model_id"]{
+    width:25% !important;
+}
+
+.crane-regist-list th[data-name="year_built"]{
+    width:25% !important;
+}

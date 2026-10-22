@@ -1,0 +1,26 @@
+.wire-rope-list th,
+.wire-rope-list td{
+    text-align:center !important;
+}
+
+
+.wire-rope-list th[data-name="location"]{
+    width:20% !important;
+}
+
+.wire-rope-list th[data-name="nominal_diamater"]{
+    width:20% !important;
+}
+
+.wire-rope-list th[data-name="rope_description"]{
+    width:20% !important;
+}
+
+.wire-rope-list th[data-name="date_install"]{
+    width:20% !important;
+}
+
+.wire-rope-list th[data-name="certificate_no"]{
+    width:20% !important;
+}
+

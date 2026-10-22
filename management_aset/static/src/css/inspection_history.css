@@ -1,0 +1,20 @@
+.inspection-history th,
+.inspection-history td{
+    text-align:center !important;
+}
+
+.inspection-history th[data-name="employee_id"]{
+    width:25% !important;
+}
+
+.inspection-history th[data-name="job_no"]{
+    width:25% !important;
+}
+
+.inspection-history th[data-name="start_date"]{
+    width:25% !important;
+}
+
+.inspection-history th[data-name="end_date"]{
+    width:25% !important;
+}

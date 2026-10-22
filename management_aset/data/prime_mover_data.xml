@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+
+        <record id="spec_7_1" model="prime.mover.report">
+            <field name="sequence">7.1</field>
+            <field name="item_detail">DIESEL ENGINE</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">10</field>
+        </record>
+
+        <record id="spec_7_1_1" model="prime.mover.report">
+            <field name="sequence">7.1.1</field>
+            <field name="item_detail">RECORD THE ENGINE MAKE, MODEL, SERIAL NUMBER AND LOG RUNNING HOURS.</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">11</field>
+        </record>
+
+        <record id="spec_7_1_2" model="prime.mover.report">
+            <field name="sequence">7.1.2</field>
+            <field name="item_detail">LAST OVERHAUL DATE AND HOURS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">12</field>
+        </record>
+
+        <record id="spec_7_1_3" model="prime.mover.report">
+            <field name="sequence">7.1.3</field>
+            <field name="item_detail">CHECK THE ENGINE BLOCK, PIPEWORK AND HOSES FOR LEAKS AND DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">13</field>
+        </record>
+
+        <record id="spec_7_1_4" model="prime.mover.report">
+            <field name="sequence">7.1.4</field>
+            <field name="item_detail">CHECK ALL DRIVE BELTS FOR WEAR OR DETERIORATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">14</field>
+        </record>
+
+        <record id="spec_7_1_5" model="prime.mover.report">
+            <field name="sequence">7.1.5</field>
+            <field name="item_detail">CHECK ALL HOSES ARE WELL SECURED AND FREE FROM CRACKS OR DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">15</field>
+        </record>
+
+        <record id="spec_7_1_6" model="prime.mover.report">
+            <field name="sequence">7.1.6</field>
+            <field name="item_detail">CHECK THE ENGINE OIL PRESSURE IS WITHIN THE MANUFACTURER&apos;S SPECIFICATIONS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">16</field>
+        </record>
+
+        <record id="spec_7_1_7" model="prime.mover.report">
+            <field name="sequence">7.1.7</field>
+            <field name="item_detail">CHECK THE OIL CONSUMPTION FROM THE CRANE RECORDS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">17</field>
+        </record>
+
+        <record id="spec_7_1_8" model="prime.mover.report">
+            <field name="sequence">7.1.8</field>
+            <field name="item_detail">CHECK THE ENGINE WATER LEVEL AND TEMPERATURE UNDER NORMAL OPERATING CONDITIONS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">18</field>
+        </record>
+
+        <record id="spec_7_1_9" model="prime.mover.report">
+            <field name="sequence">7.1.9</field>
+            <field name="item_detail">VISUALLY CHECK THE ENGINE EXHAUST FOR INDICATIONS OF ENGINE PROBLEMS (NOTE ANY SMOKE)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">19</field>
+        </record>
+
+        <record id="spec_7_1_10" model="prime.mover.report">
+            <field name="sequence">7.1.10</field>
+            <field name="item_detail">CHECK THE ENGINE TURBOCHARGER/ BLOWERS FOR WEAR OR DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">20</field>
+        </record>
+
+        <record id="spec_7_1_11" model="prime.mover.report">
+            <field name="sequence">7.1.11</field>
+            <field name="item_detail">CHECK THE FUEL, OIL AND AIR FILTERS CONDITION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">21</field>
+        </record>
+
+        <record id="spec_7_1_12" model="prime.mover.report">
+            <field name="sequence">7.1.12</field>
+            <field name="item_detail">VERIFY ADJUSTMENT OF THE VALVE GEAR MECHANISM IN PMR&apos;S</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">22</field>
+        </record>
+
+        <record id="spec_7_1_13" model="prime.mover.report">
+            <field name="sequence">7.1.13</field>
+            <field name="item_detail">CHECK FOR BROKEN OR DAMAGED SPRINGS, CRACKED OR DAMAGED ROCKER ARMS AND BRIDGES, BENT PUSH RODS, CRACKED OR BROKEN FUEL LINES AND LUBRICATING OIL LINE. ENSURE ALL FASTENERS ARE TIGHT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">23</field>
+        </record>
+
+        <record id="spec_7_1_14" model="prime.mover.report">
+            <field name="sequence">7.1.14</field>
+            <field name="item_detail">ON TWO STROKE ENGINES, PERFORM AN AIR BOX INSPECTION AND EVALUATE THE CONDITION OF THE PISTONS, RINGS AND LINERS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">24</field>
+        </record>
+
+        <record id="spec_7_1_15" model="prime.mover.report">
+            <field name="sequence">7.1.15</field>
+            <field name="item_detail">CHECK ALL ENGINE MOUNTING BOLTS ARE FREE FROM CORROSION AND SECURELY FASTENED. NOTE THE CONDITION OF THE FLEXIBLE MOUNTS WHERE FITTED. IF DAMAGE OR SWELLING OF ELASTOMERS HAS TAKEN PLACE, REPLACE THE MOUNTINGS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">25</field>
+        </record>
+
+        <record id="spec_7_1_16" model="prime.mover.report">
+            <field name="sequence">7.1.16</field>
+            <field name="item_detail">VERIFY SAMPLING OF THE ENGINE OIL AND CHECK ANALYSIS RESULTS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">26</field>
+        </record>
+
+        <record id="spec_7_1_17" model="prime.mover.report">
+            <field name="sequence">7.1.17</field>
+            <field name="item_detail">
+                VERIFY THE ENGINE COOLANT SAMPLING FOR ADEQUATE CORROSION INHIBITOR (AND ANTI-FREEZE WHERE REQUIRED) IS BEING PERFORMED
+            </field>
+            <field name="is_section">False</field>
+            <field name="sort_order">27</field>
+        </record>
+
+        <record id="spec_7_1_18" model="prime.mover.report">
+            <field name="sequence">7.1.18</field>
+            <field name="item_detail">CHECK THE DRIVE SHAFT UNIVERSAL JOINT BEARINGS FOR BACKLASH. CHECK THE TORQUE ON ALL CONNECTING FASTENERS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">28</field>
+        </record>
+
+        <record id="spec_7_1_19" model="prime.mover.report">
+            <field name="sequence">7.1.19</field>
+            <field name="item_detail">VISUALLY CHECK THE RADIATOR/ OIL COOLER FOR SIGNS OF LEAKS OR DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">29</field>
+        </record>
+
+        <record id="spec_7_1_20" model="prime.mover.report">
+            <field name="sequence">7.1.20</field>
+            <field name="item_detail">CHECK THE ENGINE EXHAUST SILENCER FOR CORROSION. ENSURE THE SELF-CLOSING FLAPS ARE OPERATING CORRECTLY, AND THAT CONDENSATE DRAINS ARE CLEAR</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">30</field>
+        </record>
+
+        <record id="spec_7_1_21" model="prime.mover.report">
+            <field name="sequence">7.1.21</field>
+            <field name="item_detail">FUNCTION TEST THE ENGINE PROTECTIVE DEVICES - ENGINE OVERSPEED, HIGH WATER TEMPERATURE ALARM, LOW WATER LEVEL ALARM AND LOW LUBE OIL LEVEL ALARM</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">31</field>
+        </record>
+
+        <record id="spec_7_1_22" model="prime.mover.report">
+            <field name="sequence">7.1.22</field>
+            <field name="item_detail">CHECK THE OPERATION AIR STARTER AND LOOK / LISTEN FOR INDICATIONS OF WEAR IN THE BENDIX DRIVE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">32</field>
+        </record>
+
+        <record id="spec_7_1_23" model="prime.mover.report">
+            <field name="sequence">7.1.23</field>
+            <field name="item_detail">INSPECT THE FLYWHEEL RING TEETH FOR WEAR AND DAMAGE (IF APPLICABLE)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">33</field>
+        </record>
+
+        <record id="spec_7_1_24" model="prime.mover.report">
+            <field name="sequence">7.1.24</field>
+            <field name="item_detail">TEST RUN THE ENGINE AND CHECK GOVERNOR OPERATION AT VARIOUS SPEEDS. ENGINE SHOULD RESPOND IMMEDIATELY TO CHANGE IN THROTTLE SETTING WITH NO SURGING OR HESITATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">34</field>
+        </record>
+
+        <record id="spec_7_2" model="prime.mover.report">
+            <field name="sequence">7.2</field>
+            <field name="item_detail">CLUTCH</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">35</field>
+        </record>
+
+        <record id="spec_7_2_1" model="prime.mover.report">
+            <field name="sequence">7.2.1</field>
+            <field name="item_detail">INSPECT THE CLUTCH PLATES FOR WEAR AND ADJUSTMENT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">36</field>
+        </record>
+
+        <record id="spec_7_2_2" model="prime.mover.report">
+            <field name="sequence">7.2.2</field>
+            <field name="item_detail">FUNCTION TEST THE CLUTCH, ENSURING POSITIVE ENGAGEMENT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">37</field>
+        </record>
+
+        <record id="spec_7_3" model="prime.mover.report">
+            <field name="sequence">7.3</field>
+            <field name="item_detail">DRIVE/ SPLITTER GEAR</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">38</field>
+        </record>
+
+        <record id="spec_7_3_1" model="prime.mover.report">
+            <field name="sequence">7.3.1</field>
+            <field name="item_detail">CHECK THE GEARBOX INTERNAL COMPONENTS FOR WEAR AND DAMAGE.  INCLUDE A CHECK ON SPROCKETS, CHAINS AND GEARS AND INTERNAL SPLINE DRIVES (IF POSSIBLE)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">39</field>
+        </record>
+
+        <record id="spec_7_3_2" model="prime.mover.report">
+            <field name="sequence">7.3.2</field>
+            <field name="item_detail">VERIFY SAMPLING OF THE GEARBOX OIL AND CHECK ANALYSIS RESULTS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">40</field>
+        </record>
+
+        <record id="spec_7_3_3" model="prime.mover.report">
+            <field name="sequence">7.3.3</field>
+            <field name="item_detail">CHECK THE GEARBOX OIL PRESSURE IS WITHIN THE MANUFACTURER&apos;S RECOMMENDATIONS AT RATED RPM</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">41</field>
+        </record>
+
+        <record id="spec_7_3_4" model="prime.mover.report">
+            <field name="sequence">7.3.4</field>
+            <field name="item_detail">CHECK THE CONDITION OF THE GEARBOX OIL FILTER / COOLER</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">42</field>
+        </record>
+
+        <record id="spec_7_3_5" model="prime.mover.report">
+            <field name="sequence">7.3.5</field>
+            <field name="item_detail">CHECK THE GEARBOX HOLD DOWN BOLTS ARE SECURELY FASTENED AND FREE FROM CORROSION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">43</field>
+        </record>
+    </data>
+
+
+</odoo>

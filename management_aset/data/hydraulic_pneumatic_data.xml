@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="spec_8_1" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1</field>
+            <field name="item_detail">HYDRAULIC TANKS, PIPING, VALVES AND FILTERS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">10</field>
+        </record>
+
+        <record id="spec_8_1_1" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.1</field>
+            <field name="item_detail">CHECK THE HYDRAULIC OIL CONDITION AND LEVEL</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">11</field>
+        </record>
+
+        <record id="spec_8_1_2" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.2</field>
+            <field name="item_detail">VERIFY THE SAMPLING OF HYDRAULIC FLUID AND CHECK ANALYSIS RESULTS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">12</field>
+        </record>
+
+        <record id="spec_8_1_3" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.3</field>
+            <field name="item_detail">CHECK THE CONDITION OF THE HYDRAULIC TANK AND FITTINGS, CHECKING FOR LEAKS AND CORROSION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">13</field>
+        </record>
+
+        <record id="spec_8_1_4" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.4</field>
+            <field name="item_detail">CHECK THE HYDRAULIC TANK HEATER FOR CORRECT OPERATION (IF APPLICABLE)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">14</field>
+        </record>
+
+        <record id="spec_8_1_5" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.5</field>
+            <field name="item_detail">WITH THE ENGINE RUNNING AT RATED RPM, CHECK PUMP CHARGE PRESSURES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">15</field>
+        </record>
+
+        <record id="spec_8_1_6" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.6</field>
+            <field name="item_detail">WITH THE ENGINE RUNNING AT RATED RPM CHECK THE CONTROL PRESSURE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">16</field>
+        </record>
+
+        <record id="spec_8_1_7" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.7</field>
+            <field name="item_detail">CHECK THE CONDITION OF HIGH PRESSURE TUBING FOR CORROSION, DAMAGE AND LEAKS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">17</field>
+        </record>
+
+        <record id="spec_8_1_8" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.8</field>
+            <field name="item_detail">CHECK THE CONDITION OF HYDRAULIC HOSES FOR SIGNS OF DAMAGE OR DETERIORATION.</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">18</field>
+        </record>
+        
+        <record id="spec_8_1_9" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.9</field>
+            <field name="item_detail">CHECK FITTINGS FOR CORROSION AND LEAKS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">19</field>
+        </record>
+
+        <record id="spec_8_1_10" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.10</field>
+            <field name="item_detail">CHECK THE HYDRAULIC OIL COOLER FOR SIGNS OF LEAKS AND DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">20</field>
+        </record>
+
+        <record id="spec_8_1_11" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.11</field>
+            <field name="item_detail">CHECK HIGH PRESSURE RELIEF VALVES ARE AT CORRECT SETTINGS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">21</field>
+        </record>
+
+        <record id="spec_8_1_12" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.12</field>
+            <field name="item_detail">CHECK THE CONDITION OF HYDRAULIC SUCTION AND DISCHARGE FILTERS (NOTE LAST CHANGE DATE)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">22</field>
+        </record>
+
+        <record id="spec_8_1_13" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.1.13</field>
+            <field name="item_detail">FUNCTION TEST THE BRAKE SET AND BRAKE RELEASE SYSTEM</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">23</field>
+        </record>
+
+        <record id="spec_8_2" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2</field>
+            <field name="item_detail">HYDRAULIC MOTORS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">24</field>
+        </record>
+
+        <record id="spec_8_2_1" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2.1</field>
+            <field name="item_detail">CHECK THE MAIN, WHIP, BOOM AND SLEW MOTORS FOR SIGNS OF OVERHEATING</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">25</field>
+        </record>
+
+        <record id="spec_8_2_2" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2.2</field>
+            <field name="item_detail">VERIFY THE DATE THE MAIN, WHIP, BOOM AND SLEW MOTORS WERE REMOVED FOR MALE AND FEMALE DRIVE SPLINE INSPECTIONS.  (NOTE DATE).</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">26</field>
+        </record>
+
+        <record id="spec_8_2_3" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2.3</field>
+            <field name="item_detail">ENSURE THE CORRECT RELIEF VALVES ARE FITTED TO THE MAIN, WHIP, BOOM AND SLEW MOTORS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">27</field>
+        </record>
+
+        <record id="spec_8_2_4" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2.4</field>
+            <field name="item_detail">CHECK PRESSURE SETTINGS IN MAIN AND CONTROL HYDRAULIC SYSTEMS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">28</field>
+        </record>
+
+        <record id="spec_8_2_5" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2.5</field>
+            <field name="item_detail">VERIFY CORRECT ADJUSTMENT OF ALL HYDRAULIC SYSTEM FLOW CONTROL VALVES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">29</field>
+        </record>
+
+        <record id="spec_8_2_6" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2.6</field>
+            <field name="item_detail">RECORD MOTOR MANUFACTURER AND MODEL NUMBER</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">30</field>
+        </record>
+
+        <record id="spec_8_2_7" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2.7</field>
+            <field name="item_detail">CHECK ALL MOTOR MOUNTING BOLTS ARE SECURELY FASTENED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">31</field>
+        </record>
+
+        <record id="spec_8_2_8" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2.8</field>
+            <field name="item_detail">DATE LAST OVERHAULED / CHANGED OUT</field>		
+            <field name="is_section">False</field>
+            <field name="sort_order">32</field>
+        </record>
+
+        <record id="spec_8_2_9" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.2.9</field>
+            <field name="item_detail">CHECK CRANE CONFIGURATION SHEET AGAINST CURRENT INSTALLATION.  RECORD ANY CHANGES				</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">33</field>
+        </record>
+
+        <record id="spec_8_3" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.3</field>
+            <field name="item_detail">HYDRAULIC PUMPS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">34</field>
+        </record>
+
+        <record id="spec_8_3_1" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.3.1</field>
+            <field name="item_detail">CHECK THE MAIN, WHIP, BOOM AND SLEW PUMPS FOR SIGNS OF OVERHEATING</field>						
+            <field name="is_section">False</field>
+            <field name="sort_order">35</field>
+        </record>
+
+        <record id="spec_8_3_2" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.3.2</field>
+            <field name="item_detail">VERIFY THE DATE THE MAIN, WHIP, BOOM AND SLEW PUMPS WERE REMOVED FOR MALE AND FEMALE DRIVE SPLINE INSPECTIONS.  (NOTE DATE).</field>					
+            <field name="is_section">False</field>
+            <field name="sort_order">36</field>
+        </record>
+
+        <record id="spec_8_3_3" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.3.3</field>
+            <field name="item_detail">CHECK ALL PUMP MOUNTING BOLTS ARE SECURELY FASTENED</field>							
+            <field name="is_section">False</field>
+            <field name="sort_order">37</field>
+        </record>
+
+        <record id="spec_8_3_4" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.3.4</field>
+            <field name="item_detail">RECORD THE PUMP MANUFACTURER AND MODEL NUMBERS</field>						
+            <field name="is_section">False</field>
+            <field name="sort_order">38</field>
+        </record>
+
+        <record id="spec_8_3_5" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.3.5</field>
+            <field name="item_detail">CHECK THE CONTROL LINKAGE OF THE MAIN, WHIP, BOOM AND SLEW CONTROLS TO ENSURE THAT ALL PINS AND FASTENERS ARE SECURELY IN PLACE	</field>			
+            <field name="is_section">False</field>
+            <field name="sort_order">39</field>
+        </record>
+
+        <record id="spec_8_3_6" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.3.6</field>
+            <field name="item_detail">FUNCTION CHECK THE MAIN, WHIP, BOOM AND SLEW CONTROLS, CHECKING FOR RESPONSE. NOTE SLUGGISH RESPONSE, AND DIFFICULT TO FIND NEUTRAL CONDITIONS, SHOULD BE CORRECTED IMMEDIATELY	</field>				
+            <field name="is_section">False</field>
+            <field name="sort_order">40</field>
+        </record>
+
+        <record id="spec_8_3_7" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.3.7</field>
+            <field name="item_detail">RECORD THE DATE LAST OVERHAULED / CHANGED OUT</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">41</field>
+        </record>
+
+        <record id="spec_8_3_8" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.3.8</field>
+            <field name="item_detail">CHECK CRANE CONFIGURATION SHEET AGAINST CURRENT INSTALLATION.  RECORD ANY CHANGES		</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">42</field>
+        </record>
+
+        <record id="spec_8_4" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.4</field>
+            <field name="item_detail">HYDRAULIC RAMS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">43</field>
+        </record>
+
+        <record id="spec_8_4_1" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.4.1</field>
+            <field name="item_detail">CHECK BOOM HOIST RAMS FOR CONDITION, DAMAGE AND OPERATION		</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">44</field>
+        </record>
+
+        <record id="spec_8_4_2" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.4.2</field>
+            <field name="item_detail">CHECK OPERATION OF BOOM HOIST RAM HOLDING VALVES, ALL FITTINGS AND HOSES</field>	
+            <field name="is_section">False</field>
+            <field name="sort_order">45</field>
+        </record>
+
+        <record id="spec_8_4_3" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.4.3</field>
+            <field name="item_detail">CHECK TELESCOPIC / KNUCKLE RAM FOR CONDITION, DAMAGE AND OPERATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">46</field>
+        </record>
+
+        <record id="spec_8_4_4" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.4.4</field>
+            <field name="item_detail">CHECK OPERATION OF TELESCOPIC / KNUCKLE RAM HOLDING VALVES, ALL FITTINGS AND HOSES		</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">47</field>
+        </record>
+
+        <record id="spec_8_4_5" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.4.5</field>
+            <field name="item_detail">RECORD RAMS MANUFACTURER AND MODEL NUMBER</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">48</field>
+        </record>
+
+        <record id="spec_8_4_6" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.4.6</field>
+            <field name="item_detail">NOTE DATE LAST OVERHAULED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">49</field>
+        </record>
+
+        <record id="spec_8_5" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.5</field>
+            <field name="item_detail">PRESSURE VESSELS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">50</field>
+        </record>
+
+        <record id="spec_8_5_1" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.5.1</field>
+            <field name="item_detail">VISUALLY INSPECT ALL PRESSURE VESSELS AND THEIR FITTINGS, SUCH AS AIR STORAGE BOTTLES AND ACCUMULATORS FOR DEFECTS		</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">51</field>
+        </record>
+
+        <record id="spec_8_5_2" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.5.2</field>
+            <field name="item_detail">CHECK PRE-CHARGE IN ALL ACCUMULATORS (IF POSSIBLE)</field>	
+            <field name="is_section">False</field>
+            <field name="sort_order">52</field>
+        </record>
+
+        <record id="spec_8_5_3" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.5.3</field>
+            <field name="item_detail">RECORD THE DATE OF LAST INSPECTION OF PRESSURE VESSELS	</field>	
+            <field name="is_section">False</field>
+            <field name="sort_order">53</field>
+        </record>
+
+        <record id="spec_8_5_4" model="hydraulic.pneumatic.report">
+            <field name="sequence">8.5.4</field>
+            <field name="item_detail">RECORD THE DATE OF LAST INSPECTION OF SAFETY VALVES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">54</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="spec_4_1" model="structure.primary.report">
+            <field name="sequence">4.1</field>
+            <field name="item_detail">CRANE PEDESTAL</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">10</field>
+        </record>
+
+        <record id="spec_4_1_1" model="structure.primary.report">
+            <field name="sequence">4.1.1</field>
+            <field name="item_detail">VISUALLY INSPECT ALL WELDS FOR CRACKS AND CORROSION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">11</field>
+        </record>
+
+        <record id="spec_4_1_2" model="structure.primary.report">
+            <field name="sequence">4.1.2</field>
+            <field name="item_detail">CHECK THE INTERNAL CONDITION OF THE CRANE PEDESTAL FOR CORROSION AND MECHANICAL DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">12</field>
+        </record>
+
+        <record id="spec_4_1_3" model="structure.primary.report">
+            <field name="sequence">4.1.3</field>
+            <field name="item_detail">CHECK THE CONDITION OF THE PAINT, ANY DAMAGED COATING SHOULD BE NOTED AND REPAIRED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">13</field>
+        </record>
+
+        <record id="spec_4_1_4" model="structure.primary.report">
+            <field name="sequence">4.1.4</field>
+            <field name="item_detail">CHECK ALL LADDERS AND WALKWAYS FOR SECURITY AND DAMAGE, CHECK THE CLOSING ACTION OF GATES / SAFETY BARRIERS / HATCHES / HINGES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">14</field>
+        </record>
+
+        <record id="spec_4_1_5" model="structure.primary.report">
+            <field name="sequence">4.1.5</field>
+            <field name="item_detail">CHECK ALL GRATINGS FOR SECURITY AND DAMAGE, AND HOLD DOWN CLIPS ARE SECURE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">15</field>
+        </record>
+
+        <record id="spec_4_2" model="structure.primary.report">
+            <field name="sequence">4.2</field>
+            <field name="item_detail">BOOM ASSEMBLY</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">16</field>
+        </record>
+
+        <record id="spec_4_2_1" model="structure.primary.report">
+            <field name="sequence">4.2.1</field>
+            <field name="item_detail">LATTICE BOOM ASSEMBLY</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">17</field>
+        </record>
+
+        <record id="spec_4_2_1_1" model="structure.primary.report">
+            <field name="sequence">4.2.1.1</field>
+            <field name="item_detail">CHECK THE BOOM CHORDS, LACINGS AND WELDMENTS FOR SIGNS OF BENDING, DISTORTION, CRACKS OR CORROSION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">18</field>
+        </record>
+
+        <record id="spec_4_2_1_2" model="structure.primary.report">
+            <field name="sequence">4.2.1.2</field>
+            <field name="item_detail">CHECK THE BOOM CONNECTING TANGS FOR WEAR</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">19</field>
+        </record>
+
+        <record id="spec_4_2_1_3" model="structure.primary.report">
+            <field name="sequence">4.2.1.3</field>
+            <field name="item_detail">CHECK THE BOOM CONNECTION JOINING PINS AND BOLTS ARE ALL SECURELY FASTENED AND FREE FROM CORROSION, WEAR AND DEFORMATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">20</field>
+        </record>
+
+        <record id="spec_4_2_1_4" model="structure.primary.report">
+            <field name="sequence">4.2.1.4</field>
+            <field name="item_detail">CHECK THE WEAR OF THE BOOM FOOT PINS AND BUSHES.  (ADVISE AS TO INSPECTION PROCEDURE USED)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">21</field>
+        </record>
+
+        <record id="spec_4_2_1_5" model="structure.primary.report">
+            <field name="sequence">4.2.1.5</field>
+            <field name="item_detail">CHECK LUBRICATION OF BOOM FOOT PINS AND BUSHES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">22</field>
+        </record>
+
+        <record id="spec_4_2_1_6" model="structure.primary.report">
+            <field name="sequence">4.2.1.6</field>
+            <field name="item_detail">CHECK BOOM FOOT PIN KEEPER PLATES ARE SECURELY FASTENED AND FREE FROM DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">23</field>
+        </record>
+
+        <record id="spec_4_2_1_7" model="structure.primary.report">
+            <field name="sequence">4.2.1.7</field>
+            <field name="item_detail">VISUALLY, CHECK ALL BOOM SHEAVES, INCLUDING THE RATED CAPACITY INDICATOR SHEAVE ASSEMBLY, FOR CRACKS AND MECHANICAL DAMAGE. CHECK THE ROPE GROOVE FOR WEAR USING A SHEAVE GROOVE GAUGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">24</field>
+        </record>
+
+        <record id="spec_4_2_1_8" model="structure.primary.report">
+            <field name="sequence">4.2.1.8</field>
+            <field name="item_detail">CHECK ALL BOOM SHEAVE BEARINGS, INCLUDING THE RATED CAPACITY INDICATOR SHEAVE ASSEMBLY, FOR SMOOTH ROTATION AND FOR WEAR BY CHECKING THE SIDE PLAY OF THE SHEAVE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">25</field>
+        </record>
+
+        <record id="spec_4_2_1_9" model="structure.primary.report">
+            <field name="sequence">4.2.1.9</field>
+            <field name="item_detail">CHECK SHEAVE SHAFT LOCKING PLATES ARE SECURELY FASTENED AND CORRECTLY FITTED. INCLUDE THE RATED CAPACITY INDICATOR SHEAVE ASSEMBLY </field>
+            <field name="is_section">False</field>
+            <field name="sort_order">26</field>
+        </record>
+
+        <record id="spec_4_2_1_10" model="structure.primary.report">
+            <field name="sequence">4.2.1.10</field>
+            <field name="item_detail">CHECK ALL GREASE LUBRICATION LINES AND FITTINGS ARE CORRECTLY FITTED, WELL SECURED AND NOT PLUGGED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">27</field>
+        </record>
+
+        <record id="spec_4_2_1_11" model="structure.primary.report">
+            <field name="sequence">4.2.1.11</field>
+            <field name="item_detail">CHECK WIRE ROPE ROLLERS ARE ROTATING FREELY AND SECURELY FASTENED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">28</field>
+        </record>
+
+        <record id="spec_4_2_1_12" model="structure.primary.report">
+            <field name="sequence">4.2.1.12</field>
+            <field name="item_detail">CHECK THE CONDITION OF FLOATING BLOCK, BRIDLE, STRUCTURE, SHEAVES AND TERMINATIONS.</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">29</field>
+        </record>
+
+        <record id="spec_4_2_1_13" model="structure.primary.report">
+            <field name="sequence">4.2.1.13</field>
+            <field name="item_detail">VISUALLY CHECK ALL CRANE CAMERA FIXINGS FOR OPERATION AND MECHANICAL DAMAGE (CONFIRM SAFETY FIXTURES IN PLACE)</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">30</field>
+        </record>
+
+        <record id="spec_4_2_1_14" model="structure.primary.report">
+            <field name="sequence">4.2.1.14</field>
+            <field name="item_detail">CHECK THE CONDITION OF THE PAINT, ANY DAMAGED COATING SHOULD BE REPAIRED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">31</field>
+        </record>
+
+        <record id="spec_4_2_2" model="structure.primary.report">
+            <field name="sequence">4.2.2</field>
+            <field name="item_detail">BOX BOOM ASSEMBLY</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">32</field>
+        </record>
+
+        <record id="spec_4_2_2_1" model="structure.primary.report">
+            <field name="sequence">4.2.2.1</field>
+            <field name="item_detail">CHECK THE BOOM BOX SECTIONS AND WELDMENTS FOR SIGNS OF BENDING, DISTORTION, CRACKS OR CORROSION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">33</field>
+        </record>
+
+        <record id="spec_4_2_2_2" model="structure.primary.report">
+            <field name="sequence">4.2.2.2</field>
+            <field name="item_detail">CHECK THE HYDRAULIC RAMS FOR CONDITION, OPERATION AND DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">34</field>
+        </record>
+
+        <record id="spec_4_2_2_3" model="structure.primary.report">
+            <field name="sequence">4.2.2.3</field>
+            <field name="item_detail">CHECK HYDRAULIC RAM END JOINING PINS ARE ALL SECURELY FASTENED AND FREE FROM CORROSION, WEAR AND DEFORMATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">35</field>
+        </record>
+
+        <record id="spec_4_2_2_4" model="structure.primary.report">
+            <field name="sequence">4.2.2.4</field>
+            <field name="item_detail">CHECK BOOM RAM PINS, BUSHES AND CLEVISES FOR WEAR, SECURITY, LUBRICATION AND DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">36</field>
+        </record>
+
+        <record id="spec_4_2_2_5" model="structure.primary.report">
+            <field name="sequence">4.2.2.5</field>
+            <field name="item_detail">CHECK BOOM PIVOT PIN, BUSHES AND CLEVISES FOR WEAR, SECURITY, LUBRICATION AND DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">37</field>
+        </record>
+
+        <record id="spec_4_2_2_6" model="structure.primary.report">
+            <field name="sequence">4.2.2.6</field>
+            <field name="item_detail">VISUALLY, CHECK ALL BOOM SHEAVES, INCLUDING THE SLI SHEAVE ASSEMBLY, FOR CRACKS AND MECHANICAL DAMAGE. CHECK THE ROPE GROOVE FOR WEAR USING A SHEAVE GROOVE GAUGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">38</field>
+        </record>
+
+        <record id="spec_4_2_2_7" model="structure.primary.report">
+            <field name="sequence">4.2.2.7</field>
+            <field name="item_detail">CHECK ALL BOOM SHEAVE BEARINGS, INCLUDING THE RCI DRUM ASSEMBLIES, FOR SMOOTH ROTATION AND FOR WEAR BY CHECKING THE SIDE PLAY OF THE SHEAVE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">39</field>
+        </record>
+
+        <record id="spec_4_2_2_8" model="structure.primary.report">
+            <field name="sequence">4.2.2.8</field>
+            <field name="item_detail">CHECK SHEAVE SHAFT LOCKING PLATES ARE SECURELY FASTENED AND CORRECTLY FITTED. INCLUDE THE RCI DRUM ASSEMBLIES</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">40</field>
+        </record>
+
+        <record id="spec_4_2_2_9" model="structure.primary.report">
+            <field name="sequence">4.2.2.9</field>
+            <field name="item_detail">CHECK ALL GREASE LUBRICATION LINES AND FITTINGS ARE CORRECTLY FITTED, WELL SECURED AND NOT PLUGGED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">41</field>
+        </record>
+
+         <record id="spec_4_2_2_10" model="structure.primary.report">
+            <field name="sequence">4.2.2.10</field>
+            <field name="item_detail">CHECK THE CONDITION OF THE PAINT, ANY DAMAGED COATING SHOULD BE REPAIRED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">42</field>
+        </record>
+
+        <record id="spec_4_3" model="structure.primary.report">
+            <field name="sequence">4.3</field>
+            <field name="item_detail">&apos;A&apos; FRAME /GANTRY/ LIVEMAST ASSEMBLY</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">43</field>
+        </record>
+
+        <record id="spec_4_3_1" model="structure.primary.report">
+            <field name="sequence">4.3.1</field>
+            <field name="item_detail">EXAMINE STRUCTURAL CONDITION OF &apos;A&apos; FRAME CHECKING FOR CORROSION, DEFORMATION OF LEGS, LACINGS AND WELDMENTS. VISUALLY CHECK SIGNS OF CRACKING OF WELDS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">44</field>
+        </record>
+
+        <record id="spec_4_3_2" model="structure.primary.report">
+            <field name="sequence">4.3.2</field>
+            <field name="item_detail">CHECK ALL LADDERS AND WALKWAYS FOR SECURITY AND DAMAGE. CHECK THE CLOSING ACTION OF GATES AND SAFETY BARRIERS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">45</field>
+        </record>
+
+        <record id="spec_4_3_3" model="structure.primary.report">
+            <field name="sequence">4.3.3</field>
+            <field name="item_detail">CHECK CONDITION OF ALL SHEAVES USING AN API GROOVE GAUGE. CHECK BEARINGS FOR FREEDOM OF ROTATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">46</field>
+        </record>
+
+        <record id="spec_4_3_4" model="structure.primary.report">
+            <field name="sequence">4.3.4</field>
+            <field name="item_detail">CHECK SHEAVE SHAFT LOCKING PLATES ARE SECURELY FASTENED AND CORRECTLY FITTED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">47</field>
+        </record>
+
+        <record id="spec_4_3_5" model="structure.primary.report">
+            <field name="sequence">4.3.5</field>
+            <field name="item_detail">CHECK GREASE LUBRICATION LINES AND FITTINGS ARE WELL SECURED AND NOT PLUGGED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">48</field>
+        </record>
+
+        <record id="spec_4_3_6" model="structure.primary.report">
+            <field name="sequence">4.3.6</field>
+            <field name="item_detail">CHECK THE BOOM STOPS ARE NOT SEIZED AND THE SPRINGS ARE IN GOOD CONDITION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">49</field>
+        </record>
+
+        <record id="spec_4_3_7" model="structure.primary.report">
+            <field name="sequence">4.3.7</field>
+            <field name="item_detail">CHECK ALL PINS/ FITTINGS/ FASTENINGS FOR CORROSION, DEFORMATION OR MISSING ITEMS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">50</field>
+        </record>
+
+        <record id="spec_4_3_8" model="structure.primary.report">
+            <field name="sequence">4.3.8</field>
+            <field name="item_detail">CHECK THE TORQUE OF ALL BOLTED CONNECTIONS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">51</field>
+        </record>
+
+        <record id="spec_4_3_9" model="structure.primary.report">
+            <field name="sequence">4.3.9</field>
+            <field name="item_detail">EVALUATE THE CONDITION OF THE PAINT. ANY COATING DAMAGE SHOULD BE NOTED AND REPAIRED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">52</field>
+        </record>
+
+        <record id="spec_4_4" model="structure.primary.report">
+            <field name="sequence">4.4</field>
+            <field name="item_detail">SLEWING SYSTEM</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">53</field>
+        </record>
+
+        <record id="spec_4_4_1" model="structure.primary.report">
+            <field name="sequence">4.4.1</field>
+            <field name="item_detail">RECORD THE MAKE, MODEL NUMBER AND DATE OF INSTALLATION FOR THE SLEW BEARING</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">54</field>
+        </record>
+
+        <record id="spec_4_4_2" model="structure.primary.report">
+            <field name="sequence">4.4.2</field>
+            <field name="item_detail">PERFORM / RECORD THE ROCKING / DEFLECTION TESTS OF THE SLEW BEARING FOLLOWING LIKA PROCEDURE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">55</field>
+        </record>
+
+        <record id="spec_4_4_3" model="structure.primary.report">
+            <field name="sequence">4.4.3</field>
+            <field name="item_detail">PERFORM / RECORD KINGPOST UPPER AND LOWER BEARING CLEARANCE CHECKS FOLLOWING CRANE PROCEDURES.</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">56</field>
+        </record>
+
+        <record id="spec_4_4_4" model="structure.primary.report">
+            <field name="sequence">4.4.4</field>
+            <field name="item_detail">RECORD THE BACKLASH FOR EACH SLEW DRIVE(S) AND GEAR TEETH</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">57</field>
+        </record>
+
+        <record id="spec_4_4_5" model="structure.primary.report">
+            <field name="sequence">4.4.5</field>
+            <field name="item_detail">CHECK THE SLEW BEARING AND GEAR TEETH LUBRICATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">58</field>
+        </record>
+
+        <record id="spec_4_4_6" model="structure.primary.report">
+            <field name="sequence">4.4.6</field>
+            <field name="item_detail">CHECK THE OPERATION OF THE SLEW BEARING</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">59</field>
+        </record>
+
+        <record id="spec_4_4_7" model="structure.primary.report">
+            <field name="sequence">4.4.7</field>
+            <field name="item_detail">REVIEW GREASE SAMPLE ANALYSIS RECORDS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">60</field>
+        </record>
+
+        <record id="spec_4_4_8" model="structure.primary.report">
+            <field name="sequence">4.4.8</field>
+            <field name="item_detail">REVIEW ANY ULTRASONIC TEST OF THE SLEW BEARING</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">61</field>
+        </record>
+
+        <record id="spec_4_4_9" model="structure.primary.report">
+            <field name="sequence">4.4.9</field>
+            <field name="item_detail">CHECK THE SLEW PINION AND GEAR TEETH FOR WEAR AND DAMAGE</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">62</field>
+        </record>
+
+        <record id="spec_4_4_10" model="structure.primary.report">
+            <field name="sequence">4.4.10</field>
+            <field name="item_detail">VERIFY CORRECT TENSION / TORQUE OF THE BOLTS IN THE SLEW BEARING</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">63</field>
+        </record>
+
+        <record id="spec_4_4_11" model="structure.primary.report">
+            <field name="sequence">4.4.11</field>
+            <field name="item_detail">CHECK THE SLEW BEARING RETAINING DEVICE AND BOLTS, WHERE FITTED, FOR DAMAGE AND FOR CORRECT CLEARANCE.</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">64</field>
+        </record>
+
+        <record id="spec_4_5" model="structure.primary.report">
+            <field name="sequence">4.5</field>
+            <field name="item_detail">REVOLVING CHASSIS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">65</field>
+        </record>
+
+        <record id="spec_4_5_1" model="structure.primary.report">
+            <field name="sequence">4.5.1</field>
+            <field name="item_detail">VISUALLY CHECK ALL STRUCTURAL MEMBERS FOR CORROSION, DEFORMATION OR CRACKING OF WELDS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">66</field>
+        </record>
+
+        <record id="spec_4_5_2" model="structure.primary.report">
+            <field name="sequence">4.5.2</field>
+            <field name="item_detail">ENSURE ALL PINS/ FITTINGS/ FASTENINGS ARE IN PLACE AND FREE FROM CORROSION, WEAR OR DEFORMATION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">67</field>
+        </record>
+
+        <record id="spec_4_5_3" model="structure.primary.report">
+            <field name="sequence">4.5.3</field>
+            <field name="item_detail">CHECK ALL LADDERS AND WALKWAYS FOR SECURITY AND DAMAGE, CHECK THE CLOSING ACTIONS OF GATES AND SAFETY BARRIERS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">68</field>
+        </record>
+
+        <record id="spec_4_5_4" model="structure.primary.report">
+            <field name="sequence">4.5.4</field>
+            <field name="item_detail">EVALUATE THE CONDITION OF THE PAINT. ANY COATING DAMAGE SHOULD BE NOTED AND REPAIRED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">69</field>
+        </record>
+
+        <record id="spec_4_6" model="structure.primary.report">
+            <field name="sequence">4.6</field>
+            <field name="item_detail">BEAMS / RAILS</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">70</field>
+        </record>
+
+        <record id="spec_4_7" model="structure.primary.report">
+            <field name="sequence">4.7</field>
+            <field name="item_detail">LONG TRAVEL BEAM(S)</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">71</field>
+        </record>
+
+        <record id="spec_4_8" model="structure.primary.report">
+            <field name="sequence">4.8</field>
+            <field name="item_detail">CROSS TRAVEL TROLLEY ASSEMBLY(S)</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">72</field>
+        </record>
+
+        <record id="spec_4_9" model="structure.primary.report">
+            <field name="sequence">4.9</field>
+            <field name="item_detail">BOOM REST</field>
+            <field name="is_section">True</field>
+            <field name="sort_order">73</field>
+        </record>
+
+        <record id="spec_4_9_1" model="structure.primary.report">
+            <field name="sequence">4.9.1</field>
+            <field name="item_detail">VISUALLY CHECK ALL STRUCTURAL MEMBERS FOR CORROSION, DEFORMATION, OR CRACKING OF WELDS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">74</field>
+        </record>
+
+        <record id="spec_4_9_2" model="structure.primary.report">
+            <field name="sequence">4.9.2</field>
+            <field name="item_detail">EVALUATE THE CONDITION OF PAINT.  ANY COATING DAMAGE SHOULD BE NOTED AND REPAIRED</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">75</field>
+        </record>
+
+        <record id="spec_4_9_3" model="structure.primary.report">
+            <field name="sequence">4.9.3</field>
+            <field name="item_detail">CHECK ACCESS LADDERS AND WALKWAYS IF AVAILABLE, FOR SECURITY AND DAMAGE, CHECK THE CLOSING ACTION OF GATES AND SAFETY BARRIERS</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">76</field>
+        </record>
+
+        <record id="spec_4_9_4" model="structure.primary.report">
+            <field name="sequence">4.9.4</field>
+            <field name="item_detail">CHECK CRADLE TIMBERS FOR CONDITION, SECURITY AND EVEN THICKNESS.  CHECK BOLTS FOR SECURITY AND CORROSION</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">77</field>
+        </record>
+        <record id="spec_4_9_5" model="structure.primary.report">
+            <field name="sequence">4.9.5</field>
+            <field name="item_detail">NOTE ANGLE OF BOOM WHEN IN REST</field>
+            <field name="is_section">False</field>
+            <field name="sort_order">78</field>
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="unit_condition_report_list_view" model="ir.ui.view">
+        <field name="name">unit.condition.report.view.list</field>
+        <field name="model">unit.condition.report</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="customer_id"/>
+                <field name="employee_id" widget="many2many_tags"/>
+                <field name="job_no"/>
+                <field name="platform_vessel_id"/>
+                <field name="location"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="unit_condition_report_view_form" model="ir.ui.view">
+        <field name="name">unit.condition.view.form</field>
+        <field name="model">unit.condition.report</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div>
+                        <label for="customer_id"/>
+                        <h1><field name="customer_id"/></h1>
+                    </div>
+
+                    <notebook>
+                        <page string="General Information">
+                            <group>
+                                <group>
+                                    <field name="employee_id" widget="many2many_tags"/>
+                                    <field name="job_no"/>
+                                </group>
+                                <group>
+                                    <field name="platform_vessel_id"
+                                           domain="[('current_owner_id','=', customer_id)]"/>
+                                    <field name="start_date" widget="daterange" options="{'end_date_field':'end_date'}"/>
+                                    <field name="location"/>
+                                </group>
+                            </group>
+
+                            <group string="Client Personnel Met During Visit">
+                                <group>
+                                    <field name="client_name_ids" nolabel="1">
+                                        <list
+                                            editable="bottom"
+                                            create="1"
+                                            edit="1"
+                                            delete="1">
+                                            <field name="name"/>
+                                            <field name="job_title"/>
+                                        </list>
+                                    </field>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Part 1">
+                            <form string="">
+                                <sheet>
+                                    <h1 class="fw-bold border-bottom border-2 pb-2">Part 1.0 - Crane Records</h1>
+                                    <h3 class="fw-bold border-bottom border-2 pb-2">1.1 - Specification</h3>
+                                    <h3 class="fw-bold border-bottom border-2 pb-2">1.1.1 - Crane Specification</h3>
+                                    <p>Record the following crane particulars and verify they correctly identify the crane as installed</p>
+                                    <group>
+                                        <group>
+                                            <field name="crane_registration_id"
+                                                   domain="[('vessel_platform_id', '=', platform_vessel_id)]"/>
+                                            <field name="make"/>
+                                            <field name="model"/>
+                                            <field name="year_built"/>
+                                            <field name="boom_length"/>
+                                        </group>
+
+                                        <group>
+                                            <field name="swl_main"/>
+                                            <field name="min_radius"/>
+                                            <field name="max_radius"/>
+                                            <field name="swl_whip_aux"/>
+                                            <field name="engine_hours"/>
+                                        </group>
+                                    </group>
+                                    
+                                    <h3 class="fw-bold border-bottom border-2 pb-2">1.1.2 - Wire Rope Specification</h3>
+                                    <p>Record the following wire rope particulars and verify they correspond with the manufacturer's recommendations as installed</p>
+                                    <field 
+                                        name="spec_wire_id"
+                                        nolabel="1"
+                                        class=" wire-rope-list mt-4">
+                                        <list
+                                            create="false"
+                                            delete="false"
+                                            editable="bottom"
+                                        >
+                                                <field 
+                                                    name="wire_rope_id"
+                                                    column_invisible="1"
+                                                    force_save="1"
+                                                />
+                                                <field 
+                                                    name="location"
+                                                    readonly="1"
+                                                    force_save="1"
+                                                />
+                                                <field 
+                                                    name="nominal_diameter"
+                                                />
+                                                <field 
+                                                    name="rope_description"
+
+                                                />
+                                                <field 
+                                                    name="date_install"
+                                                />
+                                                <field 
+                                                    name="certificate_no"
+                                                />
+                                        </list>
+                                    </field>
+
+
+                                    <group>
+                                        <field
+                                            name="result_ids"
+                                            nolabel="1"
+                                            class="mt-4"
+                                        >
+                                            <list
+                                                class="o_crane_checklist"
+                                                create="false"
+                                                delete="false"
+                                                editable="bottom"
+                                                default_order="sort_order asc"
+                                                decoration-bf="is_section"
+                                            >
+
+                                                <field
+                                                    name="specification_id"
+                                                    column_invisible="1"
+                                                    force_save="1"
+                                                />
+
+                                                <field
+                                                    name="sequence"
+                                                    string="No"
+                                                    readonly="1"
+                                                    force_save="1"
+
+                                                />
+
+                                                <field
+                                                    name="item_detail"
+                                                    string="ITEM DETAIL"
+                                                    readonly="1"
+                                                    class="o_item_detail"
+                                                    force_save="1"
+
+                                                />
+
+                                                <field
+                                                    name="condition"
+                                                    string="Condition"
+                                                    widget="radio"
+                                                    options="{'horizontal': true}"
+
+                                                />
+
+                                                <field
+                                                    name="observation"
+                                                    string="OBSERVATIONS / RECOMMENDATIONS"
+                                                    readonly="is_section"
+
+                                                />
+
+                                                <field
+                                                    name="is_section"
+                                                    column_invisible="1"
+                                                />
+
+                                                <field
+                                                    name="sort_order"
+                                                    column_invisible="1"
+                                                />
+
+                                            </list>
+                                        </field>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </page>
+
+                        <page string="Part 2">
+                            <h1 class="fw-bold border-bottom border-2 pb-2">Part 2.0 - Crane Visual Checks</h1>
+                            <field 
+                                name="result_ids2"
+                                nolabel="1"
+                                class="mt-4">
+
+                                <list
+                                    class="o_crane_checklist"
+                                    create="false"
+                                    delete="false"
+                                    editable="bottom"
+                                    default_order="sort_order asc"
+                                    decoration-bf="is_section">
+                                        <field
+                                            name="general_visual_id"
+                                            column_invisible="1"
+                                            force_save="1"
+                                        />
+                                        <field
+                                            name="sequence"
+                                            string="No"
+                                            readonly="1"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="item_detail"
+                                            string="ITEM DETAIL"
+                                            readonly="1"
+                                            class="o_item_detail"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="condition"
+                                            string="Condition"
+                                            widget="radio"
+                                            options="{'horizontal': true}"
+
+                                        />
+
+                                        <field
+                                            name="observation"
+                                            string="OBSERVATIONS / RECOMMENDATIONS"
+                                            readonly="is_section"
+
+                                        />
+
+                                        <field
+                                            name="is_section"
+                                            column_invisible="1"
+                                        />
+
+                                        <field
+                                            name="sort_order"
+                                            column_invisible="1"
+                                        />
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Part 3">
+                            <h1 class="fw-bold border-bottom border-2 pb-2">Part 3.0 - Instumentation and Controls</h1>
+                            <field 
+                                name="result_ids3"
+                                nolabel="1"
+                                class="mt-4">
+
+                                <list
+                                    class="o_crane_checklist"
+                                    create="false"
+                                    delete="false"
+                                    editable="bottom"
+                                    default_order="sort_order asc"
+                                    decoration-bf="is_section">
+                                        <field
+                                            name="instrumentation_control_id"
+                                            column_invisible="1"
+                                            force_save="1"
+                                        />
+                                        <field
+                                            name="sequence"
+                                            string="No"
+                                            readonly="1"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="item_detail"
+                                            string="ITEM DETAIL"
+                                            readonly="1"
+                                            class="o_item_detail"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="condition"
+                                            string="Condition"
+                                            widget="radio"
+                                            options="{'horizontal': true}"
+
+                                        />
+
+                                        <field
+                                            name="observation"
+                                            string="OBSERVATIONS / RECOMMENDATIONS"
+                                            readonly="is_section"
+
+                                        />
+
+                                        <field
+                                            name="is_section"
+                                            column_invisible="1"
+                                        />
+
+                                        <field
+                                            name="sort_order"
+                                            column_invisible="1"
+                                        />
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Part 4">
+                            <h1 class="fw-bold border-bottom border-2 pb-2">Part 4.0 - Structure and Primary Load Path Elements</h1>
+                            <field 
+                                name="result_ids4"
+                                nolabel="1"
+                                class="mt-4">
+
+                                <list
+                                    class="o_crane_checklist"
+                                    create="false"
+                                    delete="false"
+                                    editable="bottom"
+                                    default_order="sort_order asc"
+                                    decoration-bf="is_section"
+                                    limit="100">
+                                        <field
+                                            name="structure_primary_id"
+                                            column_invisible="1"
+                                            force_save="1"
+                                        />
+                                        <field
+                                            name="sequence"
+                                            string="No"
+                                            readonly="1"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="item_detail"
+                                            string="ITEM DETAIL"
+                                            readonly="1"
+                                            class="o_item_detail"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="condition"
+                                            string="Condition"
+                                            widget="radio"
+                                            options="{'horizontal': true}"
+
+                                        />
+
+                                        <field
+                                            name="observation"
+                                            string="OBSERVATIONS / RECOMMENDATIONS"
+                                            readonly="is_section"
+
+                                        />
+
+                                        <field
+                                            name="is_section"
+                                            column_invisible="1"
+                                        />
+
+                                        <field
+                                            name="sort_order"
+                                            column_invisible="1"
+                                        />
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Part 5">
+                            <h1 class="fw-bold border-bottom border-2 pb-2">Part 5.0 - WIRE ROPES/CHAINS AND HOOKS</h1>
+                            <field 
+                                name="result_ids5"
+                                nolabel="1"
+                                class="mt-4">
+
+                                <list
+                                    class="o_crane_checklist"
+                                    create="false"
+                                    delete="false"
+                                    editable="bottom"
+                                    default_order="sort_order asc"
+                                    decoration-bf="is_section"
+                                    limit="100">
+                                        <field
+                                            name="wire_hook_id"
+                                            column_invisible="1"
+                                            force_save="1"
+                                        />
+                                        <field
+                                            name="sequence"
+                                            string="No"
+                                            readonly="1"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="item_detail"
+                                            string="ITEM DETAIL"
+                                            readonly="1"
+                                            class="o_item_detail"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="condition"
+                                            string="Condition"
+                                            widget="radio"
+                                            options="{'horizontal': true}"
+
+                                        />
+
+                                        <field
+                                            name="observation"
+                                            string="OBSERVATIONS / RECOMMENDATIONS"
+                                            readonly="is_section"
+
+                                        />
+
+                                        <field
+                                            name="is_section"
+                                            column_invisible="1"
+                                        />
+
+                                        <field
+                                            name="sort_order"
+                                            column_invisible="1"
+                                        />
+                                </list>
+                            </field>
+                        </page>
+                            
+                        <page string="Part 6">
+                            <h1 class="fw-bold border-bottom border-2 pb-2">Part 6.0 - HOIST(S) AND SLEW MACHINERY</h1>
+                            <field 
+                                name="result_ids6"
+                                nolabel="1"
+                                class="mt-4">
+
+                                <list
+                                    class="o_crane_checklist"
+                                    create="false"
+                                    delete="false"
+                                    editable="bottom"
+                                    default_order="sort_order asc"
+                                    decoration-bf="is_section"
+                                    limit="100">
+                                        <field
+                                            name="hoist_slew_id"
+                                            column_invisible="1"
+                                            force_save="1"
+                                        />
+                                        <field
+                                            name="sequence"
+                                            string="No"
+                                            readonly="1"
+                                            force_save="1"
+   
+                                        />
+                                        <field
+                                            name="item_detail"
+                                            string="ITEM DETAIL"
+                                            readonly="1"
+                                            class="o_item_detail"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="condition"
+                                            string="Condition"
+                                            widget="radio"
+                                            options="{'horizontal': true}"
+
+                                        />
+
+                                        <field
+                                            name="observation"
+                                            string="OBSERVATIONS / RECOMMENDATIONS"
+                                            readonly="is_section"
+
+                                        />
+
+                                        <field
+                                            name="is_section"
+                                            column_invisible="1"
+                                        />
+
+                                        <field
+                                            name="sort_order"
+                                            column_invisible="1"
+                                        />
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Part 7">
+                            <h1 class="fw-bold border-bottom border-2 pb-2">Part 7.0 - PRIMER MOVER AND DRIVE TRAIN</h1>
+                            <field 
+                                name="result_ids7"
+                                nolabel="1"
+                                class="mt-4">
+
+                                <list
+                                    class="o_crane_checklist"
+                                    create="false"
+                                    delete="false"
+                                    editable="bottom"
+                                    default_order="sort_order asc"
+                                    decoration-bf="is_section"
+                                    limit="100">
+                                        <field
+                                            name="power_mover_id"
+                                            column_invisible="1"
+                                            force_save="1"
+                                        />
+                                        <field
+                                            name="sequence"
+                                            string="No"
+                                            readonly="1"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="item_detail"
+                                            string="ITEM DETAIL"
+                                            readonly="1"
+                                            class="o_item_detail"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="condition"
+                                            string="Condition"
+                                            widget="radio"
+                                            options="{'horizontal': true}"
+
+                                        />
+
+                                        <field
+                                            name="observation"
+                                            string="OBSERVATIONS / RECOMMENDATIONS"
+                                            readonly="is_section"
+
+                                        />
+
+                                        <field
+                                            name="is_section"
+                                            column_invisible="1"
+                                        />
+
+                                        <field
+                                            name="sort_order"
+                                            column_invisible="1"
+                                        />
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Part 8">
+                            <h1 class="fw-bold border-bottom border-2 pb-2">Part 8.0 - HYDRAULIC AND PNEUMATIC SYSTEMS</h1>
+                            <field 
+                                name="result_ids8"
+                                nolabel="1"
+                                class="mt-4">
+
+                                <list
+                                    class="o_crane_checklist"
+                                    create="false"
+                                    delete="false"
+                                    editable="bottom"
+                                    default_order="sort_order asc"
+                                    decoration-bf="is_section"
+                                    limit="100">
+                                        <field
+                                            name="hydraulic_pneumatic_id"
+                                            column_invisible="1"
+                                            force_save="1"
+                                        />
+                                        <field
+                                            name="sequence"
+                                            string="No"
+                                            readonly="1"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="item_detail"
+                                            string="ITEM DETAIL"
+                                            readonly="1"
+                                            class="o_item_detail"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="condition"
+                                            string="Condition"
+                                            widget="radio"
+                                            options="{'horizontal': true}"
+
+                                        />
+
+                                        <field
+                                            name="observation"
+                                            string="OBSERVATIONS / RECOMMENDATIONS"
+                                            readonly="is_section"
+
+                                        />
+
+                                        <field
+                                            name="is_section"
+                                            column_invisible="1"
+                                        />
+
+                                        <field
+                                            name="sort_order"
+                                            column_invisible="1"
+                                        />
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Part 9">
+                            <h1 class="fw-bold border-bottom border-2 pb-2">Part 9.0 - Electrical System</h1>
+                            <field 
+                                name="result_ids9"
+                                nolabel="1"
+                                class="mt-4">
+
+                                <list
+                                    class="o_crane_checklist"
+                                    create="false"
+                                    delete="false"
+                                    editable="bottom"
+                                    default_order="sort_order asc"
+                                    decoration-bf="is_section"
+                                    limit="100">
+                                        <field
+                                            name="electrical_system_id"
+                                            column_invisible="1"
+                                            force_save="1"
+                                        />
+                                        <field
+                                            name="sequence"
+                                            string="No"
+                                            readonly="1"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="item_detail"
+                                            string="ITEM DETAIL"
+                                            readonly="1"
+                                            class="o_item_detail"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="condition"
+                                            string="Condition"
+                                            widget="radio"
+                                            options="{'horizontal': true}"
+
+                                        />
+
+                                        <field
+                                            name="observation"
+                                            string="OBSERVATIONS / RECOMMENDATIONS"
+                                            readonly="is_section"
+
+                                        />
+
+                                        <field
+                                            name="is_section"
+                                            column_invisible="1"
+                                        />
+
+                                        <field
+                                            name="sort_order"
+                                            column_invisible="1"
+                                        />
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Part 10">
+                            <h1 class="fw-bold border-bottom border-2 pb-2">Part 10.0 - SUITABILITY OF CRANE FOR MANRIDING DUTIES</h1>
+                            <field 
+                                name="result_ids10"
+                                nolabel="1"
+                                class="mt-4">
+
+                                <list
+                                    class="o_crane_checklist"
+                                    create="false"
+                                    delete="false"
+                                    editable="bottom"
+                                    default_order="sort_order asc"
+                                    decoration-bf="is_section"
+                                    limit="100">
+                                        <field
+                                            name="suitability_crane_id"
+                                            column_invisible="1"
+                                            force_save="1"
+                                        />
+                                        <field
+                                            name="sequence"
+                                            string="No"
+                                            readonly="1"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="item_detail"
+                                            string="ITEM DETAIL"
+                                            readonly="1"
+                                            class="o_item_detail"
+                                            force_save="1"
+
+                                        />
+                                        <field
+                                            name="condition"
+                                            string="Condition"
+                                            widget="radio"
+                                            options="{'horizontal': true}"
+
+                                        />
+
+                                        <field
+                                            name="observation"
+                                            string="OBSERVATIONS / RECOMMENDATIONS"
+                                            readonly="is_section"
+
+                                        />
+
+                                        <field
+                                            name="is_section"
+                                            column_invisible="1"
+                                        />
+
+                                        <field
+                                            name="sort_order"
+                                            column_invisible="1"
+                                        />
+                                </list>
+                            </field>
+                        </page>    
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

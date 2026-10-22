@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_unit_condition_report" model="ir.actions.report">
+        <field name="name">Unit Condition Report</field>
+
+        <field name="model">unit.condition.report</field>
+
+        <field name="report_type">qweb-pdf</field>
+
+        <field name="report_name">management_aset.report_unit_condition</field>
+
+        <field name="report_file">management_aset.report_unit_condition</field>
+
+        <field name="paperformat_id" ref="management_aset.paperformat_crane_annual_maintenance"/>
+
+        <field name="binding_model_id" ref="model_unit_condition_report"/>
+        <field name="binding_type">report</field>
+    </record>
+    
+</odoo>

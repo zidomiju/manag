@@ -1,0 +1,16 @@
+.owner-history-list th,
+.owner-history-list td{
+    text-align:center !important;
+}
+
+.owner-history-list th[data-name="owner_id"]{
+    width:33% !important;
+}
+
+.owner-history-list th[data-name="association"]{
+    width:33% !important;
+}
+
+.owner-history-list th[data-name="effective_date"]{
+    width:33% !important;
+}
