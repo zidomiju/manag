@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="lika_ledger.list">
+      <field name="name">lika_ledger list</field>
+      <field name="model">lika_ledger.lika_ledger</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="lika_ledger.action_window">
+      <field name="name">lika_ledger window</field>
+      <field name="res_model">lika_ledger.lika_ledger</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="lika_ledger.action_server">
+      <field name="name">lika_ledger server</field>
+      <field name="model_id" ref="model_lika_ledger_lika_ledger"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="lika_ledger" id="lika_ledger.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="lika_ledger.menu_1" parent="lika_ledger.menu_root"/>
+    <menuitem name="Menu 2" id="lika_ledger.menu_2" parent="lika_ledger.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="lika_ledger.menu_1_list" parent="lika_ledger.menu_1"
+              action="lika_ledger.action_window"/>
+    <menuitem name="Server to list" id="lika_ledger" parent="lika_ledger.menu_2"
+              action="lika_ledger.action_server"/>
+-->
+  </data>
+</odoo>

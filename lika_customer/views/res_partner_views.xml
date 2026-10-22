@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_lika_customer" model="ir.ui.view">
+        <field name="name">res.partner.form.lika.customer</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Ensure is_customer is available in the view architecture -->
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="is_customer" invisible="1"/>
+            </xpath>
+            
+            <!-- Insert our custom customer form layout inside the partner sheet -->
+            <xpath expr="//sheet" position="inside">
+                
+                <!-- SECTION 1: DATA PERUSAHAAN KLIEN -->
+                <!-- <separator string="1. DATA PERUSAHAAN KLIEN" invisible="not is_customer"/>
+                <group invisible="not is_customer">
+                    <group>
+                        <field name="name" string="Nama Perusahaan / Klien" placeholder="e.g. PT. Mitra Utama Jaya" required="1"/>
+                        <field name="street" string="Alamat Perusahaan" placeholder="Jl. Raya Utama No. 12..."/>
+                        <field name="zip" string="Kode Pos"/>
+                    </group>
+                    <group>
+                        <field name="phone" string="No. Telepon"/>
+                        <field name="email" string="Email"/>
+                        <field name="website" string="Website"/>
+                    </group>
+                </group> -->
+
+                <!-- SECTION 2: CONTACT PERSON (PIC) -->
+                <!-- <separator string="2. CONTACT PERSON (PIC)" invisible="not is_customer"/>
+                <field name="child_ids" mode="kanban,list" context="{'default_partner_id': id}" invisible="not is_customer">
+                    <list editable="bottom">
+                        <field name="name" string="Nama PIC"/>
+                        <field name="function" string="Jabatan"/>
+                        <field name="phone" string="No. HP"/>
+                        <field name="email" string="Email PIC"/>
+                    </list>
+                </field> -->
+
+                <!-- SECTION 3: INFORMASI PENAGIHAN (Only show for Customers) -->
+                <separator string="Informasi Penagihan (Billing)" invisible="not is_customer"/>
+                <group invisible="not is_customer">
+                        <group>
+                            <field name="vat" string="NPWP Perusahaan" placeholder="01.234.567.8-901.000"/>
+                            <field name="pkp_type" widget="radio" string="Jenis PKP"/>
+                            <field name="billing_addr" string="Alamat Penagihan"/>
+                        </group>
+                        <group>
+                            <field name="payment_method" string="Metode Pembayaran"/>
+                            <field name="bank_name" string="Nama Bank"/>
+                            <field name="bank_account_number" string="Nomor Rekening Bank"/>
+                            <field name="property_payment_term_id" string="Term of Payment (TOP)"/>
+                        </group>
+                </group>
+
+                <!-- SECTION 4: DOKUMEN KLIEN (Only show for Customers) -->
+                <separator string="Dokumen Klien" invisible="not is_customer"/>
+                <field name="customer_document_ids" invisible="not is_customer">
+                    <list editable="bottom">
+                        <field name="name" string="Nama Dokumen"/>
+                        <field name="file_name" invisible="1" optional="hide"/>
+                        <field name="file_data" filename="file_name" widget="binary"/>
+
+                        <!-- action button view document -->
+                        <button name="action_view_file" type="object" string="View" icon="fa-eye"
+                                class="btn btn-primary btn-sm"/>
+                    </list>
+                </field>
+
+                <!-- SECTION 5: NOTES -->
+                <separator string="Notes" invisible="not is_customer"/>
+                <field name="comment" placeholder="Catatan tambahan mengenai klien ini..." invisible="not is_customer"/>
+
+                <!-- SUBMIT / SAVE BUTTON -->
+                <!-- <div class="d-flex justify-content-end mt-4 mb-3" invisible="not is_customer">
+                    <button string="Submit" 
+                            name="action_submit_customer" 
+                            type="object" 
+                            class="btn btn-primary btn-lg fw-bold" 
+                            icon="fa-check-circle"/>
+                </div> -->
+
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

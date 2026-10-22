@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_vendor_extension" model="ir.ui.view">
+        <field name="name">res.partner.form.vendor.extension</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Ensure is_vendor is available in the view architecture -->
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="is_vendor" invisible="1"/>
+            </xpath>
+
+            <!-- Inject Tax & Extra Documents right after main contact info -->
+            <xpath expr="//sheet" position="inside">
+                <!-- SECTION 3: Tax & Payment Documents -->
+                <separator string="Informasi Pembayaran &amp; Perpajakan" invisible="not is_vendor"/>
+                <group invisible="not is_vendor">
+                    <field name="npwp_number"/>
+                    <!-- <field name="npwp_filename" invisible="1"/>
+                    <field name="npwp_file" filename="npwp_filename" widget="binary"/> -->
+                    <field name="sppkp_number"/>
+                    <!-- <field name="sppkp_filename" invisible="1"/>
+                    <field name="sppkp_file" filename="sppkp_filename" widget="binary"/> -->
+                    <field name="bank_name"/>
+                    <field name="bank_account_number"/>
+                    <field name="term_of_payment"/>
+                </group>
+
+                <!-- SECTION 4: Extra / Optional Documents -->
+                <separator string="Dokumen" invisible="not is_vendor"/>
+                <field name="extra_document_ids" invisible="not is_vendor">
+                    <list editable="bottom">
+                        <field name="name"/>
+                        <field name="file_name" invisible="1" optional="hide"/>
+                        <field name="file_data" filename="file_name" widget="binary"/>
+                        <field name="upload_date"/>
+
+                        <!-- action button view document -->
+                        <button name="action_view_file" type="object" string="View" icon="fa-eye"
+                                class="btn btn-primary btn-sm"/>
+                    </list>
+                </field>
+            </xpath>
+
+        </field>
+    </record>
+
+    # Embed the Product Mapping Table directly on the Vendor Form View
+    <record id="view_partner_form_supplierinfo" model="ir.ui.view">
+        <field name="name">res.partner.form.supplierinfo</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="inside">
+                <separator string="Pemetaan Produk / Layanan Supplai" invisible="not is_vendor"/>
+                <field name="supplierinfo_ids" invisible="not is_vendor">
+                    <list editable="bottom">
+                        <field name="product_tmpl_id" string="Nama Produk Master"/>
+                        <field name="price" string="Harga Pasokan (Rp)"/>
+                        <field name="delay" string="Lead Time (Hari)"/>
+                        <field name="warranty_note" string="Catatan / Garansi"/>
+                        <field name="warranty_filename" invisible="1" optional="hide"/>
+                        <field name="warranty_file" filename="warranty_filename" widget="binary" string="Dokumen Garansi"/>
+                        <button name="action_view_warranty_file" type="object" string="View" icon="fa-eye"
+                                    class="btn btn-primary btn-sm"/>
+                    </list>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>
