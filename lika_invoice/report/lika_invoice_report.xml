@@ -1,0 +1,1491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="lika_invoice_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+
+                    <style>
+                        /* =========================
+                           GENERAL
+                        ========================= */
+                        * {
+                            font-family: Arial, sans-serif;
+                            box-sizing: border-box;
+                        }
+
+                        body {
+                            font-size: 12px;
+                            color: #222;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .page {
+                            width: 100%;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        /* =========================
+                           HEADER
+                        ========================= */
+                        .invoice-header {
+                            width: 100%;
+                            position: relative;
+                            padding-top: 4px;
+                            border: none !important;
+                        }
+
+                        .invoice-header-table {
+                            width: 100%;
+                            table-layout: fixed;
+                            border-collapse: collapse;
+                            border: none !important;
+                        }
+
+                        .invoice-header-table,
+                        .invoice-header-table tbody,
+                        .invoice-header-table tr,
+                        .invoice-header-table td {
+                            border: none !important;
+                            outline: none !important;
+                            box-shadow: none !important;
+                        }
+
+                        .invoice-header-table td {
+                            padding: 0;
+                            vertical-align: top;
+                        }
+
+                        /* =========================
+                           LOGO
+                        ========================= */
+                        .logo-column {
+                            width: 10%;
+                            vertical-align: middle !important;
+                            padding-right: 1% !important;
+                        }
+
+                        .company-logo {
+                            display: block;
+                            width: 130%;
+                            height: auto;
+                            margin-left:-9px;
+                        }
+
+                        /* =========================
+                           COMPANY INFORMATION
+                        ========================= */
+                        .company-column {
+                            width: 45%;
+                        }
+
+                        .company-text {
+                            font-size: 12px;
+                            line-height: 15.5px;
+                            color: #222;
+                            padding: 0;
+                            margin: 0;
+                        }
+
+                        .company-name {
+                            font-weight: bold;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .company-address {
+                            font-weight: normal;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .company-web {
+                            color: #245780;
+                            text-decoration: underline;
+                            font-weight: bold;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        /* =========================
+                           INVOICE NUMBER
+                        ========================= */
+                        .number-column {
+                            width: 45%;
+                            padding-top: 12px !important;
+                            vertical-align: top !important;
+                            border: none !important;
+                        }
+
+                        .number-table {
+                            width: 100%;
+                            table-layout: fixed;
+                            border-collapse: collapse;
+                            border: none !important;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .number-table,
+                        .number-table tbody,
+                        .number-table tr,
+                        .number-table td {
+                            border: none !important;
+                        }
+
+                        .number-table td {
+                            padding: 0;
+                            vertical-align: middle;
+                        }
+
+                        .number-label {
+                            width: 30% !important;
+                            font-weight: bold;
+                            white-space: nowrap;
+                            padding-right: 2% !important;
+                            border: none !important;
+                            vertical-align: middle !important;
+                        }
+
+                        .number-value {
+                            width: 70% !important;
+                            padding: 0 !important;
+                            border: none !important;
+                            vertical-align: middle !important;
+                        }
+
+                        .number-value-box {
+                            display: block;
+                            width: 100%;
+                            min-height: 30px;
+                            border: 2px solid #000 !important;
+                            padding: 5px 3px;
+                            text-align: center;
+                            font-size: 13px;
+                            font-weight: bold;
+                            line-height: 18px;
+                            color: #000;
+                            background-color: #fff;
+                            white-space: nowrap;
+                        }
+
+                        /* =========================
+                           INVOICE TITLE
+                        ========================= */
+                        .invoice-title-row {
+                            position: relative;
+                            width: 100%;
+                            height: 40px;
+                            border: none !important;
+                            overflow: hidden;
+                        }
+
+                        .invoice-title-line {
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            width: 83%;
+                            height: 3px;
+                            background: #444;
+                            border: none !important;
+                        }
+
+                        .invoice-title {
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            width: 17%;
+                            height: 37px;
+                            padding: 0;
+                            background: #fff;
+                            border-top: 3px solid #444 !important;
+                            border-left: 3px solid #444 !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
+                            text-align: center;
+                            font-size: 23px;
+                            font-weight: bold;
+                            line-height: 31px;
+                            letter-spacing: 1px;
+                            color: #333;
+                        }
+
+                        /* =========================
+                           INVOICE MAIN TABLE
+                        ========================= */
+                        .invoice-main-table {
+                            width: 100%;
+                            table-layout: fixed;
+                            border-collapse: separate !important;
+                            border: none !important;
+                            margin: 15px 0 0 0;
+                            padding: 0;
+                        }
+
+                        .invoice-main-table,
+                        .invoice-main-table > thead,
+                        .invoice-main-table > thead > tr,
+                        .invoice-main-table > tbody,
+                        .invoice-main-table > tbody > tr,
+                        .invoice-main-table > thead > tr > th,
+                        .invoice-main-table > tbody > tr > td {
+                            border: none !important;
+                            outline: none !important;
+                            box-shadow: none !important;
+                        }
+
+                        /* =========================
+                           CUSTOMER / MISC HEADINGS
+                        ========================= */
+                        .invoice-main-table > thead > tr > th {
+                            height: 46px;
+                            padding: 0;
+                            font-family: Arial, sans-serif;
+                            font-size: 19px;
+                            font-weight: bold;
+                            color: #222;
+                            vertical-align: bottom;
+                            text-align: left;
+                            background: #fff;
+                        }
+
+                        .invoice-main-table > thead > tr > th.customer-title,
+                        .invoice-main-table > thead > tr > th.misc-title {
+                            height: 46px;
+                            padding: 0 0 2px 3px !important;
+                            border-top: none !important;
+                            border-left: none !important;
+                            border-bottom: 2px solid #333 !important;
+                        }
+
+                        .invoice-main-table > thead > tr > th.spacer1,
+                        .invoice-main-table > thead > tr > th.spacer3 {
+                            border: none !important;
+                            border-left: 2px solid #333 !important;
+                            border-top: 2px solid #333 !important;
+                            padding: 0 !important;
+                        }
+
+                        .invoice-main-table > thead > tr > th.spacer2 {
+                            border: none !important;
+                        }
+
+                        /* =========================
+                           CUSTOMER DETAILS
+                        ========================= */
+                        .customer-details-cell {
+                            padding: 12px 0 0 0 !important;
+                            vertical-align: top !important;
+                        }
+
+                        .detail-table {
+                            width: 100%;
+                            table-layout: fixed;
+                            border: none !important;
+                            border-collapse: collapse !important;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .detail-table,
+                        .detail-table tbody,
+                        .detail-table tr,
+                        .detail-table th,
+                        .detail-table td {
+                            border: none !important;
+                            outline: none !important;
+                            box-shadow: none !important;
+                        }
+
+                        .detail-table th,
+                        .detail-table td {
+                            padding: 2px 3px;
+                            vertical-align: top;
+                            font-size: 12px;
+                            line-height: 17px;
+                        }
+
+                        .detail-table th {
+                            font-weight: normal;
+                            text-align: left;
+                            white-space: nowrap;
+                        }
+
+                        .detail-table .field-colon {
+                            text-align: center;
+                        }
+
+                        .detail-table .field-value {
+                            font-weight: bold;
+                            overflow-wrap: anywhere;
+                            word-wrap: break-word;
+                        }
+
+                        /* =========================
+                           MISC / INVOICE DETAILS
+                        ========================= */
+                        .invoice-details-cell {
+                            padding: 12px 0 0 0 !important;
+                            vertical-align: top !important;
+                        }
+
+                        .detail-class {
+                            width: 100%;
+                            table-layout: fixed;
+                            border: none !important;
+                            border-collapse: collapse !important;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .detail-class,
+                        .detail-class tbody,
+                        .detail-class tr,
+                        .detail-class th,
+                        .detail-class td {
+                            border: none !important;
+                            outline: none !important;
+                            box-shadow: none !important;
+                        }
+
+                        .detail-class th,
+                        .detail-class td {
+                            padding: 2px 3px;
+                            vertical-align: top;
+                            font-size: 12px;
+                            line-height: 17px;
+                        }
+
+                        .detail-class th {
+                            width: 30%;
+                            font-weight: normal;
+                            text-align: left;
+                            white-space: nowrap;
+                        }
+
+                        .detail-class .detail-colon {
+                            width: 3%;
+                            text-align: center;
+                        }
+
+                        .detail-class .detail-value {
+                            width: 67%;
+                            font-weight: bold;
+                            overflow-wrap: anywhere;
+                            word-wrap: break-word;
+                        }
+
+                        /* =========================
+                           MIDDLE SPACER
+                        ========================= */
+                        .invoice-main-table > tbody > tr > td.spacer-cell {
+                            padding: 0 !important;
+                            border: none !important;
+                        }
+
+                        .detail-table td.field-value {
+                            border-bottom: 1px solid #333 !important;
+                        }
+
+                        .detail-class td.detail-value {
+                            border-bottom: 1px solid #333 !important;
+                        }
+
+                        /* =========================
+                           TITLE INFORMATION
+                           HANYA GARIS VERTIKAL TENGAH
+                        ========================= */
+                        .title-information {
+                            width: 100%;
+                            table-layout: fixed;
+                            border-collapse: collapse !important;
+                            border: none !important;
+                            margin: 0 !important;
+                            padding: 0 !important;
+                            font-family: Arial, sans-serif;
+                            font-size: 12px;
+                        }
+
+                        /* Hapus semua border bawaan */
+                        .title-information,
+                        .title-information tbody,
+                        .title-information tr,
+                        .title-information td {
+                            border: none !important;
+                            outline: none !important;
+                            box-shadow: none !important;
+                        }
+
+                        .title-information td {
+                            padding: 3px 2px;
+                            vertical-align: top;
+                        }
+
+                        /* Kolom kiri: hanya border kanan */
+                        .title-information td.title-left {
+                            width: 81%;
+                            border: none !important;
+                            border-right: 1px solid #333 !important;
+                        }
+
+                        /* Kolom kanan: tanpa border kiri, kanan, atas, bawah */
+                        .title-information td.title-right {
+                            width: 19%;
+                            border: none !important;
+                            border-left: none !important;
+                            border-right: none !important;
+                            border-top: none !important;
+                            border-bottom: none !important;
+                        }
+
+                        /* =========================
+                           ITEM PRODUCT TABLE
+                        ========================= */
+                        .item-product-table {
+                            width: 100%;
+                            table-layout: fixed;
+                            border-collapse: collapse !important;
+                            margin: 0 !important;
+                            padding: 0;
+                            font-size: 12px;
+                            font-weight: bold;
+                            page-break-inside: auto;
+                            border: none !important;
+                        }
+
+                        /* Ulangi header di setiap halaman PDF */
+                        .item-product-table thead {
+                            display: table-header-group;
+                        }
+
+                        .item-product-table tbody {
+                            display: table-row-group;
+                        }
+
+                        
+                        /* Reset semua border tabel produk */
+                        .item-product-table,
+                        .item-product-table thead,
+                        .item-product-table tbody,
+                        .item-product-table tr,
+                        .item-product-table th,
+                        .item-product-table td {
+                            border-top: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
+                            border-left: none !important;
+                            outline: none !important;
+                            box-shadow: none !important;
+                        }
+
+                        .item-product-table th,
+                        .item-product-table td {
+                            padding: 3px 2px;
+                        }
+
+                        .item-product-table thead{
+                            border-bottom:1px solid #333 !important;
+                        }
+                        /* Header kolom */
+                        .item-product-table thead .column-heading td {
+                            padding-top: 5px;
+                            padding-bottom: 5px;
+                            background-color: #fff;
+                            font-weight: bold;
+                        }
+
+                        /* Garis kiri kolom TOTAL */
+                        .item-product-table thead .line-total,
+                        .item-product-table tbody .line-total {
+                            border-left: 1px solid #333 !important;
+                        }
+
+                        .item-product-table .line-unit-price {
+                            border-left: none !important;
+                            border-right: none !important;
+                        }
+
+                        /* Hilangkan border vertikal kolom lain */
+                        .item-product-table .spacer,
+                        .item-product-table .line-no,
+                        .item-product-table .line-description,
+                        .item-product-table .line-qty,
+                        .item-product-table .line-unit {
+                            border-left: none !important;
+                            border-right: none !important;
+                        }
+
+                        /* Alignment */
+                        .item-product-table .line-no,
+                        .item-product-table .line-qty,
+                        .item-product-table .line-unit {
+                            text-align: left;
+                        }
+
+                        .item-product-table .line-description {
+                            text-align: left;
+                        }
+
+                        .item-product-table .line-unit-price,
+                        .item-product-table .line-total {
+                            text-align: center;
+                        }
+
+                        .item-product-table .spacer {
+                            padding: 0;
+                        }
+
+                        /* Hindari pemotongan satu baris produk */
+                        .item-product-table thead tr,
+                        .item-product-table tbody tr {
+                            page-break-inside: avoid;
+                        }
+
+                        .item-product-table .empty-product-row {
+                            height: 18px;
+                            page-break-inside: avoid;
+                        }
+
+                        .item-product-table .empty-product-row td {
+                            height: 18px;
+                            padding: 3px 2px;
+                            line-height: 14px;
+                            vertical-align: top;
+                        }
+                        
+                        /* =========================
+                        SUMMARY TABLE
+                        ========================= */
+                        .summary-table {
+                            width: 100%;
+                            table-layout: fixed;
+                            border-collapse: collapse !important;
+                            border: none !important;
+                            font-family: Arial, sans-serif;
+                            font-size: 12px !important;
+                            font-weight: bold !important;
+                            margin-bottom:15px;
+                        }
+
+                        /* Hapus seluruh border bawaan */
+                        .summary-table,
+                        .summary-table tbody,
+                        .summary-table tr,
+                        .summary-table td,
+                        .summary-table th {
+                            border: none !important;
+                            outline: none !important;
+                            box-shadow: none !important;
+                        }
+
+                        /* Seluruh teks */
+                        .summary-table td,
+                        .summary-table th {
+                            font-family: Arial, sans-serif !important;
+                            font-size: 12px !important;
+                            font-weight: bold !important;
+                            padding: 3px 2px;
+                        }
+
+                        /* Kolom spacer */
+                        .summary-table .summary-spacer {
+                            border: none !important;
+                        }
+
+                        /* Kolom label: tanpa border */
+                        .summary-table .summary-label {
+                            border: none !important;
+                        }
+
+                        /* Kolom value: hanya border kiri */
+                        .summary-table .summary-value {
+                            border-left: 1px solid #333 !important;
+                            border-top: none !important;
+                            border-right: none !important;
+                            border-bottom: none !important;
+                            text-align: right;
+                            padding-left: 5px;
+                            white-space: nowrap;
+                        }
+
+                        /* Baris pajak */
+                        .summary-table .summary-tax td {
+                            font-size: 12px !important;
+                            font-weight: bold !important;
+                        }
+
+                        /* Final Amount Due */
+                        .summary-table .summary-total td {
+                            font-size: 12px !important;
+                            font-weight: bold !important;
+                        }
+
+                        .summary-table .summary-total-value{
+                            border-left:1px solid #333 !important;
+                            border-right:none !important;
+                            border-bottom:1px solid #333 !important;
+                            border-top:1px solid #333 !important;
+                            text-align:right;
+                            white-space: nowrap
+                        }
+                        /* Terbilang */
+                        .summary-table .label-info {
+                            font-size: 11px !important;
+                            border:none !important;
+                            font-style:italic !important;
+                            text-decoration:underline !important;
+                            height:35px !important;
+                            vertical-align:middle !important;
+                        }
+
+                        .summary-table .label-spacer{
+                            border-left:1px solid #333 !important;
+                            height:35px !important;
+                            vertical-align:middle;
+                        }
+
+                        .summary-table .nominal-info{
+                            font-size:11px !important;
+                            font-style:italic !important;
+                            border-right:none !important;
+                            border-left:none !important;
+                            border-right:none !important;
+                            border-bottom:1px solid #333 !important;
+                            height::30px !important;
+                            vertical-align:top !important;
+                        }
+
+                        .summary-table .nominal-spacer{
+                            border-right:none !important;
+                            border-left:1px solid #333 !important;
+                            border-top:none !important;
+                            border-bottom:1px solid #333 !important;
+                            height:30px !important;
+                            vertical-align:top !important;
+                        }
+
+                        .table-transfer-detail {
+                            width: 100%;
+                            border-collapse: collapse;
+                            border: none !important;
+                        }
+
+                        .table-transfer-detail th,
+                        .table-transfer-detail td,
+                        .table-transfer-detail tr,
+                        .table-transfer-detail tbody,
+                        .table-transfer-detail thead,
+                        .table-transfer-detail {
+                            border: none !important;
+                        }
+
+                        .table-transfer-detail > thead > tr > th{
+                            font-size:17px;
+                            text-align:left;
+                            font-weight:bold;
+                        }
+
+                        .table-transfer-detail > tbody{
+                            font-weight:bold;
+                            font-size:11px;
+                        }
+                        .table-transfer-detail > thead > tr >th.transfer-title,
+                        .table-transfer-detail > thead > tr >th.spacer-middle,
+                        .table-transfer-detail > thead > tr >th.spacer-left{
+                            height:36px;
+                        }
+
+                        /* Border kiri dan kanan pada Transfer To */
+                        .table-transfer-detail .transfer-title {
+                            border-right: 1px solid #000 !important;
+                            border-bottom: 1px solid #000 !important;
+                            border-left:none !important;
+                            border-top:none !important;
+                        }
+
+                        /* Border atas pada spacer-middle */
+                        .table-transfer-detail .spacer-left {
+                            border-top: 1px solid #000 !important;
+                        }
+
+                        .table-transfer-detail tr.empty-line{
+                            height:15px;
+                        }
+
+                        FOOTER
+                        ================================================== */
+
+                        .footer {
+                            width: 100% !important;
+                            margin: 0 !important;
+                            padding: 0 !important;
+                        }
+
+                        .po-footer-right {
+                            width: 100% !important;
+                            margin: 0 !important;
+                            padding: 0 !important;
+                            font-size: 11px !important;
+                            font-weight: normal !important;
+                            line-height: 1.2 !important;
+                        }
+
+                    </style>
+
+                    <!-- =========================
+                         INVOICE PAGE
+                    ========================= -->
+                    <div class="page">
+
+                        <!-- =========================
+                             HEADER
+                        ========================= -->
+                        <div class="invoice-header">
+
+                            <table class="invoice-header-table">
+                                <colgroup>
+                                    <col style="width:10%;"/>
+                                    <col style="width:45%;"/>
+                                    <col style="width:45%;"/>
+                                </colgroup>
+
+                                <tbody>
+                                    <tr>
+
+                                        <!-- LOGO -->
+                                        <td class="logo-column">
+                                            <img
+                                                t-att-src="'%s/lika_invoice/static/src/img/logo.png' % web_base_url"
+                                                class="company-logo"
+                                                alt="Lika Cranes"
+                                            />
+                                        </td>
+
+                                        <!-- COMPANY INFORMATION -->
+                                        <td class="company-column">
+                                            <div class="company-text">
+
+                                                <div class="company-name">
+                                                    PT Buana Lintas Khatulistiwa (Lika Cranes)
+                                                </div>
+
+                                                <div class="company-address">
+                                                    Gedung Kemang 37
+                                                    <br/>
+                                                    Kemang Raya No. 37, 4th Floor
+                                                    <br/>
+                                                    Jakarta Selatan, 12730
+                                                    <br/>
+                                                    Indonesia
+                                                </div>
+
+                                                <div class="company-web">
+                                                    www.likacranes.com
+                                                </div>
+
+                                            </div>
+                                        </td>
+
+                                        <!-- INVOICE NUMBER -->
+                                        <td class="number-column">
+                                            <table class="number-table">
+                                                <colgroup>
+                                                    <col style="width:30%;"/>
+                                                    <col style="width:70%;"/>
+                                                </colgroup>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="number-label">
+                                                            No. Invoice
+                                                        </td>
+
+                                                        <td class="number-value">
+                                                            <div class="number-value-box">
+                                                                <span t-field="o.name"/>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- BOTTOM LINE + INVOICE TITLE -->
+                            <div class="invoice-title-row">
+                                <div class="invoice-title-line"></div>
+
+                                <div class="invoice-title">
+                                    INVOICE
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- =========================
+                             INVOICE MAIN TABLE
+                        ========================= -->
+                        <table class="invoice-main-table">
+
+                            <colgroup>
+                                <col style="width:15%;"/>
+                                <col style="width:45%;"/>
+                                <col style="width:4%;"/>
+                                <col style="width:15%;"/>
+                                <col style="width:21%;"/>
+                            </colgroup>
+
+                            <thead>
+                                <tr>
+                                    <th class="customer-title">Customer</th>
+                                    <th class="spacer1"></th>
+                                    <th class="spacer2"></th>
+                                    <th class="misc-title">Misc.</th>
+                                    <th class="spacer3"></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+
+                                    <!-- CUSTOMER INFORMATION -->
+                                    <td class="customer-details-cell" colspan="2">
+
+                                        <table class="detail-table">
+                                            <colgroup>
+                                                <col style="width:18%;"/>
+                                                <col style="width:3%;"/>
+                                                <col style="width:29%;"/>
+                                                <col style="width:18%;"/>
+                                                <col style="width:3%;"/>
+                                                <col style="width:29%;"/>
+                                            </colgroup>
+
+                                            <tbody>
+                                                <tr>
+                                                    <th style="font-weight:bold;">Name</th>
+                                                    <td class="field-colon">:</td>
+                                                    <td class="field-value" colspan="4">
+                                                        <span t-esc="o.partner_id.name or '-'"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th style="font-weight:bold;">Address</th>
+                                                    <td class="field-colon">:</td>
+                                                    <td class="field-value" colspan="4">
+                                                        <span t-esc="o.partner_id.street or '-'"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th></th>
+                                                    <td></td>
+                                                    <td class="field-value" colspan="4">
+                                                        <span t-esc="o.partner_id.street2 or '-'"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th style="font-weight:bold;">City</th>
+                                                    <td class="field-colon">:</td>
+                                                    <td class="field-value">
+                                                        <span t-esc="o.partner_id.city or '-'"/>
+                                                    </td>
+
+                                                    <th style="font-weight:bold;">Post Code</th>
+                                                    <td class="field-colon">:</td>
+                                                    <td class="field-value">
+                                                        <span t-esc="o.partner_id.zip or '-'"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th style="font-weight:bold;">Phone</th>
+                                                    <td class="field-colon">:</td>
+                                                    <td class="field-value">
+                                                        <span t-esc="o.partner_id.phone or '-'"/>
+                                                    </td>
+
+                                                    <th style="font-weight:bold;">Fax</th>
+                                                    <td class="field-colon">:</td>
+                                                    <td class="field-value">
+                                                        <span t-esc="o.partner_id.fax or '-'"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+
+                                    <!-- SPACER -->
+                                    <td class="spacer-cell"></td>
+
+                                    <!-- MISC INFORMATION -->
+                                    <td class="invoice-details-cell" colspan="2">
+
+                                        <table class="detail-class">
+                                            <colgroup>
+                                                <col style="width:30%;"/>
+                                                <col style="width:3%;"/>
+                                                <col style="width:67%;"/>
+                                            </colgroup>
+
+                                            <tbody>
+                                                <tr>
+                                                    <th style="font-weight:bold;">Date</th>
+                                                    <td class="detail-colon">:</td>
+                                                    <td class="detail-value">
+                                                        <span t-esc="o.invoice_date.strftime('%d %B, %Y') if o.invoice_date else '-'"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th style="font-weight:bold;">No. PO/SO</th>
+                                                    <td class="detail-colon">:</td>
+                                                    <td class="detail-value">
+                                                        <span t-esc="o.no_po_so or '-'"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th style="font-weight:bold;">No. Contract</th>
+                                                    <td class="detail-colon">:</td>
+                                                    <td class="detail-value">
+                                                        <span t-esc="o.no_contract or '-'"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th style="font-weight:bold;">Project</th>
+                                                    <td class="detail-colon">:</td>
+                                                    <td class="detail-value">
+                                                        <span t-esc="o.invoice_origin if o.invoice_origin else '-'"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th style="font-weight:bold;">Due Date</th>
+                                                    <td class="detail-colon">:</td>
+                                                    <td class="detail-value">
+                                                        <span t-esc="o.invoice_date_due.strftime('%d %B, %Y') if o.invoice_date_due else '-'"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                        <!-- =========================
+                             SEPARATOR LINES
+                        ========================= -->
+                        <div style="width:100%; height:1px; background-color:#333; margin-top:23px;"></div>
+                        <div style="width:100%; height:1px; background-color:#333; margin-top:3px;"></div>
+
+                        <!-- =========================
+                             TITLE INFORMATION
+                        ========================= -->
+                        <table class="title-information">
+                            <colgroup>
+                                <col style="width:81%;"/>
+                                <col style="width:19%;"/>
+                            </colgroup>
+
+                            <tbody>
+                                <tr>
+                                    <td class="title-left">
+                                        <strong>Please Kindly Pay for:</strong>
+                                    </td>
+                                    <td class="title-right"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- =========================
+                             CURRENCY SETTINGS
+                        ========================= -->
+                        <t t-set="currency_symbol"
+                           t-value="(o.currency_id.symbol or '').replace('Â', '').replace('\xa0', ' ').strip()"/>
+
+                        <t t-set="currency_decimals"
+                           t-value="o.currency_id.decimal_places or 2"/>
+
+                        <!-- =========================
+                            ROW SETTINGS
+                        ========================= -->
+
+                        <!-- Hitung jumlah baris yang ditampilkan:
+                            Produk, Section, dan Note -->
+                        <t t-set="used_rows"
+                        t-value="len(o.invoice_line_ids.filtered(
+                            lambda l: l.display_type in ('line_section', 'line_note')
+                            or l.product_id
+                        ))"/>
+
+                        <!-- Jika lebih dari 16 baris, target menjadi 36 -->
+                        <t t-set="max_rows"
+                        t-value="36 if used_rows > 13 else 13"/>
+
+                        <!-- Hitung jumlah baris kosong -->
+                        <t t-set="empty_rows"
+                        t-value="max(0, max_rows - used_rows)"/>
+                        <!-- =========================
+                             ITEM PRODUCT TABLE
+                        ========================= -->
+                        <table class="item-product-table">
+
+                            <colgroup>
+                                <col style="width:4%;"/>
+                                <col style="width:5%;"/>
+                                <col style="width:42%;"/>
+                                <col style="width:6%;"/>
+                                <col style="width:10%;"/>
+                                <col style="width:14%;"/>
+                                <col style="width:19%;"/>
+                            </colgroup>
+
+                            <!-- REPEATING HEADER -->
+                            <thead>
+                                <tr class="column-heading">
+                                    <td class="spacer"></td>
+                                    <td class="line-no">No.</td>
+                                    <td class="line-description">Description</td>
+                                    <td class="line-qty">Qty</td>
+                                    <td class="line-unit">Unit</td>
+                                    <td class="line-unit-price">Unit Price</td>
+                                    <td class="line-total">Total</td>
+                                </tr>
+                            </thead>
+
+                            <!-- INVOICE LINES -->
+                            <tbody>
+                                <t t-set="product_counter" t-value="0"/>
+
+                                <t t-foreach="o.invoice_line_ids" t-as="line">
+                                    <tr>
+
+                                        <!-- SECTION: MULAI DARI KOLOM NO. -->
+                                        <t t-if="line.display_type == 'line_section'">
+
+                                            <!-- COL 1: SPACER -->
+                                            <td class="spacer"></td>
+
+                                            <!-- COL 2 + COL 3: NO. + DESCRIPTION -->
+                                            <td colspan="2"
+                                                style="text-align:left;
+                                                    vertical-align:top;
+                                                    font-size:12.5px;
+                                                    font-weight:bold;
+                                                    padding-left:0;">
+                                                <span t-esc="line.name or '-'"/>
+                                            </td>
+
+                                            <!-- COL 4: QTY -->
+                                            <td class="line-qty"></td>
+
+                                            <!-- COL 5: UNIT -->
+                                            <td class="line-unit"></td>
+
+                                            <!-- COL 6: UNIT PRICE -->
+                                            <td class="line-unit-price"></td>
+
+                                            <!-- COL 7: TOTAL -->
+                                            <td class="line-total"></td>
+
+                                        </t>
+
+                                        <!-- NOTE: TETAP DI KOLOM DESCRIPTION -->
+                                        <t t-elif="line.display_type == 'line_note'">
+
+                                            <!-- COL 1: SPACER -->
+                                            <td class="spacer"></td>
+
+                                            <!-- COL 2: NO. KOSONG -->
+                                            <td class="line-no"></td>
+
+                                            <!-- COL 3: DESCRIPTION -->
+                                            <td class="line-description"
+                                                style="text-align:left;
+                                                    vertical-align:top;">
+                                                <em>
+                                                    <span t-esc="line.name or '-'"/>
+                                                </em>
+                                            </td>
+
+                                            <!-- COL 4: QTY -->
+                                            <td class="line-qty"></td>
+
+                                            <!-- COL 5: UNIT -->
+                                            <td class="line-unit"></td>
+
+                                            <!-- COL 6: UNIT PRICE -->
+                                            <td class="line-unit-price"></td>
+
+                                            <!-- COL 7: TOTAL -->
+                                            <td class="line-total"></td>
+
+                                        </t>
+
+                                        <!-- PRODUCT -->
+                                        <t t-elif="line.product_id">
+
+                                            <!-- COL 1: SPACER -->
+                                            <td class="spacer"></td>
+
+                                            <!-- COL 2: PRODUCT NUMBER -->
+                                            <td class="line-no">
+                                                <t t-set="product_counter"
+                                                t-value="product_counter + 1"/>
+                                                <span t-esc="product_counter"/>
+                                            </td>
+
+                                            <!-- COL 3: DESCRIPTION -->
+                                            <td class="line-description"
+                                                style="text-align:left;
+                                                    vertical-align:top;">
+
+                                                <!-- PRODUCT NAME -->
+                                                <div>
+                                                    <strong>
+                                                        <span t-esc="line.product_id.name"/>
+                                                    </strong>
+                                                </div>
+
+                                                <!-- ADDITIONAL DESCRIPTION -->
+                                                <t t-if="line.name
+                                                        and line.name != line.product_id.name
+                                                        and '\n' in line.name">
+                                                    <div style="font-style:italic;
+                                                                margin-top:5px;">
+                                                        <span t-esc="line.name.split('\n', 1)[1]"/>
+                                                    </div>
+                                                </t>
+
+                                            </td>
+
+                                            <!-- COL 4: QTY -->
+                                            <td class="line-qty">
+                                                <span t-esc="'{:g}'.format(line.quantity)"/>
+                                            </td>
+
+                                            <!-- COL 5: UNIT -->
+                                            <td class="line-unit">
+                                                <span t-esc="line.product_uom_id.name or '-'"/>
+                                            </td>
+
+                                            <!-- COL 6: UNIT PRICE -->
+                                            <td class="line-unit-price" style="text-align:right; padding-right:4px;">
+                                                <span t-esc="'{:,.0f}'.format(line.price_unit)"/>
+                                            </td>
+
+                                            <!-- COL 7: TOTAL -->
+                                            <td class="line-total" style="text-align:right; padding-right:4px;">
+                                                <span t-esc="'%s %s' % (
+                                                    currency_symbol,
+                                                    '{:,.0f}'.format(line.price_subtotal)
+                                                )"/>
+                                            </td>
+
+                                        </t>
+
+                                    </tr>
+
+                                    
+                                </t>
+
+                                <t t-foreach="range(empty_rows)" t-as="empty_row">
+
+                                    <tr class="empty-product-row">
+
+                                        <td class="spacer">&#160;</td>
+                                        <td class="line-no">&#160;</td>
+                                        <td class="line-description">&#160;</td>
+                                        <td class="line-qty">&#160;</td>
+                                        <td class="line-unit">&#160;</td>
+                                        <td class="line-unit-price">&#160;</td>
+                                        <td class="line-total">&#160;</td>
+
+                                    </tr>
+
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <table class="summary-table">
+                            <colgroup>
+                                <col style="width:4%;"/>
+                                <col style="width:5%;"/>
+                                <col style="width:42%;"/>
+                                <col style="width:6%;"/>
+                                <col style="width:10%;"/>
+                                <col style="width:14%;"/>
+                                <col style="width:19%;"/>
+                            </colgroup>
+
+                            <tr>
+                                <td class="summary-spacer">
+                                </td>
+
+                                <td class="summary-label" colspan="5">
+                                    Subtotal
+                                </td>
+
+                                <td class="summary-value">
+                                    <span t-esc="'%s %s' % (
+                                        currency_symbol,
+                                        '{:,.0f}'.format(o.amount_untaxed)
+                                    )"/>
+                                </td>
+                            </tr>
+
+                            <t
+                                t-if="
+                                    o.tax_totals
+                                    and
+                                    o.tax_totals.get('subtotals')
+                                "
+                            >
+
+                                <t
+                                    t-foreach="
+                                        o.tax_totals.get('subtotals', [])
+                                    "
+                                    t-as="subtotal"
+                                >
+
+                                    <t
+                                        t-foreach="
+                                            subtotal.get('tax_groups', [])
+                                        "
+                                        t-as="tax_group"
+                                    >
+
+                                        <tr class="summary-tax">
+
+                                            <td class="summary-spacer"></td>
+
+                                            <td class="summary-label" colspan="5">
+
+                                                <span
+                                                    t-esc="
+                                                        tax_group.get('tax_group_name')
+                                                        or tax_group.get('group_name')
+                                                        or tax_group.get('name')
+                                                        or 'Tax'
+                                                    "
+                                                />
+
+                                            </td>
+
+                                            <td class="summary-value">
+
+                                                <span t-esc="'%s %s' % (
+                                                    currency_symbol,
+                                                    '{:,.0f}'.format(
+                                                        tax_group.get('tax_amount_currency', 0.0)
+                                                    )
+                                                )"/>
+
+                                            </td>
+
+                                        </tr>
+
+                                    </t>
+
+                                </t>
+
+                            </t>
+
+
+                            <!-- FALLBACK TAX -->
+
+                            <t
+                                t-if="
+                                    not o.tax_totals
+                                    and
+                                    o.amount_tax
+                                "
+                            >
+
+                                <tr class="summary-tax">
+
+                                    <td class="summary-spacer"></td>
+
+                                    <td class="summary-label" colspan="5">
+                                        Tax
+                                    </td>
+
+                                    <td class="summary-value">
+
+                                        <span t-esc="'%s %s' % (
+                                            currency_symbol,
+                                            '{:,.0f}'.format(o.amount_tax)
+                                        )"/>
+
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+                            <tr class="summary-total">
+                                <td class="summary-spacer">
+                                    
+                                </td>
+
+                                <td class="summary-label" colspan="5">
+                                    Final Amount Due
+                                </td>
+
+                                <td class="summary-total-value">
+
+                                    <span t-esc="'%s %s' % (
+                                        currency_symbol,
+                                        '{:,.0f}'.format(o.amount_total)
+                                    )"/>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="label-info" colspan="6">
+                                    Terbilang
+                                </td>
+                                <td class="label-spacer">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="nominal-info" colspan="6">
+                                    <t t-esc="o.currency_id.with_context(lang='id_ID').amount_to_text(round(o.amount_total))"/>
+                                </td>
+                                <td class="nominal-spacer">
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table class="table-transfer-detail">
+                            <colgroup>
+                                <col style="width:12%;"/>
+                                <col style="width:3%;"/>
+                                <col style="width:30%;"/>
+                                <col style="width:25%;"/>
+                                <col style="width:30%;"/>
+                            </colgroup>
+                            
+                            <thead>
+                                <tr>
+                                    <th class="transfer-title" colspan="2">Transfer To:</th>
+                                    <th class="spacer-left"></th>
+                                    <th class="spacer-middle"></th>
+                                    <th class="spacer-right"></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                
+                                <tr style="height:40px;">
+                                    <td colspan="2" style="vertical-align:bottom;">For IDR</td>
+                                    <td style="vertical-align:bottom;"></td>
+                                    <td style="vertical-align:bottom;"></td>
+                                    <td style="vertical-align:bottom;text-align:center;">PT. Buana Lintas Khatulistiwa</td>
+                                </tr>
+
+                                <tr>
+                                    <td>A/C No.</td>
+                                    <td>:</td>
+                                    <td>
+                                        <span t-esc="o.partner_bank_id.acc_number"/>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>A/C Name</td>
+                                    <td>:</td>
+                                    <td>PT Buana Lintas Khatulistiwa</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Bank</td>
+                                    <td>:</td>
+                                    <td>
+                                        <span t-esc="o.partner_bank_id.bank_id.name"/>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Branch</td>
+                                    <td>:</td>
+                                    <td>
+                                        <span t-esc="o.partner_bank_id.bank_id.branch"/>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="5"></td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="5"></td>
+                                </tr>
+
+                                <tr class="empty-line">
+                                    <td colspan="5"></td>
+                                </tr>
+                                
+                                <tr class="empty-line">
+                                    <td colspan="5"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td colspan="4"></td>
+                                    <td style="text-align:center;text-decoration:underline">Rima Ganis</td>
+                                </tr>
+                                <tr class="empty-line" >
+                                    <td colspan="5"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="font-style:italic;">Please quote our invoice number when remitting your payment</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="footer">
+                        <div class="po-footer-right">
+                            <span style="font-size: 13px !important;">
+                                Page
+                                <span class="page"/>
+                                of
+                                <span class="topage"/>
+                            </span>
+                        </div>
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
